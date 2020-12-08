@@ -1,0 +1,8 @@
+app_search_placeholder=Search apps
+manage_my_apps=Manage my apps
+settings=Settings
+profile=Profile
+account=Account
+help=Help
+about_dhis2=About DHIS 2
+log_out=Log out

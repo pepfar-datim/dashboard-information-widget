@@ -1,0 +1,48 @@
+{
+  "name": "dashboard-information",
+  "version": "1.0.3",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.7",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "d2": "^31.8.2",
+    "jodit-react": "^1.0.66",
+    "query-string": "^6.13.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.4.3",
+    "sanitize-html": "^2.1.2",
+    "typescript": "^4.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build:react": "react-scripts build",
+    "build:zip": "(rm -f dashboard-info.zip && cd build && zip ../dashboard-info.zip -r .)",
+    "build": "npm run build:react && npm run build:zip",
+    "test": "react-scripts test"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "homepage": ".",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
