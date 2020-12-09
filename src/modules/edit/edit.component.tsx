@@ -12,6 +12,12 @@ const styles = {
     clear: {
         clear: 'both',
         height: 20
+    },
+    readmeLink: {
+        float: 'left',
+        fontFamily: 'Roboto',
+        fontSize: '0.9rem',
+        paddingLeft: '5px'
     }
 };
 
@@ -44,6 +50,11 @@ class Edit extends React.Component<{postMessage: any, history: any}, {
     render() {
         return (
             <React.Fragment>
+                <p style={styles.readmeLink as any}><i>Documentation for the Dashboard Information widget can be found 
+                    <a href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md">
+                        {" here"}    
+                    </a>.</i>
+                </p>
                 <Link to={`/`} style={styles.link}>
                     <Button>
                         Cancel
