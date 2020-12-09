@@ -1,8 +1,10 @@
 import api from './api.service'
 
+const config = require("../../../config/config.json");
+
 const sqlView = {
     name: 'Data Store Key UID',
-    id: 'xexek7cpxqw',
+    id: config.sqlViewUid,
     // eslint-disable-next-line no-template-curly-in-string
     sqlQuery: "select uid\n  from keyjsonvalue\n  where namespace = '${namespace}'\n    and namespacekey = '${key}';",
     displayName: 'Data Store Key UID',

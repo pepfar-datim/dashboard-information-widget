@@ -1,4 +1,4 @@
-import api from '../../shared/services/api.service';
+import api, {formatParams} from '../../shared/services/api.service';
 import sanitize from "../../shared/services/sanitize.service";
 import getContentUrl, {getWidgetId} from "./contentUrl.service";
 
@@ -10,19 +10,37 @@ export function fetchContent(){
         .then(sanitize);
 }
 
+export async function getKeyUid(namespaceKey) {
+    const {sqlViewUid, datastoreNamespace} = config
+    const params = {var: [`namespace:${datastoreNamespace}`, `key:${namespaceKey}`]}
+    const keyUidReq = await api.get(`/sqlViews/${sqlViewUid}/data?${formatParams(params)}`)
+    const result = keyUidReq.listGrid.rows
+    if (result.length && result[0].length) {
+        return result[0][0]
+    } else {
+        throw new Error(`Could not find datstore key ${namespaceKey} in namespace ${datastoreNamespace}`)
+    }
+}
+
+export async function shareKey(keyUid, publicAccess) {
+    const params = {type: 'dataStore', id:keyUid}
+    const currentSharingReq = await api.get(`/sharing?${formatParams(params)}`)
+    const currPublicAccess = currentSharingReq.object.publicAccess
+    if (currPublicAccess !== publicAccess) {
+        return api.post(`/sharing?${formatParams(params)}`, {
+            "object": {
+                "id": keyUid,
+                "publicAccess": publicAccess
+            }
+        })
+    }
+}
+
 export function saveContent(content){
     return api.put(getContentUrl(), {body: content}).catch(async (resp)=>{
         await api.post(getContentUrl(), {body: content});
         let widgetId = getWidgetId();
-        let widgetUuid = await api.get(`/sqlViews/xexek7cpxqw/data?var=namespace:${config.datastoreNamespace}&var=key:${widgetId}`)
-            .then(response=>response.listGrid.rows[0][0])
-        return api.post('/sharing?type=dataStore&id='+widgetUuid,{
-            "object": {
-                "id": widgetUuid,
-                "publicAccess": "r-------",
-                "user": {},
-                "externalAccess": false
-            }
-        });
+        let widgetUid = await getKeyUid(widgetId)
+        return shareKey(widgetUid, 'r-------')
     });
 }

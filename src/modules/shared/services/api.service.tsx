@@ -30,3 +30,17 @@ export default class Api{
         return this.saveData(url, data, 'PUT');
     }
 }
+
+export function formatParams(params) {
+    const result : string[] = [];
+    for (const key in params) {
+        if (Array.isArray(params[key])) {
+            for (const keyVal of params[key]) {
+                result.push(`${key}=${keyVal}`);
+            }
+        } else {
+            result.push(`${key}=${params[key]}`);
+        }
+    }
+    return result.join('&');
+}
