@@ -1,5 +1,5 @@
 {
   "datastoreNamespace": "dashboard-information",
   "onlyOpenToSuperUsersKey": "Only open to superusers",
-  "sqlViewUid": "xexek7cpxqw"
+  "dataStoreKeyUidSqlView": "xexek7cpxqw"
 }
