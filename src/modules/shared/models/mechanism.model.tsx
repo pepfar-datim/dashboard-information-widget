@@ -27,7 +27,7 @@ export class MechanismMeta {
     ou: string;
 }
 
-export default class MechanismModel{
+export default class MechanismModel {
     id: string;
     info?: MechanismInfo;
     state?: MechanismState;

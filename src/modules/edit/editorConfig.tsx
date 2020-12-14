@@ -28,13 +28,12 @@ const buttons = [
 
 const link = {
     noFollowCheckbox: false,
-    openInNewTabCheckbox: false
+    openInNewTabCheckbox: false,
 };
-
 
 export const config = {
     buttons: buttons,
     toolbarAdaptive: false,
     link: link,
-    height: window.innerHeight-80
+    height: window.innerHeight - 80,
 };

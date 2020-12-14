@@ -1,7 +1,12 @@
-.smallScreen {display: none;}
-
-@media(max-width: 600px){
-    .smallScreen {display: inline!important;}
-    .largeScreen {display: none;}
+.smallScreen {
+    display: none;
 }
 
+@media (max-width: 600px) {
+    .smallScreen {
+        display: inline !important;
+    }
+    .largeScreen {
+        display: none;
+    }
+}

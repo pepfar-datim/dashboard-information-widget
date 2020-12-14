@@ -13,8 +13,8 @@ export default function SetupWrapper() {
     });
 
     useEffect(() => {
-        setupNamespace()
-    }, [])
+        setupNamespace();
+    }, []);
 
     return !sqlSetupRun ? (
         <p>Checking required SQL view</p>

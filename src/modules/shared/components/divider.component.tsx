@@ -1,12 +1,12 @@
-import MuiDivider from "@material-ui/core/Divider";
-import React from "react";
+import MuiDivider from '@material-ui/core/Divider';
+import React from 'react';
 
-export default function Divider(props){
-    return(
+export default function Divider(props) {
+    return (
         <React.Fragment>
-            <br/>
-            <MuiDivider/>
-            <br/>
+            <br />
+            <MuiDivider />
+            <br />
         </React.Fragment>
     );
 }

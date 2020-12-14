@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export default function NetworkError(props){
-    return(
+export default function NetworkError(props) {
+    return (
         <React.Fragment>
             <strong>Network Error</strong> Please check your internet connection
         </React.Fragment>

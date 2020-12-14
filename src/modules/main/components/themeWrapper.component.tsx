@@ -1,19 +1,18 @@
 import React from 'react';
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import SetupWrapper from './setupWrapper.component'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import SetupWrapper from './setupWrapper.component';
 
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: 'rgb(39, 102, 150)'
+            main: 'rgb(39, 102, 150)',
         },
     },
 });
 
 const styles = {
-    wrapper: {
-    }
+    wrapper: {},
 };
 
 export default function ThemeWrapper() {
