@@ -57,30 +57,19 @@ class Edit extends React.Component<
             <React.Fragment>
                 <p style={styles.readmeLink as any}>
                     <i>
-                        Documentation for the Dashboard Information widget can
-                        be found
                         <a href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md">
-                            {' here'}
+                            Documentation for the Dashboard Information widget can be found here.
                         </a>
-                        .
                     </i>
                 </p>
                 <Link to={`/`} style={styles.link}>
                     <Button>Cancel</Button>
                 </Link>
-                <Button
-                    onClick={this.saveChanges}
-                    variant="contained"
-                    color="secondary"
-                    style={styles.link as any}
-                >
+                <Button onClick={this.saveChanges} variant="contained" color="secondary" style={styles.link as any}>
                     Save
                 </Button>
                 <div style={styles.clear as any} />
-                <Editor
-                    content={this.state.editedContent}
-                    onChange={this.onChange}
-                />
+                <Editor content={this.state.editedContent} onChange={this.onChange} />
             </React.Fragment>
         );
     }
