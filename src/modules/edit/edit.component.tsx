@@ -57,7 +57,11 @@ class Edit extends React.Component<
             <React.Fragment>
                 <p style={styles.readmeLink as any}>
                     <i>
-                        <a href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md">
+                        <a
+                            href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             Documentation for the Dashboard Information widget can be found here.
                         </a>
                     </i>

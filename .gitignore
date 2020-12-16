@@ -9,3 +9,4 @@ yarn-error.log*
 
 *.jsx
 *.zip
+.DS_Store
