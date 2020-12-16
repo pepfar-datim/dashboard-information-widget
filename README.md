@@ -6,7 +6,7 @@
 
 The Dashboard Information widget is a WYSIWYG editor that allows for the creation of rich text content in DHIS2 dashboards.
 
-<img width="1184" alt="DHIS2 Dashboard Information Widget example" src="https://user-images.githubusercontent.com/852673/102401297-150f0800-3fb1-11eb-86c9-acc31d73c3a9.png">
+<img width="900" alt="DHIS2 Dashboard Information Widget example" src="https://user-images.githubusercontent.com/852673/102401297-150f0800-3fb1-11eb-86c9-acc31d73c3a9.png">
 
 ## Installation on DHIS2
 
