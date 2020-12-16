@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build:react": "react-scripts build",
-    "build:zip": "(rm -f dashboard-info.zip && cd build && zip ../dashboard-info.zip -r .)",
+    "build:zip": "(rm -f dashboard-info.zip && cd build && zip ../dashboard-information-widget.zip -r .)",
     "build": "npm run build:react && npm run build:zip",
     "test": "react-scripts test"
   },
