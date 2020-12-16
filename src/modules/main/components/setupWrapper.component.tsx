@@ -21,6 +21,6 @@ export default function SetupWrapper() {
     ) : sqlSetupStatus ? (
         <MessageWrapper />
     ) : (
-        <p>Error fetching SQL view</p>
+        <p>Error fetching SQL view "Data Store Key UID" (xexek7cpxqw)</p>
     );
 }
