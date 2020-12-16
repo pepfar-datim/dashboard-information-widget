@@ -18,7 +18,7 @@ export default class Render extends React.Component<
         super(props);
         this.state = {
             contentBody: null,
-            inDashEditMode: window.parent.location.hash.includes('edit'),
+            inDashEditMode: window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new'),
         };
         fetchContent()
             .then((resp) => {
