@@ -14,15 +14,14 @@ async function addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey) {
 export default async function setupNamespace() {
     const { datastoreNamespace, onlyOpenToSuperUsersKey } = config;
     const namespaces = await api.get('/dataStore');
-    if (!namespaces.includes(config.datastoreNamespace)) {
+    if (!namespaces.includes(datastoreNamespace)) {
         // Namespace does not yet exist
         console.log(`Setting up namespace ${datastoreNamespace}`);
         await addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey);
     } else {
         const namespaceKeys = await api.get(`/dataStore/${config.datastoreNamespace}`);
-        if (!('configuration' in namespaceKeys)) {
+        if (!namespaceKeys.includes('configuration')) {
             // Namespace exists, but no config key (upgrading from old app version)
-            console.log(`Adding configuration key to ${datastoreNamespace} namespace`);
             await addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey);
         }
     }
