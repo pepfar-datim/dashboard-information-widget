@@ -8,7 +8,7 @@ The Dashboard Information widget is a WYSIWYG editor that allows for the creatio
 
 <img src="https://i.ibb.co/d7XnXSH/Capture.png" width="400">
 
-## Installation on DHIS2 instance
+## Installation on DHIS2
 
 1. Install the app via the [App Hub](https://apps.dhis2.org/) or by uploading the zip from `npm run build` into the DHIS2 App Management app
 2. Be sure to grant access to the app to all users, or they will not see the content. To do this, go to DHIS2 Users > User role > [role] > Apps > select Dashboard Information app. Make sure to do this either on enough roles, so that all users have access. (If all users on your system have a Guest or Read Only role, giving the permission to that role is sufficient.)
@@ -17,7 +17,7 @@ The Dashboard Information widget is a WYSIWYG editor that allows for the creatio
 5. Click the Edit button on the Dashboard Information widget to create content.
 6. If you would like to restrict the creation and editing of Dashboard Information content to superusers, go to the Datastore Manager, select the `dashboard-information` namespace, then the `configuration` key and set `Only open to superusers` to `true`.
 
-## Local Build & Development
+## Local Build and Development
 
 1. Install all dependencies: `npm i`
 2. Setup your servers URLs in `serverConfig.dev.json` & `serverConfig.prod.json`
@@ -25,7 +25,7 @@ The Dashboard Information widget is a WYSIWYG editor that allows for the creatio
 5. Run locally as `npm start`
 6. Build for production locally as `npm run build`
 
-## Issues/Features/etc.
+## Issues, Features, etc.
 
 Please create [an issue](https://github.com/pepfar-datim/dashboard-information-widget/issues) or [a pull request](https://github.com/pepfar-datim/dashboard-information-widget/pulls).
 
