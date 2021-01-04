@@ -15,7 +15,7 @@ The Dashboard Information widget is a WYSIWYG editor that allows for the creatio
 3. From the Dashboards page of your DHIS2 installation, edit a dashboard. (If you do not have any dashboards, you will need to add a new dashboard.)
 4. Click `Search for items to add to this dashboard`, and select `Dashboard Information` under `Apps`.
 5. Click the Edit button on the Dashboard Information widget to create content.
-6. If you would like to restrict the creation and editing of Dashboard Information content to superusers, go to the Datastore Manager, select the `dashboard-information` namespace, then the `configuration` key and set `Only open to superusers` to `true`.
+6. If you would like to restrict the creation and editing of Dashboard Information content to superusers, go to the Datastore Manager, select the `dashboard-information` namespace, then the `configuration` key and check the `Only open to superusers` box. (This namespace and key will only be present after you have created a Dashboard Information widget.)
 
 ## Local Build and Development
 
