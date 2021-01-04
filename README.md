@@ -20,7 +20,7 @@ The Dashboard Information widget is a WYSIWYG editor that allows for the creatio
 ## Local Build and Development
 
 1. Install all dependencies: `npm i`
-2. Setup your servers URLs in `serverConfig.dev.json` & `serverConfig.prod.json`
+2. Setup your servers URLs in `serverConfig.dev.json` and `serverConfig.prod.json`
 4. Edit `manifest.webapp` to specify name of the app for your DHIS2 instance
 5. Run locally as `npm start`
 6. Build for production locally as `npm run build`
