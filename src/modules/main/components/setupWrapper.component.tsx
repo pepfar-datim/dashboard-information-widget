@@ -16,6 +16,10 @@ export default function SetupWrapper() {
         setupNamespace();
     }, []);
 
+    if (process.env.NODE_ENV === 'development') {
+        window.location.href = window.location.origin + '/#/edit';
+    }
+
     return !sqlSetupRun ? (
         <p>Checking required SQL view</p>
     ) : sqlSetupStatus ? (

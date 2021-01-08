@@ -43,7 +43,7 @@ export default class Render extends React.Component<
             (this.props.isAdmin || !this.props.adminOnlyEdit);
         return (
             <React.Fragment>
-                {editable ? (
+                {editable || process.env.NODE_ENV === 'development' ? (
                     <Link to={`/edit`} style={styles.link}>
                         <Button color="primary">Edit</Button>
                     </Link>
