@@ -1,26 +1,34 @@
-# DHIS2 Dashboard Info Widget
+# DHIS2 Dashboard Information Widget
 
-**Repo Owner:** Jakub Flaska [@jakub-bao](https://github.com/jakub-bao)
+**Repo Owner:** Sarah Searle [@ssearle-bao](https://github.com/ssearle-bao)
 
 ## Overview
 
-WYSIWYG rich text editor for DHIS2 dashboard content.<br/><br/>
-<img src="https://i.ibb.co/d7XnXSH/Capture.png" width="400">
+The Dashboard Information widget is a WYSIWYG editor that allows for the creation of rich text content in DHIS2 dashboards.
 
-## Local Build & Development
+<img width="900" alt="DHIS2 Dashboard Information Widget example" src="https://user-images.githubusercontent.com/852673/102401297-150f0800-3fb1-11eb-86c9-acc31d73c3a9.png">
+
+## Installation on DHIS2
+
+1. Install the app via the [App Hub](https://apps.dhis2.org/) or by uploading the zip from `npm run build` into the DHIS2 App Management app
+2. Be sure to grant access to the app to all users, or they will not see the content. To do this, go to DHIS2 Users > User role > [role] > Apps > select Dashboard Information app. Make sure to do this either on enough roles, so that all users have access. (If all users on your system have a Guest or Read Only role, giving the permission to that role is sufficient.)
+3. From the Dashboards page of your DHIS2 installation, edit a dashboard. (If you do not have any dashboards, you will need to add a new dashboard.)
+4. Click `Search for items to add to this dashboard`, and select `Dashboard Information` under `Apps`.
+5. Click the Edit button on the Dashboard Information widget to create content.
+6. If you would like to restrict the creation and editing of Dashboard Information content to superusers, go to the Datastore Manager, select the `dashboard-information` namespace, then the `configuration` key and check the `Only open to superusers` box. (This namespace and key will only be present after you have created a Dashboard Information widget.)
+
+## Local Build and Development
 
 1. Install all dependencies: `npm i`
-2. Setup your servers URLs in `serverConfig.dev.json` & `serverConfig.prod.json`
+2. Setup your servers URLs in `serverConfig.dev.json` and `serverConfig.prod.json`
 4. Edit `manifest.webapp` to specify name of the app for your DHIS2 instance
 5. Run locally as `npm start`
 6. Build for production locally as `npm run build`
 
-## Installation on DHIS2 instance
+## Issues, Features, etc.
 
-1. Install app via the app hub, or by uploading the zip from `npm run build` in the DHIS2 app management app
-2. Be sure to add access to the app to all DHIS2 users via native Users app (Otherwise users won't be able to see the content)
-3. Go to Dashboard Edit and add instance of the widget (look up by your name specified above).
-4. Click Edit button to add your content (You must have a superuser role to perform edits)
+Please create [an issue](https://github.com/pepfar-datim/dashboard-information-widget/issues) or [a pull request](https://github.com/pepfar-datim/dashboard-information-widget/pulls).
 
-**Questions**
-Feel free to contact Jakub <jflaska@baosystems.com>
+## Credits
+
+Developed by [@jakub-bao](https://github.com/jakub-bao) and [@plinnegan](https://github.com/plinnegan).
