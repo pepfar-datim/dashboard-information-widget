@@ -12,21 +12,9 @@ export function fetchContent() {
 }
 
 export async function getKeyUid(namespaceKey) {
-    const { dataStoreKeyUidSqlView, datastoreNamespace } = config;
-    const params = {
-        var: [`namespace:${datastoreNamespace}`, `key:${namespaceKey}`],
-    };
-    const keyUidReq = await api.get(
-        `/sqlViews/${dataStoreKeyUidSqlView}/data?${formatParams(params)}`
-    );
-    const result = keyUidReq.listGrid.rows;
-    if (result.length && result[0].length) {
-        return result[0][0];
-    } else {
-        throw new Error(
-            `Could not find datstore key ${namespaceKey} in namespace ${datastoreNamespace}`
-        );
-    }
+    const { datastoreNamespace } = config;
+    const namespaceKeyMeta = await api.get(`/dataStore/${datastoreNamespace}/${namespaceKey}/metadata`);
+    return namespaceKeyMeta.id;
 }
 
 export async function shareKey(keyUid, publicAccess) {
