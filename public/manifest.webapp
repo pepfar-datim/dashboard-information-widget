@@ -8,7 +8,7 @@
         }
     },
     "appType": "DASHBOARD_WIDGET",
-    "name": "Dashboard Information",
+    "name": "Information",
     "version": "1.0.3",
     "hideDashboardTitle": true,
     "description": "HTML/Text widget",
