@@ -13,7 +13,7 @@ export function fetchContent() {
 
 export async function getKeyUid(namespaceKey) {
     const { datastoreNamespace } = config;
-    const namespaceKeyMeta = await api.get(`/dataStore/${datastoreNamespace}/${namespaceKey}/metadata`);
+    const namespaceKeyMeta = await api.get(`/dataStore/${datastoreNamespace}/${namespaceKey}/metaData`);
     return namespaceKeyMeta.id;
 }
 
