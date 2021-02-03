@@ -11,6 +11,7 @@ export default class AccessWrapper extends React.Component<any, any> {
         this.state = {
             adminOnlyEdit: true,
             isAdmin: false,
+            dhisVersion: null
         };
         this.checkUser();
         this.checkVersion();
@@ -51,7 +52,9 @@ export default class AccessWrapper extends React.Component<any, any> {
     render() {
         return (
             <React.Fragment>
-                {this.state.dhisVersion >= 2.31 ? (
+                {this.state.dhisVersion !== null && this.state.dhisVersion < 2.31 ? (
+                    <DhisVersionError version={this.state.dhisVersion} />
+                ) : (
                     <RouterWrapper
                         postMessage={(message) =>
                             this.props.postMessage(message)
@@ -59,8 +62,6 @@ export default class AccessWrapper extends React.Component<any, any> {
                         isAdmin={this.state.isAdmin}
                         adminOnlyEdit={this.state.adminOnlyEdit}
                     />
-                ) : (
-                    <DhisVersionError version={this.state.dhisVersion} />
                 )}
             </React.Fragment>
         );
