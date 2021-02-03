@@ -9,7 +9,7 @@
     },
     "appType": "DASHBOARD_WIDGET",
     "name": "Information",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "hideDashboardTitle": true,
     "description": "HTML/Text widget",
     "developer": {
