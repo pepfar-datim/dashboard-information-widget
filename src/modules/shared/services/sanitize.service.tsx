@@ -36,7 +36,6 @@ const settings = {
         'pre',
         'iframe',
         'span',
-        'style',
     ],
     allowedAttributes: {
         a: ['href', 'name', 'target'],
