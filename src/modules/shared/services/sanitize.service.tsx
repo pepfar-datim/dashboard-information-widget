@@ -2,6 +2,8 @@ import sanitizeHtml from 'sanitize-html';
 
 const settings = {
     allowedTags: [
+        'h1',
+        'h2',
         'h3',
         'h4',
         'h5',
@@ -34,23 +36,16 @@ const settings = {
         'pre',
         'iframe',
         'span',
+        'style',
     ],
     allowedAttributes: {
         a: ['href', 'name', 'target'],
         img: ['src', 'alt', 'style'],
         iframe: ['src', 'height', 'width', 'frameborder'],
+        td: ['colspan', 'rowspan'],
+        th: ['colspan', 'rowspan'],
     },
-    selfClosing: [
-        'img',
-        'br',
-        'hr',
-        'area',
-        'base',
-        'basefont',
-        'input',
-        'link',
-        'meta',
-    ],
+    selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],
     allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'data:image'],
     allowedSchemesByTag: {},
     allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
@@ -60,10 +55,7 @@ const settings = {
 
 // Add style as an allowed attribute on all allowed tags, otherwise styles will be removed on save
 for (const allowedTag of settings.allowedTags) {
-    if (
-        allowedTag in settings.allowedAttributes &&
-        !settings.allowedAttributes[allowedTag].includes(allowedTag)
-    ) {
+    if (allowedTag in settings.allowedAttributes && !settings.allowedAttributes[allowedTag].includes(allowedTag)) {
         settings.allowedAttributes[allowedTag].push('style');
     } else {
         settings.allowedAttributes[allowedTag] = ['style'];
