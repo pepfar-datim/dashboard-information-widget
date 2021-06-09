@@ -9,9 +9,8 @@
     },
     "appType": "DASHBOARD_WIDGET",
     "name": "Information",
-    "version": "1.0.5",
-    "hideDashboardTitle": true,
-    "description": "HTML/Text widget",
+    "version": "1.0.6",
+    "description": "Rich text editor for DHIS2 dashboard content, created for PEPFAR. Allows embedding videos. Strips Javascript from user-created content. For more info, see https://github.com/pepfar-datim/dashboard-information-widget",
     "developer": {
         "name": "Jakub Flaska",
         "email": "jflaska@baosystems.com"
@@ -21,5 +20,9 @@
         "48": "icons/appIcon48.png",
         "128": "icons/appIcon128.png"
     },
-    "manifest_generated_at": "Tue May 07 2019 11:39:07 GMT-0400 (Eastern Daylight Time)"
+    "settings": {
+        "dashboardWidget": {
+            "hideTitle": true
+        }
+    }
 }
