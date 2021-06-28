@@ -36,4 +36,5 @@ export const config = {
     toolbarAdaptive: false,
     link: link,
     height: window.innerHeight - 80,
+    style: {fontFamily: 'Roboto'}
 };
