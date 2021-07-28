@@ -1,9 +1,10 @@
 import React from 'react';
 import { fetchContent, saveContent } from '../shared/services/content.service';
-import { Button } from '@material-ui/core';
+import { ButtonStrip, Button } from '@dhis2/ui';
 import { Link, withRouter } from 'react-router-dom';
 import Editor from './editor.component';
 import contentHook from '../shared/services/contentHook.service';
+import '../../index.css';
 
 const styles = {
     link: {
@@ -55,24 +56,28 @@ class Edit extends React.Component<
     render() {
         return (
             <React.Fragment>
-                <p style={styles.readmeLink as any}>
-                    <i>
-                        <a
-                            href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Documentation for the Dashboard Information widget can be found here.
-                        </a>
-                    </i>
-                </p>
-                <Link to={`/`} style={styles.link}>
-                    <Button>Cancel</Button>
-                </Link>
-                <Button onClick={this.saveChanges} variant="contained" color="secondary" style={styles.link as any}>
-                    Save
-                </Button>
-                <div style={styles.clear as any} />
+                <div>
+                    <p style={styles.readmeLink as any}>
+                        <i>
+                            <a
+                                href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Documentation for the Dashboard Information widget can be found here.
+                            </a>
+                        </i>
+                    </p>
+                    <ButtonStrip className="float-right">
+                        <Button onClick={this.saveChanges} primary>
+                            Save
+                        </Button>
+                        <Link to={`/`}>
+                            <Button destructive>Cancel</Button>
+                        </Link>
+                    </ButtonStrip>
+                    <div style={styles.clear as any} />
+                </div>
                 <Editor content={this.state.editedContent} onChange={this.onChange} />
             </React.Fragment>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button } from '@dhis2/ui';
 import { Link } from 'react-router-dom';
 import { fetchContent } from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
@@ -44,7 +44,7 @@ export default class Render extends React.Component<
             <React.Fragment>
                 {editable || process.env.NODE_ENV === 'development' ? (
                     <Link to={`/edit`} style={styles.link}>
-                        <Button color="primary">Edit</Button>
+                        <Button primary>Edit</Button>
                     </Link>
                 ) : null}
                 {this.renderContent()}

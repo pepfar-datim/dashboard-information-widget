@@ -1,4 +1,4 @@
 {
-  "baseUrl": "https://play.dhis2.org/demo/api",
+  "baseUrl": "http://localhost:8080/api",
   "apiVersion": "33"
 }
