@@ -1,4 +1,5 @@
 {
-  "baseUrl": "http://localhost:8080/api",
+  "baseUrl_pete": "http://localhost:8080/api",
+  "baseUrl": "https://jakub.datim.org/api",
   "apiVersion": "33"
 }

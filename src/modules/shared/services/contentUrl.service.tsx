@@ -4,7 +4,7 @@ export function getWidgetId():string|null{
     if (process.env.NODE_ENV === 'development') {
         return 'devDashUid1';
     } else {
-        let re = window.location.search.match(/(\?|&)dashboardItemId\=([^&]*)/);
+        let re = window.location.search.match(/(\?|&)dashboardItemId=([^&]*)/);
         return re&&re[2];
     }
 }
