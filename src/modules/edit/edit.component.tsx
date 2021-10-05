@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Editor from './editor.component';
 import contentHook from '../shared/services/contentHook.service';
 import '../../index.css';
+import {withSnackbar} from "notistack";
 
 const styles = {
     link: {
@@ -23,7 +24,7 @@ const styles = {
 };
 
 class Edit extends React.Component<
-    { postMessage: any; history: any },
+    { enqueueSnackbar: any; history: any },
     {
         originalContent?: string;
         editedContent?: string;
@@ -44,12 +45,12 @@ class Edit extends React.Component<
 
     saveChanges = () => {
         saveContent(contentHook(this.state.editedContent))
-            .then((resp) => {
-                this.props.postMessage('Content saved');
+            .then(() => {
+                this.props.enqueueSnackbar('Content saved');
                 this.props.history.push('/');
             })
             .catch((e) => {
-                this.props.postMessage('Error: Cannot save');
+                this.props.enqueueSnackbar('Error: Cannot save');
             });
     };
 
@@ -84,4 +85,4 @@ class Edit extends React.Component<
     }
 }
 
-export default withRouter(Edit);
+export default withRouter(withSnackbar(Edit));

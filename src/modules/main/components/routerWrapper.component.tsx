@@ -2,10 +2,19 @@ import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import Render from '../../render/render.component';
 import Edit from '../../edit/edit.component';
+import {SnackbarProvider} from "notistack";
 
 export default function RouterWrapper({ postMessage, isAdmin, adminOnlyEdit }) {
     return (
         <HashRouter>
+            <SnackbarProvider
+                maxSnack={3}
+                autoHideDuration={3000}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            >
             <Route
                 path="/"
                 exact
@@ -16,8 +25,10 @@ export default function RouterWrapper({ postMessage, isAdmin, adminOnlyEdit }) {
             <Route
                 path="/edit"
                 exact
-                render={() => <Edit postMessage={(m) => postMessage(m)} />}
+                render={() => <Edit/>}
             />
+            </SnackbarProvider>
         </HashRouter>
     );
 }
+
