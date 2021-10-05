@@ -83,6 +83,11 @@ class Edit extends React.Component<
             </React.Fragment>
         );
     }
+    componentWillUnmount(){
+        console.log('leaving, bye!')
+        let editor = document.querySelector('.jodit-container');
+        if (editor) editor.remove();
+    }
 }
 
 export default withRouter(withSnackbar(Edit));
