@@ -10,22 +10,6 @@ async function addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey) {
     await shareKey(configKeyUid, 'r-------');
 }
 
-export default async function setupNamespace() {
-    const { datastoreNamespace, onlyOpenToSuperUsersKey } = config;
-    const namespaces = await getData('/dataStore');
-    if (!namespaces.includes(datastoreNamespace)) {
-        // Namespace does not yet exist
-        console.log(`Setting up namespace ${datastoreNamespace}`);
-        await addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey);
-    } else {
-        const namespaceKeys = await getData(`/dataStore/${config.datastoreNamespace}`);
-        if (!namespaceKeys.includes('configuration')) {
-            // Namespace exists, but no config key (upgrading from old app version)
-            await addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey);
-        }
-    }
-}
-
 async function checkDataStore(){
     const {datastoreNamespace} = config;
     const namespace = await getData(`/dataStore/${datastoreNamespace}`);

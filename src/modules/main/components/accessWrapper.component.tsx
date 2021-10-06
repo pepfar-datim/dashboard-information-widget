@@ -2,6 +2,7 @@ import React from 'react';
 import RouterWrapper from './routerWrapper.component';
 import DhisVersionError from './dhisVersionError.component';
 import {getData} from "@pepfar-react-lib/http-tools";
+import {Loading} from "../../shared/components/loading.component";
 
 const config = require('../../../config/config.json');
 
@@ -38,7 +39,8 @@ export default class AccessWrapper extends React.Component<any, any> {
     }
 
     render() {
-        if (!this.state.dhisVersion || this.state.dhisVersion<2.31) return <DhisVersionError version={this.state.dhisVersion} />;
+        if (!this.state.dhisVersion) return <Loading/>;
+        if (this.state.dhisVersion<2.31) return <DhisVersionError version={this.state.dhisVersion} />;
         return <RouterWrapper isAdmin={this.state.isAdmin} adminOnlyEdit={this.state.adminOnlyEdit}/>
     }
 }
