@@ -2,7 +2,6 @@ import React from 'react';
 import { fetchContent, saveContent } from '../shared/services/content.service';
 import { ButtonStrip, Button } from '@dhis2/ui';
 import { Link, withRouter } from 'react-router-dom';
-import Editor from './editor.component';
 import contentHook from '../shared/services/contentHook.service';
 import '../../index.css';
 import {withSnackbar} from "notistack";

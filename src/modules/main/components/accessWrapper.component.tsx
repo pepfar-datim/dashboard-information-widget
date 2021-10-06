@@ -56,9 +56,6 @@ export default class AccessWrapper extends React.Component<any, any> {
                     <DhisVersionError version={this.state.dhisVersion} />
                 ) : (
                     <RouterWrapper
-                        postMessage={(message) =>
-                            this.props.postMessage(message)
-                        }
                         isAdmin={this.state.isAdmin}
                         adminOnlyEdit={this.state.adminOnlyEdit}
                     />

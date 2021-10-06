@@ -4,7 +4,7 @@ import Render from '../../render/render.component';
 import Edit from '../../edit/edit.component';
 import {SnackbarProvider} from "notistack";
 
-export default function RouterWrapper({ postMessage, isAdmin, adminOnlyEdit }) {
+export default function RouterWrapper({isAdmin, adminOnlyEdit}) {
     return (
         <HashRouter>
             <SnackbarProvider
