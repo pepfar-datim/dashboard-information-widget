@@ -6,6 +6,9 @@ import Editor from './editor.component';
 import contentHook from '../shared/services/contentHook.service';
 import '../../index.css';
 import {withSnackbar} from "notistack";
+import {Jodit} from "jodit";
+import {editorConfig} from "./editorConfig";
+
 
 const styles = {
     link: {
@@ -26,10 +29,10 @@ const styles = {
 class Edit extends React.Component<
     { enqueueSnackbar: any; history: any },
     {
-        originalContent?: string;
         editedContent?: string;
     }
 > {
+    editor;
     constructor(props) {
         super(props);
         this.state = {};
@@ -37,10 +40,14 @@ class Edit extends React.Component<
             this.setState({
                 editedContent: resp,
             });
+            this.editor = Jodit.make('#edit', editorConfig);
+            this.editor.value = resp;
         });
     }
+
     onChange = (newContent) => {
         this.setState({ editedContent: newContent });
+        this.editor.value = newContent;
     };
 
     saveChanges = () => {
@@ -57,6 +64,7 @@ class Edit extends React.Component<
     render() {
         return (
             <React.Fragment>
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.6.1/jodit.min.css"/>
                 <div>
                     <p style={styles.readmeLink as any}>
                         <i>
@@ -79,12 +87,11 @@ class Edit extends React.Component<
                     </ButtonStrip>
                     <div style={styles.clear as any} />
                 </div>
-                <Editor content={this.state.editedContent} onChange={this.onChange} />
+                <div id='edit'/>
             </React.Fragment>
         );
     }
     componentWillUnmount(){
-        console.log('leaving, bye!')
         let editor = document.querySelector('.jodit-container');
         if (editor) editor.remove();
     }

@@ -31,7 +31,7 @@ const link = {
     openInNewTabCheckbox: false,
 };
 
-export const config = {
+export const editorConfig = {
     buttons: buttons,
     toolbarAdaptive: false,
     link: link,
