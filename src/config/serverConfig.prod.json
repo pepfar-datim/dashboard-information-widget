@@ -1,4 +1,4 @@
 {
-  "baseUrl": "../../../api",
-  "apiVersion": "33"
+  "baseUrl": "../../../",
+  "apiVersion": "36"
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import RouterWrapper from './routerWrapper.component';
-import api from '../../shared/services/api.service';
 import DhisVersionError from './dhisVersionError.component';
+import {getData} from "@pepfar-react-lib/http-tools";
 
 const config = require('../../../config/config.json');
 
@@ -19,8 +19,7 @@ export default class AccessWrapper extends React.Component<any, any> {
     }
 
     checkUser() {
-        api.get('/me?fields=userCredentials[userRoles[name,id]]').then(
-            (res) => {
+        getData('/me?fields=userCredentials[userRoles[name,id]]').then((res) => {
                 let isAdmin = res.userCredentials.userRoles.filter((role) =>
                     role.name.includes('Superuser')
                 );
@@ -30,15 +29,15 @@ export default class AccessWrapper extends React.Component<any, any> {
     }
 
     checkVersion() {
-        api.get('/system/info').then((res) => {
+        getData('/system/info').then((res) => {
             this.setState({ dhisVersion: res.version.match(/^\d+\.\d+/)[0] });
         });
     }
 
     checkAdminOnlyEdit() {
-        api.get(`/dataStore`).then((res) => {
+        getData(`/dataStore`).then((res) => {
             if (res.includes(config.datastoreNamespace)) {
-                api.get(
+                getData(
                     `/dataStore/${config.datastoreNamespace}/configuration`
                 ).then((res) => {
                     this.setState({

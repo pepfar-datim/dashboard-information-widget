@@ -3,7 +3,6 @@ import { fetchContent, saveContent } from '../shared/services/content.service';
 import { ButtonStrip, Button } from '@dhis2/ui';
 import { Link, withRouter } from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
-import '../../index.css';
 import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
@@ -41,6 +40,7 @@ class Edit extends React.Component<
             });
             this.editor = Jodit.make('#edit', editorConfig);
             this.editor.value = resp;
+            this.editor.events.on('change', this.onChange);
         });
     }
 
@@ -76,7 +76,7 @@ class Edit extends React.Component<
                             </a>
                         </i>
                     </p>
-                    <ButtonStrip className="float-right">
+                    <ButtonStrip>
                         <Button onClick={this.saveChanges} primary>
                             Save
                         </Button>
