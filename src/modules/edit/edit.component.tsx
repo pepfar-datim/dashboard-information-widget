@@ -62,7 +62,6 @@ class Edit extends React.Component<
     render() {
         return (
             <React.Fragment>
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.6.1/jodit.min.css"/>
                 <ReadmeLink/>
                 <div style={styles.buttons}>
                     <ButtonStrip>
