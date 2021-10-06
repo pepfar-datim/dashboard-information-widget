@@ -40,18 +40,18 @@ export default function RouterWrapper({isAdmin, adminOnlyEdit}) {
                     warning: <CheckCircle style={styles.icon}/>,
                 }}
             >
-            <Route
-                path={["/","/edit"]}
-                exact
-                render={() => (
-                    <Render isAdmin={isAdmin} adminOnlyEdit={adminOnlyEdit} />
-                )}
-            />
-            <Route
-                path="/textEdit"
-                exact
-                render={() => <Edit/>}
-            />
+                <Route
+                    path={["/","/edit"]}
+                    exact
+                    render={() => (
+                        <Render isAdmin={isAdmin} adminOnlyEdit={adminOnlyEdit} />
+                    )}
+                />
+                <Route
+                    path="/textEdit"
+                    exact
+                    render={() => <Edit/>}
+                />
             </SnackbarProvider>
         </HashRouter>
     );

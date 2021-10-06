@@ -1,5 +1,4 @@
 import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
-import api, { formatParams } from '../../shared/services/api.service';
 import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, { getWidgetId } from './contentUrl.service';
 
@@ -18,17 +17,16 @@ export async function getKeyUid(namespaceKey) {
 }
 
 export async function shareKey(keyUid, publicAccess) {
-    const params = { type: 'dataStore', id: keyUid };
-    const currentSharingReq = await getData(`/sharing?${formatParams(params)}`);
+    let sharingUrl = `/sharing?type=dataStore&id=${keyUid}`;
+    const currentSharingReq = await getData(sharingUrl);
     const currPublicAccess = currentSharingReq.object.publicAccess;
-    if (currPublicAccess !== publicAccess) {
-        return postData(`/sharing?${formatParams(params)}`, {
-            object: {
-                id: keyUid,
-                publicAccess: publicAccess,
-            },
-        });
-    }
+    if (currPublicAccess === publicAccess) return;
+    return postData(sharingUrl, {
+        object: {
+            id: keyUid,
+            publicAccess: publicAccess,
+        },
+    });
 }
 
 export function saveContent(content) {
