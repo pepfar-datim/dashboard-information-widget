@@ -18,48 +18,27 @@ export default class AccessWrapper extends React.Component<any, any> {
         this.checkAdminOnlyEdit();
     }
 
-    checkUser() {
-        getData('/me?fields=userCredentials[userRoles[name,id]]').then((res) => {
-                let isAdmin = res.userCredentials.userRoles.filter((role) =>
-                    role.name.includes('Superuser')
-                );
-                if (isAdmin.length) this.setState({ isAdmin: true });
-            }
-        );
+    async checkUser() {
+        let isAdmin:boolean = await getData('/me?fields=userCredentials[userRoles[name,id]]')
+            .then((res) => res.userCredentials.userRoles.some((role) => role.name.includes('Superuser')));
+        this.setState({isAdmin});
     }
 
-    checkVersion() {
-        getData('/system/info').then((res) => {
-            this.setState({ dhisVersion: res.version.match(/^\d+\.\d+/)[0] });
-        });
+    async checkVersion() {
+        let dhisVersion = await getData('/system/info').then((res) => res.version.match(/^\d+\.\d+/)[0]);
+        this.setState({dhisVersion});
     }
 
-    checkAdminOnlyEdit() {
-        getData(`/dataStore`).then((res) => {
-            if (res.includes(config.datastoreNamespace)) {
-                getData(
-                    `/dataStore/${config.datastoreNamespace}/configuration`
-                ).then((res) => {
-                    this.setState({
-                        adminOnlyEdit: res[config.onlyOpenToSuperUsersKey],
-                    });
-                });
-            }
+    async checkAdminOnlyEdit() {
+        let adminOnlyEdit = await getData(`/dataStore`).then((res) => {
+            if (!res.includes(config.datastoreNamespace)) return false;
+            return getData(`/dataStore/${config.datastoreNamespace}/configuration`).then(res=>res[config.onlyOpenToSuperUsersKey])
         });
+        this.setState({adminOnlyEdit});
     }
 
     render() {
-        return (
-            <React.Fragment>
-                {this.state.dhisVersion !== null && this.state.dhisVersion < 2.31 ? (
-                    <DhisVersionError version={this.state.dhisVersion} />
-                ) : (
-                    <RouterWrapper
-                        isAdmin={this.state.isAdmin}
-                        adminOnlyEdit={this.state.adminOnlyEdit}
-                    />
-                )}
-            </React.Fragment>
-        );
+        if (!this.state.dhisVersion || this.state.dhisVersion<2.31) return <DhisVersionError version={this.state.dhisVersion} />;
+        return <RouterWrapper isAdmin={this.state.isAdmin} adminOnlyEdit={this.state.adminOnlyEdit}/>
     }
 }

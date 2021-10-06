@@ -13,41 +13,27 @@ const styles = {
 
 export default class Render extends React.Component<
     { isAdmin: boolean; adminOnlyEdit: boolean },
-    { contentFetched: boolean; contentBody: string | null; inDashEditMode: boolean }
+    { contentBody: string|null; inDashEditMode: boolean }
 > {
     constructor(props) {
         super(props);
         this.state = {
-            contentFetched: false,
             contentBody: null,
             inDashEditMode: window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new'),
         };
-        fetchContent()
-            .then((resp) => {
-                this.setState({
-                    contentFetched: true,
-                    contentBody: resp,
-                });
-            })
-            .catch((err) => {
-                console.log('Error fetching dash content');
-            });
+        fetchContent().then((contentBody)=>this.setState({contentBody}))
     }
     renderContent() {
-        if (this.state.contentBody)
-            return <Typography dangerouslySetInnerHTML={{ __html: this.state.contentBody }}></Typography>;
-        else if (this.state.contentFetched) return <Typography>New Dashboard Information widget</Typography>;
-        else return <Typography></Typography>;
+        if (!this.state.contentBody) return <Typography>New Dashboard Information widget</Typography>;
+        return <Typography dangerouslySetInnerHTML={{ __html: this.state.contentBody }}></Typography>;
     }
     render() {
         const editable = this.state.inDashEditMode && (this.props.isAdmin || !this.props.adminOnlyEdit);
         return (
             <React.Fragment>
-                {editable || process.env.NODE_ENV === 'development' ? (
-                    <Link to={`/edit`} style={styles.link}>
+                {editable && <Link to={`/textEdit`} style={styles.link}>
                         <Button primary>Edit</Button>
-                    </Link>
-                ) : null}
+                </Link>}
                 {this.renderContent()}
             </React.Fragment>
         );
