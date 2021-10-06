@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import { fetchContent, saveContent } from '../shared/services/content.service';
 import { ButtonStrip, Button } from '@dhis2/ui';
 import { Link, withRouter } from 'react-router-dom';
@@ -6,6 +6,7 @@ import contentHook from '../shared/services/contentHook.service';
 import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
+import {ReadmeLink} from "./readmeLink.component";
 
 
 const styles = {
@@ -16,12 +17,10 @@ const styles = {
         clear: 'both',
         height: 20,
     },
-    readmeLink: {
-        float: 'left',
-        fontFamily: 'Roboto',
-        fontSize: '0.9rem',
-        paddingLeft: '5px',
-    },
+    buttons: {
+        float: 'right'
+    } as CSSProperties,
+    cancel: {textDecoration: 'none'}
 };
 
 class Edit extends React.Component<
@@ -64,28 +63,18 @@ class Edit extends React.Component<
         return (
             <React.Fragment>
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.6.1/jodit.min.css"/>
-                <div>
-                    <p style={styles.readmeLink as any}>
-                        <i>
-                            <a
-                                href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Documentation for the Dashboard Information widget can be found here.
-                            </a>
-                        </i>
-                    </p>
+                <ReadmeLink/>
+                <div style={styles.buttons}>
                     <ButtonStrip>
                         <Button onClick={this.saveChanges} primary>
                             Save
                         </Button>
-                        <Link to={`/`}>
+                        <Link to={`/`} style={styles.cancel}>
                             <Button destructive>Cancel</Button>
                         </Link>
                     </ButtonStrip>
-                    <div style={styles.clear as any} />
                 </div>
+                <div style={styles.clear as any}/>
                 <div id='edit'/>
             </React.Fragment>
         );

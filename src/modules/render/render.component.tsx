@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
     link: {
         float: 'right',
+        textDecoration: 'none'
     },
 };
 
