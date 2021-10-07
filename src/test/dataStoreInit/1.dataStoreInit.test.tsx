@@ -10,13 +10,15 @@ const keyShareResponse = {"httpStatus":"OK","httpStatusCode":200,"status":"OK","
 test(`DataStoreInit > Empty`, async ()=>{
     const {datastoreNamespace} = config;
     registerGetMock(`/dataStore/${datastoreNamespace}`,{status: 'ERROR'});
-    registerSendMock('POST','/dataStore/dashboard-information/configuration',dataStoreCreateResponse).then((request)=>{
+    let dataStore = registerSendMock('POST','/dataStore/dashboard-information/configuration',dataStoreCreateResponse).then((request)=>{
         expect(request).toStrictEqual({ 'Only open to superusers': false });
     })
     registerGetMock('/dataStore/dashboard-information/configuration/metaData',metaDataResponse);
     registerGetMock('/sharing?type=dataStore&id=metadataId1',keyShareStatus);
-    registerSendMock('POST','/sharing?type=dataStore&id=metadataId1',keyShareResponse).then((response)=>{
+    let sharing = registerSendMock('POST','/sharing?type=dataStore&id=metadataId1',keyShareResponse).then((response)=>{
         expect(response).toStrictEqual({"object":{"id":"metadataId1","publicAccess":"r-------"}});
     })
     await connectToDataStore();
+    await dataStore;
+    await sharing;
 })
