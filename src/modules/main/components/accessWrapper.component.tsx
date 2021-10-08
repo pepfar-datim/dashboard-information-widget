@@ -31,10 +31,7 @@ export default class AccessWrapper extends React.Component<any, any> {
     }
 
     async checkAdminOnlyEdit() {
-        let adminOnlyEdit = await getData(`/dataStore`).then((res) => {
-            if (!res.includes(config.datastoreNamespace)) return false;
-            return getData(`/dataStore/${config.datastoreNamespace}/configuration`).then(res=>res[config.onlyOpenToSuperUsersKey])
-        });
+        let adminOnlyEdit = await getData(`/dataStore/${config.datastoreNamespace}/configuration`).then(res=>res[config.onlyOpenToSuperUsersKey])
         this.setState({adminOnlyEdit});
     }
 

@@ -1,14 +1,6 @@
 import {noText, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
-import {registerGetMock} from "@pepfar-react-lib/http-tools";
-import {
-    dataStoreExists,
-    isSuperUser,
-    onEditPage, initServerSettings,
-    ServerSettings,
-    superUserOnly,
-    systemInfo
-} from "./shared.testServices";
+import {initServerSettings, ServerSettings,} from "./shared.testServices";
 
 type TestCase = {
     name: string;
@@ -24,6 +16,14 @@ const testCases:TestCase[] = [{
         onEditPage: false,
     },
     buttonVisible: false,
+},{
+    name: 'Super-User can see button',
+    serverSettings: {
+        superUserOnly: false,
+        isSuperAdmin: true,
+        onEditPage: true,
+    },
+    buttonVisible: true,
 }]
 
 testCases.forEach(({name,serverSettings, buttonVisible}:TestCase)=>{
