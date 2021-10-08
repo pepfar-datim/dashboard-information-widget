@@ -13,7 +13,7 @@ function superUserOnly(value:boolean){
 }
 
 function onEditPage(value:boolean){
-    if (value) window.location.href += 'edit';
+    if (value) window.location.hash += 'edit';
 }
 
 function systemInfo(){
@@ -26,10 +26,16 @@ export type ServerSettings = {
     onEditPage: boolean,
 }
 
+function dashboardId(){
+    let connector = window.location.hash.includes('?')?'&':'?';
+    window.location.hash += connector + 'dashboardItemId=testDashboardId1'
+}
+
 export function initServerSettings(serverSettings:ServerSettings){
     dataStoreExists(true);
     isSuperUser(serverSettings.isSuperAdmin);
     superUserOnly(serverSettings.superUserOnly);
     onEditPage(serverSettings.onEditPage);
+    dashboardId();
     systemInfo();
 }

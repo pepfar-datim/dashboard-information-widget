@@ -24,6 +24,14 @@ const testCases:TestCase[] = [{
         onEditPage: true,
     },
     buttonVisible: true,
+},{
+    name: 'Non-super-user can see button',
+    serverSettings: {
+        superUserOnly: false,
+        isSuperAdmin: false,
+        onEditPage: true,
+    },
+    buttonVisible: true,
 }]
 
 testCases.forEach(({name,serverSettings, buttonVisible}:TestCase)=>{
