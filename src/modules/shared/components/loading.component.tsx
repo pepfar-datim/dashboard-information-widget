@@ -1,12 +1,15 @@
 import {CircularProgress} from "@material-ui/core";
-import React from "react";
+import React, {CSSProperties} from "react";
 
 const styles = {
-    root: {
-        margin: '40px auto'
+    root:{
+        textAlign: 'center'
+    } as CSSProperties,
+    icon: {
+        margin: '40px'
     }
 }
 
 export function Loading(){
-    return <div><CircularProgress data-testid='loading' style={styles.root}/></div>
+    return <div style={styles.root}><CircularProgress data-testid='loading' style={styles.icon}/></div>
 }

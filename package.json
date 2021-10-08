@@ -32,6 +32,7 @@
     "build:zip": "(rm -f dashboard-information-widget.zip && cd build && zip ../dashboard-information-widget.zip -r .)",
     "build": "npm run build:react && npm run build:zip",
     "test": "react-scripts test",
+    "test:cache": "rm cachedApiCalls/*",
     "dep:build": "ts-node --skip-project packages/buildWatch.ts",
     "dep:copy": "ts-node --skip-project packages/copyWatch.ts"
   },

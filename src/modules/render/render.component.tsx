@@ -32,7 +32,7 @@ export default class Render extends React.Component<
         return (
             <React.Fragment>
                 {editable && <Link to={`/textEdit`} style={styles.link}>
-                        <Button primary>Edit</Button>
+                        <Button primary data-testid='EditButton'>Edit</Button>
                 </Link>}
                 {this.renderContent()}
             </React.Fragment>
