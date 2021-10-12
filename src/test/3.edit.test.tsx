@@ -1,6 +1,8 @@
-import {clickTest, ClickTestScenario, setUpComponent} from "@pepfar-react-lib/jest-tools";
-import {initServerSettings, ServerSettings} from "./shared.testServices";
+import {clickTest, ClickTestScenario, debug, pause, setUpComponent} from "@pepfar-react-lib/jest-tools";
+import {gotoEdit, initServerSettings, ServerSettings} from "./shared.testServices";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
+
+import {waitFor, fireEvent, screen} from "@testing-library/react";
 
 type TestCase = {
     name: string;
@@ -27,8 +29,10 @@ let testCases:TestCase[] = [{
 
 testCases.forEach(({name,serverSettings, scenario}:TestCase)=>{
     test(`Edit Test > ${name}`, async ()=>{
-        initServerSettings(serverSettings);
-        await setUpComponent(<AccessWrapper/>, ['New Dashboard Information widget']);
-        await clickTest(scenario);
+        await gotoEdit(serverSettings);
+        debug();
+        // console.log(document.querySelector('[contenteditable="true"]'))
+        // fireEvent.change(document.querySelector('[contenteditable="true"]') as Element, { target: { value: 'hello world' } })
+        // await pause(1);
     })
 })
