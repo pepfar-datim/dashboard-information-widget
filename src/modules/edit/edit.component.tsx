@@ -65,11 +65,11 @@ class Edit extends React.Component<
                 <ReadmeLink/>
                 <div style={styles.buttons}>
                     <ButtonStrip>
-                        <Button onClick={this.saveChanges} primary>
+                        <Button onClick={this.saveChanges} primary dataTest={'edit-button'}>
                             Save
                         </Button>
                         <Link to={`/`} style={styles.cancel}>
-                            <Button destructive>Cancel</Button>
+                            <Button destructive dataTest={'cancel-button'}>Cancel</Button>
                         </Link>
                     </ButtonStrip>
                 </div>
