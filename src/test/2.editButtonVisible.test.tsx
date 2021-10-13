@@ -1,4 +1,4 @@
-import {debug, noText, pause, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
+import {noText, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
 import {initServerSettings, mockNoContent, ServerSettings,} from "./shared.testServices";
 

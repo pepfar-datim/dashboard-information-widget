@@ -1,6 +1,6 @@
 import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
 import sanitize from '../../shared/services/sanitize.service';
-import getContentUrl, { getWidgetId } from './contentUrl.service';
+import getContentUrl, {getWidgetId} from './contentUrl.service';
 
 const config = require('../../../config/config.json');
 

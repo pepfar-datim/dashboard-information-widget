@@ -1,7 +1,7 @@
 import React, {CSSProperties} from 'react';
-import { fetchContent, saveContent } from '../shared/services/content.service';
-import { ButtonStrip, Button } from '@dhis2/ui';
-import { Link, withRouter } from 'react-router-dom';
+import {fetchContent, saveContent} from '../shared/services/content.service';
+import {Button, ButtonStrip} from '@dhis2/ui';
+import {Link, withRouter} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
 import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";

@@ -1,4 +1,4 @@
-import { getKeyUid, shareKey } from '../../shared/services/content.service';
+import {getKeyUid, shareKey} from '../../shared/services/content.service';
 import {getData, postData} from "@pepfar-react-lib/http-tools";
 
 const config = require('../../../config/config.json');

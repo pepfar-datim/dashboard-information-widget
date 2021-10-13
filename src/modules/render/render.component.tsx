@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchContent } from '../shared/services/content.service';
+import {fetchContent} from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
-import { EditButton } from './editButton.component';
+import {EditButton} from './editButton.component';
 
 export default class Render extends React.Component<any, {
     contentBody: string|null;

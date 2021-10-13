@@ -1,16 +1,7 @@
-import {
-    click,
-    clickTest,
-    ClickTestScenario,
-    debug,
-    pause,
-    setUpComponent,
-    textsWait
-} from "@pepfar-react-lib/jest-tools";
-import {gotoEdit, initServerSettings, ServerSettings} from "./shared.testServices";
-import AccessWrapper from "../modules/main/components/accessWrapper.component";
+import {click, pause} from "@pepfar-react-lib/jest-tools";
+import {gotoEdit, ServerSettings} from "./shared.testServices";
 
-import {waitFor, fireEvent, screen} from "@testing-library/react";
+import {fireEvent} from "@testing-library/react";
 import {registerSendMock} from "@pepfar-react-lib/http-tools";
 
 type TestCase = {
