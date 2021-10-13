@@ -65,7 +65,7 @@ class Edit extends React.Component<
                 <ReadmeLink/>
                 <div style={styles.buttons}>
                     <ButtonStrip>
-                        <Button onClick={this.saveChanges} primary dataTest={'edit-button'}>
+                        <Button onClick={this.saveChanges} primary dataTest={'save-button'}>
                             Save
                         </Button>
                         <Link to={`/`} style={styles.cancel}>

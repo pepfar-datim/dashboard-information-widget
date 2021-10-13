@@ -1,13 +1,22 @@
-import {clickTest, ClickTestScenario, debug, pause, setUpComponent} from "@pepfar-react-lib/jest-tools";
+import {
+    click,
+    clickTest,
+    ClickTestScenario,
+    debug,
+    pause,
+    setUpComponent,
+    textsWait
+} from "@pepfar-react-lib/jest-tools";
 import {gotoEdit, initServerSettings, ServerSettings} from "./shared.testServices";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
 
 import {waitFor, fireEvent, screen} from "@testing-library/react";
+import {registerSendMock} from "@pepfar-react-lib/http-tools";
 
 type TestCase = {
     name: string;
     serverSettings: ServerSettings;
-    scenario: ClickTestScenario;
+    // scenario: ClickTestScenario;
 }
 
 let testCases:TestCase[] = [{
@@ -17,22 +26,21 @@ let testCases:TestCase[] = [{
         isSuperAdmin: true,
         onEditPage: true,
     },
-    scenario: [{
-        target: {
-            id: 'edit-button'
-        },
-        result: {
-            texts:["Documentation for the Dashboard Information widget can be found here."]
-        }
-    }]
+    // scenario: []
 }]
 
-testCases.forEach(({name,serverSettings, scenario}:TestCase)=>{
+testCases.forEach(({name,serverSettings}:TestCase)=>{
     test(`Edit Test > ${name}`, async ()=>{
         await gotoEdit(serverSettings);
-        debug();
-        // console.log(document.querySelector('[contenteditable="true"]'))
-        // fireEvent.change(document.querySelector('[contenteditable="true"]') as Element, { target: { value: 'hello world' } })
-        // await pause(1);
+        fireEvent.change(document.querySelector('textarea') as Element, { target: { value: 'hello world' } })
+        await pause(1);
+        let putData = registerSendMock("PUT",'/dataStore/dashboard-information/testDashboardId1',{"httpStatus":"Created","httpStatusCode":201,"status":"OK"}).then((data)=>{
+            console.log(data);
+            expect(data).toStrictEqual({"body":"<p>hello world</p>"})
+        })
+        click('save-button');
+        // debug();
+        await putData;
+        // await textsWait(['Edit','hello world']);
     })
 })

@@ -16,7 +16,7 @@ function superUserOnly(value:boolean){
 }
 
 function onEditPage(value:boolean){
-    if (value) window.location.hash += 'edit';
+    window.location.hash = value?'edit':''
 }
 
 function systemInfo(){
@@ -29,18 +29,16 @@ export type ServerSettings = {
     onEditPage: boolean,
 }
 
-function dashboardId(){
-    let connector = window.location.hash.includes('?')?'&':'?';
-    window.location.hash += connector + 'dashboardItemId=testDashboardId1'
-}
-
 export function initServerSettings(serverSettings:ServerSettings){
     dataStoreExists(true);
     isSuperUser(serverSettings.isSuperAdmin);
     superUserOnly(serverSettings.superUserOnly);
     onEditPage(serverSettings.onEditPage);
-    dashboardId();
     systemInfo();
+}
+
+export function mockNoContent(){
+    registerGetMock('/dataStore/dashboard-information/testDashboardId1',{status: 'ERROR'});
 }
 
 let gotoEditScenario:ClickTestScenario = [{
@@ -59,5 +57,5 @@ export async function gotoEdit(serverSettings:ServerSettings){
     await waitFor(() => {
         expect(document.querySelector('[contenteditable="true"]')).toBeInTheDocument()
     })
-    
+
 }
