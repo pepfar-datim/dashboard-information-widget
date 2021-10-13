@@ -7,6 +7,7 @@ import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
 import {ReadmeLink} from "./readmeLink.component";
+import {isTestEnv} from "@pepfar-react-lib/http-tools";
 
 
 const styles = {
@@ -40,6 +41,9 @@ class Edit extends React.Component<
             this.editor = Jodit.make('#edit', editorConfig);
             this.editor.value = resp;
             this.editor.events.on('change', this.onChange);
+            if (isTestEnv()) { // @ts-ignore
+                window.editor = this.editor;
+            }
         });
     }
 
