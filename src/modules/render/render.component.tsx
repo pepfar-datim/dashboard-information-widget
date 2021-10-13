@@ -1,27 +1,18 @@
 import React from 'react';
-import { Button } from '@dhis2/ui';
-import { Link } from 'react-router-dom';
 import { fetchContent } from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
+import { EditButton } from './editButton.component';
 
-const styles = {
-    link: {
-        float: 'right',
-        textDecoration: 'none'
-    },
-};
-
-export default class Render extends React.Component<
-    { isAdmin: boolean; adminOnlyEdit: boolean;},
-    { contentBody: string|null; inDashEditMode: boolean;loading:boolean;  }
-> {
+export default class Render extends React.Component<any, {
+    contentBody: string|null;
+    loading:boolean;
+}> {
     constructor(props) {
         super(props);
         this.state = {
             contentBody: null,
             loading: true,
-            inDashEditMode: window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new'),
         };
         fetchContent().then((contentBody)=>this.setState({contentBody, loading: false}))
     }
@@ -31,12 +22,9 @@ export default class Render extends React.Component<
         return <Typography dangerouslySetInnerHTML={{ __html: this.state.contentBody }}></Typography>;
     }
     render() {
-        const editable = this.state.inDashEditMode && (this.props.isAdmin || !this.props.adminOnlyEdit);
         return (
             <React.Fragment>
-                {editable && <Link to={`/textEdit`} style={styles.link}>
-                        <Button primary data-testid='EditButton' dataTest={'edit-button'}>Edit</Button>
-                </Link>}
+                <EditButton/>
                 {this.renderContent()}
             </React.Fragment>
         );

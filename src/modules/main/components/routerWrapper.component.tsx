@@ -20,7 +20,7 @@ const styles = {
     }
 };
 
-export default function RouterWrapper({isAdmin, adminOnlyEdit}) {
+export default function RouterWrapper() {
     return (
         <HashRouter>
             <SnackbarProvider
@@ -40,18 +40,12 @@ export default function RouterWrapper({isAdmin, adminOnlyEdit}) {
                     warning: <CheckCircle style={styles.icon}/>,
                 }}
             >
-                <Route
-                    path={["/","/edit"]}
-                    exact
-                    render={() => (
-                        <Render isAdmin={isAdmin} adminOnlyEdit={adminOnlyEdit} />
-                    )}
-                />
-                <Route
-                    path="/textEdit"
-                    exact
-                    render={() => <Edit/>}
-                />
+                <Route path={["/","/edit"]} exact>
+                    <Render/>
+                </Route>
+                <Route path="/textEdit" exact>
+                    <Edit/>
+                </Route>
             </SnackbarProvider>
         </HashRouter>
     );
