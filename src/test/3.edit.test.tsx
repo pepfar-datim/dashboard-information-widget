@@ -1,5 +1,5 @@
 import {click, pause} from "@pepfar-react-lib/jest-tools";
-import {gotoEdit, ServerSettings} from "./shared.testServices";
+import {gotoEdit, ServerSettings, setEditorValue} from "./shared.testServices";
 
 import {fireEvent} from "@testing-library/react";
 import {registerSendMock} from "@pepfar-react-lib/http-tools";
@@ -23,14 +23,12 @@ let testCases:TestCase[] = [{
 testCases.forEach(({name,serverSettings}:TestCase)=>{
     test(`Edit Test > ${name}`, async ()=>{
         await gotoEdit(serverSettings);
-        // @ts-ignore
-        window.editor.value = 'hello world'
-        await pause(1);
-        let putData = registerSendMock("PUT",'/dataStore/dashboard-information/testDashboardId1',{"httpStatus":"Created","httpStatusCode":201,"status":"OK"}).then((data)=>{
-            console.log(data);
+        // await pause(1);
+        setEditorValue('hello world');
+        let putData = registerSendMock("PUT",'/dataStore/dashboard-information/testDashboardId1',{"httpStatus":"Created","httpStatusCode":201,"status":"OK"});
+        click('save-button');
+        await putData.then((data)=>{
             expect(data).toStrictEqual({"body":"<p>hello world</p>"})
         })
-        click('save-button');
-        await putData;
     })
 })

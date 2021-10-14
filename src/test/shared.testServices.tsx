@@ -1,5 +1,5 @@
 import {registerGetMock} from "@pepfar-react-lib/http-tools";
-import {clickTest, ClickTestScenario, setUpComponent} from "@pepfar-react-lib/jest-tools";
+import {click, clickTest, ClickTestScenario, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
 import {waitFor} from "@testing-library/react";
 
@@ -41,21 +41,17 @@ export function mockNoContent(){
     registerGetMock('/dataStore/dashboard-information/testDashboardId1',{status: 'ERROR'});
 }
 
-let gotoEditScenario:ClickTestScenario = [{
-    target: {
-        id: 'edit-button'
-    },
-    result: {
-        texts:["Documentation for the Dashboard Information widget can be found here."]
-    }
-}]
-
 export async function gotoEdit(serverSettings:ServerSettings){
     initServerSettings(serverSettings);
     await setUpComponent(<AccessWrapper/>, ['New Dashboard Information widget']);
-    await clickTest(gotoEditScenario);
+    click('edit-button');
+    text("Documentation for the Dashboard Information widget can be found here.");
     await waitFor(() => {
         expect(document.querySelector('[contenteditable="true"]')).toBeInTheDocument()
     })
+}
 
+export function setEditorValue(value:string){
+    // @ts-ignore
+    window.editor.value = value;
 }
