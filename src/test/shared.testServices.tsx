@@ -41,6 +41,10 @@ export function mockNoContent(){
     registerGetMock('/dataStore/dashboard-information/testDashboardId1',{status: 'ERROR'});
 }
 
+export function mockContent(body:string){
+    registerGetMock('/dataStore/dashboard-information/testDashboardId1',{body});
+}
+
 export async function gotoEdit(serverSettings:ServerSettings){
     initServerSettings(serverSettings);
     await setUpComponent(<AccessWrapper/>, ['New Dashboard Information widget']);
