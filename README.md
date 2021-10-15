@@ -1,5 +1,7 @@
 # DHIS2 Rich Text and Video Dashboard Widget
 
+![Tests](https://github.com/pepfar-datim/dashboard-information-widget/actions/workflows/test.yml/badge.svg)
+
 **Repo Owner:** Sarah Searle [@ssearle-bao](https://github.com/ssearle-bao)
 
 ## Overview
