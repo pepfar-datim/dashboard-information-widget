@@ -6,5 +6,7 @@ jobs:
     steps:
       - name: git clone
         uses: actions/checkout@v2
-      - run: npm install --force
-      - run: npm run test
+      - name: npm install
+        run: npm i --force
+      - name: Run Tests
+        run: npm run test
