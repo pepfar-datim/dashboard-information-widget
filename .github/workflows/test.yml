@@ -4,6 +4,10 @@ jobs:
   Basic-Tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Install node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - name: git clone
         uses: actions/checkout@v2
       - name: npm install
