@@ -3,6 +3,7 @@ import {ContentItem, ContentItemType, fetchContent, parseContent} from '../share
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
 import {EditButton} from './editButton.component';
+import {Sifter} from "./sifter.component";
 
 const styles = {
     content: {
@@ -34,7 +35,7 @@ export default class Render extends React.Component<any, {
         return <React.Fragment>
             {this.state.content.map(({type, body},i)=>{
                 if (type===ContentItemType.string) return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />
-                else return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />;
+                if (type===ContentItemType.sifter) return <Sifter yaml={body as string}/>
             })}
         </React.Fragment>
     }

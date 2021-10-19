@@ -1,7 +1,6 @@
 import {
     ContentItem,
     ContentItemType,
-    extractSwifterCode,
     parseContent
 } from "../../modules/shared/services/content.service";
 

@@ -37,6 +37,7 @@ export function parseContent(inputString:string):ContentItem[]{
         if (/sifter[0-9]/.test(item)) result.push({type:ContentItemType.sifter, body: sifter})
         else result.push({type:ContentItemType.string, body:item})
     })
+    console.log(result)
     return result;
 }
 
