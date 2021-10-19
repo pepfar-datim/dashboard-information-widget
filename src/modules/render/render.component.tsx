@@ -1,5 +1,5 @@
 import React, {CSSProperties} from 'react';
-import {fetchContent} from '../shared/services/content.service';
+import {ContentItem, extractSwifterCode, fetchContent} from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
 import {EditButton} from './editButton.component';
@@ -14,22 +14,29 @@ const styles = {
     } as CSSProperties
 }
 
+
+
 export default class Render extends React.Component<any, {
-    contentBody: string|null;
+    content: ContentItem[]|null;
     loading:boolean;
 }> {
     constructor(props) {
         super(props);
         this.state = {
-            contentBody: null,
+            content: null,
             loading: true,
         };
-        fetchContent().then((contentBody)=>this.setState({contentBody, loading: false}))
+        fetchContent().then(extractSwifterCode).then((content:ContentItem[])=>this.setState({content, loading: false}))
     }
     renderContent() {
         if (this.state.loading) return <Loading/>
-        if (!this.state.contentBody) return <Typography>New Dashboard Information widget</Typography>;
-        return <div id="test" style={styles.content} dangerouslySetInnerHTML={{ __html: this.state.contentBody }}/>;
+        if (!this.state.content||this.state.content.length===0) return <Typography>New Dashboard Information widget</Typography>;
+        return <React.Fragment>
+            {this.state.content.map((contentItem)=>{
+                if (typeof contentItem==='string') return <div dangerouslySetInnerHTML={{ __html: contentItem }} />
+                else return contentItem;
+            })}
+        </React.Fragment>
     }
     render() {
         return (

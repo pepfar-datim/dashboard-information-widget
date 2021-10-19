@@ -1,32 +1,31 @@
 import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
 import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, {getWidgetId} from './contentUrl.service';
+import {getKeyUid, shareKey} from "./shareKey.service";
 
-const config = require('../../../config/config.json');
+export type ContentItem = string|HTMLElement;
 
-export function fetchContent() {
+export function extractSwifterCode(contentString:string):ContentItem[]{
+    let preTags = contentString.match(/<pre.+?pre>/g);
+    if (!preTags) return [contentString];
+    let sifters:string[] = [];
+    preTags.forEach((sifterCode:string,i:number)=>{
+        contentString.replace(sifterCode,`#sifter#`);
+        sifters.push(sifterCode);
+    });
+    let items = contentString.split('#sifter#');
+    let result:ContentItem[] = [];
+    items.forEach((item:string,i:number)=>{
+        result.push(item);
+        if (sifters[i]) result.push(sifters[i]);
+    })
+    return result;
+}
+
+export function fetchContent():Promise<string>{
     return getData(getContentUrl())
         .then((resp) => resp.body)
-        .then(sanitize);
-}
-
-export async function getKeyUid(namespaceKey) {
-    const { datastoreNamespace } = config;
-    const namespaceKeyMeta = await getData(`/dataStore/${datastoreNamespace}/${namespaceKey}/metaData`);
-    return namespaceKeyMeta.id;
-}
-
-export async function shareKey(keyUid, publicAccess) {
-    let sharingUrl = `/sharing?type=dataStore&id=${keyUid}`;
-    const currentSharingReq = await getData(sharingUrl);
-    const currPublicAccess = currentSharingReq.object.publicAccess;
-    if (currPublicAccess === publicAccess) return;
-    return postData(sharingUrl, {
-        object: {
-            id: keyUid,
-            publicAccess: publicAccess,
-        },
-    });
+        .then(sanitize)
 }
 
 export function saveContent(content) {
