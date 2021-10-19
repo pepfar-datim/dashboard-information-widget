@@ -4,25 +4,55 @@ import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
 import {ReactElement} from "react";
 
-export type ContentItem = string|ReactElement<any|any>;
+export enum ContentItemType{
+    string='string',
+    sifter= 'sifter'
+}
+export type ContentItem = {
+    type: ContentItemType,
+    body: string|ReactElement<any,any>
+};
 
-export function extractSwifterCode(contentString:string):ContentItem[]{
+function separateSifters(contentString:string):{cleanedContentString:string,sifters:string[]}{
     let preTags = contentString.match(/<pre.+?pre>/g);
-    if (!preTags) return [contentString];
+    if (!preTags) return {cleanedContentString: contentString, sifters: []};
     let sifters:string[] = [];
+    let cleanedContentString:string = contentString;
     preTags.forEach((sifterCode:string,i:number)=>{
-        contentString =  contentString.replace(sifterCode,`#sifter#`);
+        cleanedContentString =  cleanedContentString.replace(sifterCode,`#sifter${i}#`);
         sifters.push(sifterCode);
     });
-    let items = contentString.split('#sifter#');
+    return {cleanedContentString,sifters}
+}
+
+export function parseContent(inputString:string):ContentItem[]{
+    if (!inputString||typeof inputString!=='string'||inputString.length===0) return [];
+    let {cleanedContentString, sifters} = separateSifters(inputString);
+    if (sifters.length===0) return [{type:ContentItemType.string, body: inputString}];
+    let textSections = cleanedContentString.split('#').filter(s=>s.length>0);
     let result:ContentItem[] = [];
-    items.forEach((item:string,i:number)=>{
-        result.push(item);
-        if (sifters[i]) result.push(sifters[i]);
+    sifters = sifters.reverse();
+    textSections.forEach((item:string,i:number)=>{
+        let sifter = sifters.pop() || 'sifter';
+        if (/sifter[0-9]/.test(item)) result.push({type:ContentItemType.sifter, body: sifter})
+        else result.push({type:ContentItemType.string, body:item})
     })
-    console.log(result)
     return result;
 }
+
+//
+// export function extractSwifterCode(contentString:string):ContentItem[]{
+//     // if (!contentString.match(/<pre type/)) return [contentString];
+//
+//     let {cleanedContentString, sifters} = separateSifters(contentString);
+//     let textSections = cleanedContentString.split('#sifter#').filter(s=>s.length>0);
+//     let result:ContentItem[] = [];
+//     textSections.forEach((item:string,i:number)=>{
+//         result.push(item);
+//         if (sifters[i]) result.push(sifters[i]);
+//     })
+//     return result;
+// }
 
 export function fetchContent():Promise<string>{
     return getData(getContentUrl())
