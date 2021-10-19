@@ -1,5 +1,5 @@
 import React, {CSSProperties} from 'react';
-import {ContentItem, extractSwifterCode, fetchContent} from '../shared/services/content.service';
+import {ContentItem, ContentItemType, fetchContent, parseContent} from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
 import {EditButton} from './editButton.component';
@@ -26,15 +26,15 @@ export default class Render extends React.Component<any, {
             content: null,
             loading: true,
         };
-        fetchContent().then(extractSwifterCode).then((content:ContentItem[])=>this.setState({content, loading: false}))
+        fetchContent().then(parseContent).then((content:ContentItem[])=>this.setState({content, loading: false}))
     }
     renderContent() {
         if (this.state.loading) return <Loading/>
         if (!this.state.content||this.state.content.length===0) return <Typography>New Dashboard Information widget</Typography>;
         return <React.Fragment>
-            {this.state.content.map((contentItem)=>{
-                if (typeof contentItem==='string') return <div dangerouslySetInnerHTML={{ __html: contentItem }} />
-                else return contentItem;
+            {this.state.content.map(({type, body},i)=>{
+                if (type===ContentItemType.string) return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />
+                else return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />;
             })}
         </React.Fragment>
     }

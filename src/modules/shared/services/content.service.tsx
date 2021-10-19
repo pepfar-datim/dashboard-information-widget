@@ -40,19 +40,6 @@ export function parseContent(inputString:string):ContentItem[]{
     return result;
 }
 
-//
-// export function extractSwifterCode(contentString:string):ContentItem[]{
-//     // if (!contentString.match(/<pre type/)) return [contentString];
-//
-//     let {cleanedContentString, sifters} = separateSifters(contentString);
-//     let textSections = cleanedContentString.split('#sifter#').filter(s=>s.length>0);
-//     let result:ContentItem[] = [];
-//     textSections.forEach((item:string,i:number)=>{
-//         result.push(item);
-//         if (sifters[i]) result.push(sifters[i]);
-//     })
-//     return result;
-// }
 
 export function fetchContent():Promise<string>{
     return getData(getContentUrl())
