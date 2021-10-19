@@ -36,6 +36,7 @@ const settings = {
         'pre',
         'iframe',
         'span',
+        'sifter'
     ],
     allowedAttributes: {
         a: ['href', 'name', 'target'],
@@ -43,6 +44,7 @@ const settings = {
         iframe: ['src', 'height', 'width', 'frameborder'],
         td: ['colspan', 'rowspan'],
         th: ['colspan', 'rowspan'],
+        pre: ['type']
     },
     selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],
     allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'data:image'],
