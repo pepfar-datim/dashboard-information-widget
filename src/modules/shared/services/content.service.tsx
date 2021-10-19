@@ -2,15 +2,16 @@ import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
 import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
+import {ReactElement} from "react";
 
-export type ContentItem = string|HTMLElement;
+export type ContentItem = string|ReactElement<any|any>;
 
 export function extractSwifterCode(contentString:string):ContentItem[]{
     let preTags = contentString.match(/<pre.+?pre>/g);
     if (!preTags) return [contentString];
     let sifters:string[] = [];
     preTags.forEach((sifterCode:string,i:number)=>{
-        contentString.replace(sifterCode,`#sifter#`);
+        contentString =  contentString.replace(sifterCode,`#sifter#`);
         sifters.push(sifterCode);
     });
     let items = contentString.split('#sifter#');
@@ -19,6 +20,7 @@ export function extractSwifterCode(contentString:string):ContentItem[]{
         result.push(item);
         if (sifters[i]) result.push(sifters[i]);
     })
+    console.log(result)
     return result;
 }
 
