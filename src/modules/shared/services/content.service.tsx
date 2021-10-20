@@ -2,15 +2,16 @@ import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
 import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
-import {ReactElement} from "react";
+import YAML from 'yaml'
 
 export enum ContentItemType{
     string='string',
     sifter= 'sifter'
 }
+export interface SifterJson {[key: string]: string|SifterJson}
 export type ContentItem = {
     type: ContentItemType,
-    body: string|ReactElement<any,any>
+    body: string|SifterJson
 };
 
 function separateSifters(contentString:string):{cleanedContentString:string,sifters:string[]}{
@@ -25,6 +26,16 @@ function separateSifters(contentString:string):{cleanedContentString:string,sift
     return {cleanedContentString,sifters}
 }
 
+function parseYaml(sifterPre:string):SifterJson{
+    let yaml = sifterPre.replace(/<pre .*?>/,'').replace("</pre>",'');
+    try {
+        return YAML.parse(yaml);
+    }catch(e){
+        console.error(e);
+        return {};
+    }
+}
+
 export function parseContent(inputString:string):ContentItem[]{
     if (!inputString||typeof inputString!=='string'||inputString.length===0) return [];
     let {cleanedContentString, sifters} = separateSifters(inputString);
@@ -36,6 +47,7 @@ export function parseContent(inputString:string):ContentItem[]{
         if (!/sifter[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
         else result.push({type:ContentItemType.sifter, body: sifters.pop()||'sifter'})
     })
+    console.log(result)
     return result;
 }
 
