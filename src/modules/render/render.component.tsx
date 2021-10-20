@@ -1,5 +1,11 @@
 import React, {CSSProperties} from 'react';
-import {ContentItem, ContentItemType, fetchContent, parseContent} from '../shared/services/content.service';
+import {
+    ContentItem,
+    ContentItemType,
+    fetchContent,
+    NestedMenuJson,
+    parseContent
+} from '../shared/services/content.service';
 import Typography from '@material-ui/core/Typography';
 import {Loading} from "../shared/components/loading.component";
 import {EditButton} from './editButton.component';
@@ -36,7 +42,7 @@ export default class Render extends React.Component<any, {
         return <React.Fragment>
             {this.state.content.map(({type, body},i)=>{
                 if (type===ContentItemType.string) return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />
-                if (type===ContentItemType.nestedMenu) return <NestedMenu yaml={body as string}/>
+                if (type===ContentItemType.nestedMenu) return <NestedMenu menuJson={body as NestedMenuJson}/>
             })}
         </React.Fragment>
     }
