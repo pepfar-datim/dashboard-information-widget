@@ -15,10 +15,10 @@ function txt(t:string):ContentItem{
 }
 
 function sft(t:any):ContentItem{
-    return {body:t, type: ContentItemType.sifter}
+    return {body:t, type: ContentItemType.nestedMenu}
 }
 
-const swifterYaml1 = `Results: 
+const nestedMenuYaml1 = `Results: 
   Prevention: 
     VMMC_CIRC:
       Age/sex:
@@ -41,7 +41,7 @@ const swifterYaml1 = `Results:
     HTS_TST:
       KeyPop Facility: rpbGVAwtqxs
       KeyPop Community: phdeKRHOdcd `
-const swifterJson1 = {
+const nestedMenuJson1 = {
     "Results": {
         "Prevention": {
             "VMMC_CIRC": {
@@ -85,20 +85,20 @@ const testCases:TestCase[] = [{
     output: [txt('intro end')]
 },{
     name: 't<s>',
-    dataStore: `intro<pre type='swifter'>${swifterYaml1}</pre>`,
-    output: [txt('intro'),sft(swifterJson1)]
+    dataStore: `intro<pre type='nestedMenu'>${nestedMenuYaml1}</pre>`,
+    output: [txt('intro'),sft(nestedMenuJson1)]
 },{
     name: '<s>',
-    dataStore: `<pre type='swifter'>${swifterYaml1}</pre>`,
-    output: [sft(swifterJson1)]
+    dataStore: `<pre type='nestedMenu'>${nestedMenuYaml1}</pre>`,
+    output: [sft(nestedMenuJson1)]
 },{
     name: '<s>t',
-    dataStore: `<pre type='swifter'>${swifterYaml1}</pre>end`,
-    output: [sft(swifterJson1), txt("end")]
+    dataStore: `<pre type='nestedMenu'>${nestedMenuYaml1}</pre>end`,
+    output: [sft(nestedMenuJson1), txt("end")]
 },{
     name: 't<s>t<s>t',
-    dataStore: `intro<pre type='swifter'>${swifterYaml1}</pre>midsection<pre type='swifter'>${swifterYaml1}</pre>end`,
-    output: [txt('intro'), sft(swifterJson1), txt('midsection'), sft(swifterJson1), txt('end')]
+    dataStore: `intro<pre type='nestedMenu'>${nestedMenuYaml1}</pre>midsection<pre type='nestedMenu'>${nestedMenuYaml1}</pre>end`,
+    output: [txt('intro'), sft(nestedMenuJson1), txt('midsection'), sft(nestedMenuJson1), txt('end')]
 },{
     name: 'error scenario',
     dataStore: '',
@@ -110,7 +110,7 @@ const testCases:TestCase[] = [{
 }]
 
 testCases.forEach(({name, dataStore, output})=> {
-    test(`Extract swifter code | ${name}`, () => {
+    test(`Extract nestedMenu code | ${name}`, () => {
         let parsed:ContentItem[] = parseContent(dataStore as string);
         expect(parsed).toStrictEqual(output);
     })

@@ -6,28 +6,28 @@ import YAML from 'yaml'
 
 export enum ContentItemType{
     string='string',
-    sifter= 'sifter'
+    nestedMenu= 'nestedMenu'
 }
-export interface SifterJson {[key: string]: string|SifterJson}
+export interface NestedMenuJson {[key: string]: string|NestedMenuJson}
 export type ContentItem = {
     type: ContentItemType,
-    body: string|SifterJson
+    body: string|NestedMenuJson
 };
 
-function separateSifters(contentString:string):{cleanedContentString:string,sifters:string[]}{
+function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuJson[]}{
     let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
-    if (!preTags) return {cleanedContentString: contentString, sifters: []};
-    let sifters:string[] = [];
+    if (!preTags) return {cleanedContentString: contentString, nestedMenus: []};
+    let nestedMenus:NestedMenuJson[] = [];
     let cleanedContentString:string = contentString;
-    preTags.forEach((sifterCode:string,i:number)=>{
-        cleanedContentString =  cleanedContentString.replace(sifterCode,`#sifter${i}#`);
-        sifters.push(sifterCode);
+    preTags.forEach((nestedMenuCode:string,i:number)=>{
+        cleanedContentString = cleanedContentString.replace(nestedMenuCode,`#nestedMenu${i}#`);
+        nestedMenus.push(parseYaml(nestedMenuCode));
     });
-    return {cleanedContentString,sifters}
+    return {cleanedContentString,nestedMenus}
 }
 
-function parseYaml(sifterPre:string):SifterJson{
-    let yaml = sifterPre.replace(/<pre .*?>/,'').replace("</pre>",'');
+function parseYaml(nestedMenuPre:string):NestedMenuJson{
+    let yaml = nestedMenuPre.replace(/<pre .*?>/,'').replace("</pre>",'');
     try {
         return YAML.parse(yaml);
     }catch(e){
@@ -38,14 +38,14 @@ function parseYaml(sifterPre:string):SifterJson{
 
 export function parseContent(inputString:string):ContentItem[]{
     if (!inputString||typeof inputString!=='string'||inputString.length===0) return [];
-    let {cleanedContentString, sifters} = separateSifters(inputString);
-    if (sifters.length===0) return [{type:ContentItemType.string, body: inputString}];
+    let {cleanedContentString, nestedMenus} = separateNestedMenus(inputString);
+    if (nestedMenus.length===0) return [{type:ContentItemType.string, body: inputString}];
     let textSections = cleanedContentString.split('#').filter(s=>s.length>0);
     let result:ContentItem[] = [];
-    sifters = sifters.reverse();
+    nestedMenus = nestedMenus.reverse();
     textSections.forEach((item:string,i:number)=>{
-        if (!/sifter[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
-        else result.push({type:ContentItemType.sifter, body: sifters.pop()||'sifter'})
+        if (!/nestedMenu[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
+        else result.push({type:ContentItemType.nestedMenu, body: nestedMenus.pop()||'nestedMenu'})
     })
     console.log(result)
     return result;

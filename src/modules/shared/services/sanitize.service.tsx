@@ -36,7 +36,7 @@ const settings = {
         'pre',
         'iframe',
         'span',
-        'sifter'
+        'nestedMenu'
     ],
     allowedAttributes: {
         a: ['href', 'name', 'target'],
