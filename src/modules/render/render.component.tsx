@@ -32,6 +32,7 @@ export default class Render extends React.Component<any, {
     renderContent() {
         if (this.state.loading) return <Loading/>
         if (!this.state.content||this.state.content.length===0) return <Typography>New Dashboard Information widget</Typography>;
+        console.log(this.state.content)
         return <React.Fragment>
             {this.state.content.map(({type, body},i)=>{
                 if (type===ContentItemType.string) return <div key={i} dangerouslySetInnerHTML={{ __html: body as string}} />

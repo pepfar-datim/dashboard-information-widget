@@ -14,7 +14,7 @@ export type ContentItem = {
 };
 
 function separateSifters(contentString:string):{cleanedContentString:string,sifters:string[]}{
-    let preTags = contentString.match(/<pre.+?pre>/g);
+    let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
     if (!preTags) return {cleanedContentString: contentString, sifters: []};
     let sifters:string[] = [];
     let cleanedContentString:string = contentString;
@@ -33,11 +33,9 @@ export function parseContent(inputString:string):ContentItem[]{
     let result:ContentItem[] = [];
     sifters = sifters.reverse();
     textSections.forEach((item:string,i:number)=>{
-        let sifter = sifters.pop() || 'sifter';
-        if (/sifter[0-9]/.test(item)) result.push({type:ContentItemType.sifter, body: sifter})
-        else result.push({type:ContentItemType.string, body:item})
+        if (!/sifter[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
+        else result.push({type:ContentItemType.sifter, body: sifters.pop()||'sifter'})
     })
-    console.log(result)
     return result;
 }
 
