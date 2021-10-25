@@ -76,7 +76,7 @@ function Item({category, selected, index, onClick}:{category:string, selected:bo
     </MenuItem>
 }
 
-export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|null{
+export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|null{
     let [selectedKey,setSelectedKey] = useState<string|null>(null)
     if (selectedKey&&!menuJson[selectedKey]) {
         setSelectedKey(null);
@@ -88,6 +88,6 @@ export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|nu
             else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} index={index}/>
         })}
     </List>
-    {selectedKey&&<NestedMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
+    {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
     </React.Fragment>
 }

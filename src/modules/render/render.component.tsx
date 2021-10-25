@@ -9,7 +9,7 @@ import {
 import {Typography} from '@mui/material';
 import {Loading} from "../shared/components/loading.component";
 import {EditButton} from './editButton.component';
-import {NestedMenu} from "./nestedMenu.component";
+import {NestedSubMenu} from "./nestedMenu.component";
 
 const styles = {
     defaultText: {
@@ -39,7 +39,7 @@ export default class Render extends React.Component<any, {
         return <React.Fragment>
             {this.state.content.map(({type, body},i)=>{
                 if (type===ContentItemType.string) return <div style={styles.defaultText} key={i} dangerouslySetInnerHTML={{ __html: body as string}} />
-                if (type===ContentItemType.nestedMenu) return <NestedMenu menuJson={body as NestedMenuJson}/>
+                if (type===ContentItemType.nestedMenu) return <NestedSubMenu menuJson={body as NestedMenuJson}/>
                 return null;
             })}
         </React.Fragment>
