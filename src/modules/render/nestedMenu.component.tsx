@@ -3,13 +3,12 @@ import {NestedMenuJson} from "../shared/services/content.service";
 import {List, ListItem, ListItemText, styled, ThemeProvider, createTheme} from '@mui/material';
 import {Link} from 'react-router-dom';
 import "./nestedMenu.css"
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ArrowRight from '@mui/icons-material/ArrowRightAlt';
 
 const styles = {
     subMenu: {
         display: 'inline-block',
-        paddingTop: 0,
-        paddingBottom: 0,
+        padding: 0
     } as CSSProperties,
     nestedSubmenu:{
         borderLeft: '1px solid black'
@@ -40,11 +39,20 @@ const styles = {
         fontSize: '0.97rem',
         '& :hover':{
             color: 'rgb(44, 102, 147,0.7)'
-        }
+        },
+        padding: '0px 5px'
     },
     menuItemSelected: {
         color: 'rgb(44, 102, 147)',
-    }
+        '& ::after':{
+
+        }
+    },
+    menuItemArrow:{
+        position: 'relative',
+        top: -1,
+        left: 3
+    } as CSSProperties
 }
 
 const MenuItem = styled(ListItem,{
@@ -57,8 +65,15 @@ const MenuItem = styled(ListItem,{
 const generateLink = (id:string)=>`/dhis-web-data-visualizer/index.html#/${id}`
 
 const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
-    // let [hover, setHover] = useState(false);
-    return <Link style={styles.link} target='_blank' to={generateLink(id)}><ListItemText sx={styles.linkText} primary={name} className={'analyticsLink'}/></Link>
+    return <MenuItem sx={styles.linkWrapper}>
+        <Link style={styles.link} target='_blank' to={generateLink(id)}><ListItemText sx={styles.linkText} primary={name} className={'analyticsLink'}/></Link>
+    </MenuItem>
+}
+
+function Item({category, selected, index, onClick}:{category:string, selected:boolean, index:number, onClick: ()=>void}){
+    return <MenuItem onClick={onClick} key={index} sx={Object.assign({},styles.menuItem, selected?styles.menuItemSelected:null)}>
+        <ListItemText primary={category}/> {selected && <ArrowRight style={styles.menuItemArrow}/>}
+    </MenuItem>
 }
 
 export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|null{
@@ -68,9 +83,9 @@ export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|nu
         return null;
     }
     return <React.Fragment><List style={styles.subMenu} dense={true}>
-        {Object.keys(menuJson).map((c,key)=>{
-            if (typeof menuJson[c]==='string') return <MenuItem sx={styles.linkWrapper}><AnalyticsLink id={menuJson[c] as string} name={c}/></MenuItem>
-            else return <MenuItem onClick={()=>setSelectedKey(c)} key={key} sx={Object.assign({},styles.menuItem, selectedKey===c?styles.menuItemSelected:null)}><ListItemText primary={c}/></MenuItem>
+        {Object.keys(menuJson).map((category,index)=>{
+            if (typeof menuJson[category]==='string') return <AnalyticsLink id={menuJson[category] as string} name={category}/>
+            else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} index={index}/>
         })}
     </List>
     {selectedKey&&<NestedMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
