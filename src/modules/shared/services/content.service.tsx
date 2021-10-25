@@ -47,7 +47,6 @@ export function parseContent(inputString:string):ContentItem[]{
         if (!/nestedMenu[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
         else result.push({type:ContentItemType.nestedMenu, body: nestedMenus.pop()||'nestedMenu'})
     })
-    console.log(result)
     return result;
 }
 

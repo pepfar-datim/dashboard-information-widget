@@ -3,8 +3,8 @@ import {HashRouter, Route} from 'react-router-dom';
 import Render from '../../render/render.component';
 import Edit from '../../edit/edit.component';
 import {SnackbarProvider, SnackbarProvider as MuiSnackbarProvider} from "notistack";
-import {IconButton} from "@material-ui/core";
-import {CheckCircle, Close} from "@material-ui/icons";
+import {IconButton} from "@mui/material";
+import {CheckCircle, Close} from "@mui/icons-material";
 
 const notistackRef = React.createRef();
 const onClickDismiss = key => () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import {Divider, Link, Paper, Typography} from "@material-ui/core";
+import {Divider, Link, Paper, Typography} from "@mui/material";
 
 const styles = {
     root: {
