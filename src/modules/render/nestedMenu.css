@@ -8,6 +8,7 @@ ul+ul{
     height: 10px;
     display: inline-block;
     position: absolute;
-    top: 0px;
+    top: 4px;
     right: 0px;
+    opacity: 0.6;
 }
