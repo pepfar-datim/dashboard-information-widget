@@ -18,6 +18,18 @@ const styles = {
         textDecoration: 'none',
         color: 'inherit',
     },
+    linkText:{
+        '& :hover::after':{
+            content: 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==)',
+            width: 10,
+            height: 10,
+            display: 'inline-block',
+            position: 'absolute',
+            top: 4,
+            right: 0,
+            opacity: 0.6
+        }
+    } as CSSProperties,
     linkWrapper: {
         '& :hover':{
             color: 'rgb(44, 102, 147,0.7)'
@@ -46,7 +58,7 @@ const generateLink = (id:string)=>`/dhis-web-data-visualizer/index.html#/${id}`
 
 const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
     // let [hover, setHover] = useState(false);
-    return <Link style={styles.link} target='_blank' to={generateLink(id)}><ListItemText primary={name} className={'analyticsLink'}/></Link>
+    return <Link style={styles.link} target='_blank' to={generateLink(id)}><ListItemText sx={styles.linkText} primary={name} className={'analyticsLink'}/></Link>
 }
 
 export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|null{
