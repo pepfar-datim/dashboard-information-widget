@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Button} from "@dhis2/ui";
 import {getData} from "@pepfar-react-lib/http-tools";
 
-const config = require('../../config/config.json');
+const config = require('../../../config/config.json');
 
 const styles = {
     link: {

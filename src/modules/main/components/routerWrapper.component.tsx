@@ -1,6 +1,6 @@
 import React, {Ref} from 'react';
 import {HashRouter, Route} from 'react-router-dom';
-import Render from '../../render/render.component';
+import Render from '../../render/components/render.component';
 import Edit from '../../edit/edit.component';
 import {SnackbarProvider, SnackbarProvider as MuiSnackbarProvider} from "notistack";
 import {IconButton} from "@mui/material";

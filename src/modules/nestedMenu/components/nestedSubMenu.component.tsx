@@ -1,13 +1,12 @@
 import React, {CSSProperties, ReactElement, useState} from "react";
-import {NestedMenuJson} from "../shared/services/content.service";
-import {List, ListItem, ListItemText, styled, ThemeProvider, createTheme} from '@mui/material';
+import {List, ListItem, ListItemText, styled} from "@mui/material";
+import ArrowRight from "@mui/icons-material/ArrowRightAlt";
 import {Link} from 'react-router-dom';
-import "./nestedMenu.css"
-import ArrowRight from '@mui/icons-material/ArrowRightAlt';
+import {NestedMenuJson} from "../../shared/services/content.service";
 
 const styles = {
     subMenu: {
-        display: 'inline-block',
+        // display: 'inline-block',
         padding: 0
     } as CSSProperties,
     nestedSubmenu:{
@@ -88,6 +87,6 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement
             else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} index={index}/>
         })}
     </List>
-    {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
+        {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
     </React.Fragment>
 }
