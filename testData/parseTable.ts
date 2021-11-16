@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { parse } from 'node-html-parser';
+import {addLinks} from "./addLinks";
 let source = readFileSync("./source.html")
 const root = parse(source.toString());
 
@@ -8,16 +9,6 @@ interface HTMLElement {
 }
 
 let tableRows:HTMLElement[] = root.querySelectorAll('tr') as any as HTMLElement[];
-
-function getFirstLevelKeys(tableRows:HTMLElement[]):string[]{
-    let keys:string[] = [];
-    tableRows.forEach((row:HTMLElement)=>{
-        let txt = row.childNodes[1].textContent;
-        txt = txt.replace(/\s+/,'');
-        if (txt) keys.push(txt);
-    })
-    return keys;
-}
 
 let firstLevel = [
     "Prevention",
@@ -64,12 +55,11 @@ firstLevel.forEach((currentSectionTitle:string,i:number)=>{
                     return;
                 }
                 if (rowTitle===""){
-                    Output[previousItem][subTitle]={};
+                    Output[previousItem][subTitle]=addLinks(row);
                     return;
                 }
                 previousItem = rowTitle;
-                // Output[rowTitle] = subTitle;
-                if (!Output[rowTitle]) Output[rowTitle] = {};
+                if (!Output[rowTitle]) Output[rowTitle] = addLinks(row);
                 Output[rowTitle][subTitle]={};
                 return;
             case SectionStatus.done:
