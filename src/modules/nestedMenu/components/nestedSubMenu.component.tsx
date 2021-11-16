@@ -6,10 +6,13 @@ import {NestedMenuJson} from "../../shared/services/content.service";
 
 const styles = {
     subMenu: {
-        minWidth: 120
+        minWidth: 120,
+        fontFamily: 'Roboto, Calibri, sans-serif',
+        borderRadius: 5,
+        border: '1px solid #aaaaaa',
+        fontSize: '1rem',
+        overflowY: 'auto'
     } as CSSProperties,
-    nestedSubmenu:{
-    },
     link: {
     },
     linkText:{
@@ -21,6 +24,7 @@ const styles = {
         }
     },
     menuItem: {
+        padding: 4
     },
     menuItemSelected: {
         background: 'rgb(44, 102, 147,0.25)'
@@ -39,13 +43,13 @@ const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
     return <option onClick={()=>{
         let newTab = window.open(generateLink(id), '_blank')
         newTab&&newTab.focus()
-    }}>
+    }} style={styles.menuItem}>
         {name}
     </option>
 }
 
 function Item({category, selected, index, onClick}:{category:string, selected:boolean, index:number, onClick: ()=>void}){
-    return <option onClick={onClick} key={index} style={selected?styles.menuItemSelected:{}}>
+    return <option onClick={onClick} key={index} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}>
         {category}
     </option>
 }

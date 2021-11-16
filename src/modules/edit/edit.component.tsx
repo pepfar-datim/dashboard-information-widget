@@ -34,7 +34,7 @@ class Edit extends React.Component<
     constructor(props) {
         super(props);
         this.state = {};
-        fetchContent().then((resp) => {
+        fetchContent().then((resp ) => {
             this.setState({
                 editedContent: resp,
             });

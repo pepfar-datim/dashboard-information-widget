@@ -1,14 +1,3 @@
 ul+ul{
-    /*border-left: 1px solid rgba(44, 102, 147,0.5);*/
-}
 
-/*.analyticsLink:hover::after {*/
-/*    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);*/
-/*    width: 10px;*/
-/*    height: 10px;*/
-/*    display: inline-block;*/
-/*    position: absolute;*/
-/*    top: 4px;*/
-/*    right: 0px;*/
-/*    opacity: 0.6;*/
-/*}*/
+}
