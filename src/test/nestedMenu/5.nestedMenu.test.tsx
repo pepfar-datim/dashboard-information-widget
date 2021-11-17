@@ -12,7 +12,5 @@ test('5 > Nested menu',async ()=>{
         onEditPage: false,
     })
     mockContent(widgetContent);
-    await setUpComponent(<AccessWrapper/>, []);
-    await pause(1)
-    debug();
+    await setUpComponent(<AccessWrapper/>, ['Prevention','Testing','Testing - Facility Based Modalities']);
 })
