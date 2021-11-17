@@ -6,7 +6,7 @@ import {NestedMenuJson} from "../../shared/services/content.service";
 
 const styles = {
     subMenu: {
-        minWidth: 120,
+        minWidth: 130,
         fontFamily: 'Roboto, Calibri, sans-serif',
         borderRadius: 5,
         border: '1px solid #aaaaaa',

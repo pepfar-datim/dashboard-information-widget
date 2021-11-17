@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import { parse } from 'node-html-parser';
 import {addLinks} from "./addLinks";
+import {exportYaml} from "./export";
 let source = readFileSync("./source.html")
 const root = parse(source.toString());
 
@@ -38,13 +39,13 @@ let Output:any = {};
 firstLevel.forEach((currentSectionTitle:string,i:number)=>{
     let nextSectionTitle:string = firstLevel[i+1];
     let status:SectionStatus = SectionStatus.searching;
-    console.log(`Parsing data between:`,currentSectionTitle, 'and', nextSectionTitle);
-
     let previousItem:string="";
+    Output[currentSectionTitle] = {};
     tableRows.forEach((row:HTMLElement)=>{
-        let rowTitle = row.childNodes[1].textContent.replace(/\s+/g,'');
-        let subTitle = row.childNodes[3].textContent.replace(/\s+/g,'');
-        if (rowTitle==="TechnicalArea") return;
+        let out = Output[currentSectionTitle];
+        let rowTitle = row.childNodes[1].textContent//.replace(/\s+/g,'');
+        let subTitle = row.childNodes[3].textContent//.replace(/\s+/g,'');
+        if (rowTitle==="Technical Area") return;
         switch (status){
             case SectionStatus.searching:
                 if (currentSectionTitle===rowTitle) status = SectionStatus.reading;
@@ -55,12 +56,12 @@ firstLevel.forEach((currentSectionTitle:string,i:number)=>{
                     return;
                 }
                 if (rowTitle===""){
-                    Output[previousItem][subTitle]=addLinks(row);
+                    out[previousItem][subTitle]=addLinks(row);
                     return;
                 }
                 previousItem = rowTitle;
-                if (!Output[rowTitle]) Output[rowTitle] = addLinks(row);
-                Output[rowTitle][subTitle]={};
+                if (!out[rowTitle]) out[rowTitle] = {};
+                out[rowTitle][subTitle]=addLinks(row);
                 return;
             case SectionStatus.done:
                 return;
@@ -68,4 +69,4 @@ firstLevel.forEach((currentSectionTitle:string,i:number)=>{
     })
 });
 
-console.log(Output)
+exportYaml(Output)

@@ -3,13 +3,11 @@ interface HTMLElement {
 }
 
 function getId(row:HTMLElement, i:number):string{
-    console.log(`3+(2*${i})`,3+(2*i))
-    return row.childNodes[3+(2*i)].textContent.replace(/\s+/g,'')
+    let nodes = row.childNodes.map((n:any)=>n.childNodes);
+    return nodes[3+(2*i)][0].rawAttrs?.replace(/^.+\#\//,'').replace('"','')
 }
 
 export function addLinks(row:HTMLElement){
-    // console.log(row.childNodes.map((n:any)=>n.textContent))
-    // process.exit(1)
     return {
         fy2021q4: getId(row, 1),
         fy2021q3: getId(row, 2),
