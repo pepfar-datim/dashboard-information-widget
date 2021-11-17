@@ -8,7 +8,7 @@ function getId(row:HTMLElement, i:number):string{
 }
 
 export function addLinks(row:HTMLElement){
-    return {
+    let response:{[key: string]: string} =  {
         fy2021q4: getId(row, 1),
         fy2021q3: getId(row, 2),
         fy2021q2: getId(row, 3),
@@ -22,4 +22,8 @@ export function addLinks(row:HTMLElement){
         fy2019q2: getId(row, 11),
         fy2019q1: getId(row, 12),
     }
+    Object.keys(response).forEach((period:string)=>{
+        if (response[period]==='') delete response[period];
+    })
+    return response;
 }

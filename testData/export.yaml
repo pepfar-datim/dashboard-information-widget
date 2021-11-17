@@ -42,43 +42,21 @@ Prevention:
   AGYW_PREV:
     Age/Sex/Time/Completeness:
       fy2021q4: HSyxsguuxVa
-      fy2021q3: ''
       fy2021q2: CPF8gu5qKVj
-      fy2021q1: ''
       fy2020q4: zy3VDRDP9zq
-      fy2020q3: ''
       fy2020q2: hKh9RAN9p7v
-      fy2020q1: ''
       fy2019q4: m8WtEJMclmv
-      fy2019q3: ''
       fy2019q2: ZhhEV4dOO4c
-      fy2019q1: ''
     EducationSupport:
       fy2021q4: iIKNiyYvTBO
-      fy2021q3: ''
       fy2021q2: Hmrc7jP3Uy9
-      fy2021q1: ''
       fy2020q4: BzCa1WoENAL
-      fy2020q3: ''
       fy2020q2: RLD3h6UW6fQ
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     ViolencePrevention:
       fy2021q4: aPBEFIWv1MZ
-      fy2021q3: ''
       fy2021q2: mzfQIChkHdF
-      fy2021q1: ''
       fy2020q4: siuXdnLl3hN
-      fy2020q3: ''
       fy2020q2: sLkRIDdTI7u
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   PrEP_NEW:
     Age/sex:
       fy2021q4: EeAl3JX7K4Q
@@ -86,26 +64,18 @@ Prevention:
       fy2021q2: nBAs8qSZagy
       fy2021q1: O2sgyaQZAWO
       fy2020q4: v4TTl0JyOKe
-      fy2020q3: ''
       fy2020q2: rgm4lES5Lam
-      fy2020q1: ''
       fy2019q4: TcQAgM8RSIC
-      fy2019q3: ''
       fy2019q2: YdbnroC6wcL
-      fy2019q1: ''
     Keypop:
       fy2021q4: fHZPl79EFXj
       fy2021q3: eGiX1szM02C
       fy2021q2: rWLG0MS4tZ2
       fy2021q1: EpnjNA9CiNX
       fy2020q4: LPrEHllKUII
-      fy2020q3: ''
       fy2020q2: owUPVWelYKk
-      fy2020q1: ''
       fy2019q4: TUXmAaRcA7H
-      fy2019q3: ''
       fy2019q2: Hjd6quAUM5H
-      fy2019q1: ''
   PrEP_CURR:
     Age/sex:
       fy2021q4: Vo6w0MpIGbx
@@ -113,255 +83,125 @@ Prevention:
       fy2021q2: RO2G4gH4oNw
       fy2021q1: gC9Fd5WYM1L
       fy2020q4: XZ9c2ASJgKP
-      fy2020q3: ''
       fy2020q2: V7mgkK0Ptcw
-      fy2020q1: ''
       fy2019q4: Sr7kNBIGlTM
-      fy2019q3: ''
       fy2019q2: llP4RXStX79
-      fy2019q1: ''
     Keypop:
       fy2021q4: zHg8Wj2NGq1
       fy2021q3: ih7fSEglJBG
       fy2021q2: SVjeENKMmTW
       fy2021q1: CthXCrUZbsf
       fy2020q4: DLzUB11viGl
-      fy2020q3: ''
       fy2020q2: Pvx4gNQeo0f
-      fy2020q1: ''
       fy2019q4: oVDP6w9XEK9
-      fy2019q3: ''
       fy2019q2: Jo2tAHhT088
-      fy2019q1: ''
     ThreeMonthTestresult:
       fy2021q4: tkZcjpkqjGQ
       fy2021q3: ETQ971xZ7bj
       fy2021q2: vSKO0XwvAQA
       fy2021q1: CPkQzVJZufQ
       fy2020q4: lHKrizz94DU
-      fy2020q3: ''
       fy2020q2: QFoNk6Xv2vE
-      fy2020q1: ''
       fy2019q4: j1depkrFncx
-      fy2019q3: ''
       fy2019q2: oPFlOIEjGxj
-      fy2019q1: ''
   KP_PREV:
     Keypop:
       fy2021q4: drI4VUIbxSI
-      fy2021q3: ''
       fy2021q2: ANeis8X8DGa
-      fy2021q1: ''
       fy2020q4: oT0rmbqe1EE
-      fy2020q3: ''
       fy2020q2: tzmGsLUxEWm
-      fy2020q1: ''
       fy2019q4: t0qYgEo5yiv
-      fy2019q3: ''
       fy2019q2: X6a5nx3NQY2
-      fy2019q1: ''
     KeyPop/status:
       fy2021q4: p7qiugG4u6g
-      fy2021q3: ''
       fy2021q2: hMDoCRR8Rkc
-      fy2021q1: ''
       fy2020q4: gv2QZV1nlj2
-      fy2020q3: ''
       fy2020q2: FGYkFuEeUE5
-      fy2020q1: ''
       fy2019q4: ed106um7Ts8
-      fy2019q3: ''
       fy2019q2: Q3bkkoW9Yz3
-      fy2019q1: ''
   PP_PREV:
     Age/sex:
       fy2021q4: fp2C31SFEFn
-      fy2021q3: ''
       fy2021q2: BrGVI6biSEW
-      fy2021q1: ''
       fy2020q4: tVE2tZyzEQm
-      fy2020q3: ''
       fy2020q2: wNqXlQydAEO
-      fy2020q1: ''
       fy2019q4: aoJE9t4efs9
-      fy2019q3: ''
       fy2019q2: tCVXzYH8tgN
-      fy2019q1: ''
     status:
       fy2021q4: zKqqrjgjeqk
-      fy2021q3: ''
       fy2021q2: fDoa3poE191
-      fy2021q1: ''
       fy2020q4: aEjkSabOJKG
-      fy2020q3: ''
       fy2020q2: ycgWOPXZYLu
-      fy2020q1: ''
       fy2019q4: gPgFU5XEeXt
-      fy2019q3: ''
       fy2019q2: h72iHxw0pSi
-      fy2019q1: ''
     PopPrioritytype:
       fy2021q4: QfRa1ebh7KH
-      fy2021q3: ''
       fy2021q2: eMX32pnAAhP
-      fy2021q1: ''
       fy2020q4: jDkNGvPbGlh
-      fy2020q3: ''
       fy2020q2: J6vSKIXJC1x
-      fy2020q1: ''
       fy2019q4: oT4H5Tg39h8
-      fy2019q3: ''
       fy2019q2: sSLyzXdlOuG
-      fy2019q1: ''
   OVC_SERV:
     Age/Sex/Programstatus:
       fy2021q4: p3Q5pY86Sr1
-      fy2021q3: ''
       fy2021q2: W0Lcg8Iz61U
-      fy2021q1: ''
       fy2020q4: kvwQIqFzPaf
-      fy2020q3: ''
       fy2020q2: FlrRdeXA3b1
-      fy2020q1: ''
       fy2019q4: V8ajzKXmUdK
-      fy2019q3: ''
       fy2019q2: IC73t8xgx5e
-      fy2019q1: ''
     TransferExit:
       fy2021q4: GXbnySimz4O
-      fy2021q3: ''
       fy2021q2: mWobCCk6iqC
-      fy2021q1: ''
       fy2020q4: mHc7S4YZNMk
-      fy2020q3: ''
       fy2020q2: je6phMbWOht
-      fy2020q1: ''
       fy2019q4: nTyljSLXNCX
-      fy2019q3: ''
       fy2019q2: MEzjsV98APt
-      fy2019q1: ''
     Caregivers:
       fy2021q4: ROBjtsJwKKa
-      fy2021q3: ''
       fy2021q2: QWeTSzxF73i
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     DREAMS:
       fy2021q4: bwUTFVVyRdQ
-      fy2021q3: ''
       fy2021q2: fWGmWGIhBbw
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Preventive:
       fy2021q4: en3GSh6kugA
-      fy2021q3: ''
       fy2021q2: ss75gF2c6qi
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   TB_PREV (Numerator):
     Age/TherapyType/Art/status:
       fy2021q4: kL3Y6QcEz5A
-      fy2021q3: ''
       fy2021q2: QRJEv7cWOvk
-      fy2021q1: ''
       fy2020q4: xRbAVV5CYVK
-      fy2020q3: ''
       fy2020q2: EyLfwdGaNPB
-      fy2020q1: ''
       fy2019q4: jzziKkCsAFz
-      fy2019q3: ''
       fy2019q2: wyTwMBEoLdO
-      fy2019q1: ''
   TB_PREV (Denominator):
     Age/TherapyType/Art/status:
       fy2021q4: VedsS7jGkAY
-      fy2021q3: ''
       fy2021q2: QEqFrTLI26D
-      fy2021q1: ''
       fy2020q4: xeNopJpxl5R
-      fy2020q3: ''
       fy2020q2: fffdQBZqt57
-      fy2020q1: ''
       fy2019q4: WdMHQYqpBV4
-      fy2019q3: ''
       fy2019q2: CI5hKukQnSV
-      fy2019q1: ''
   KP_MAT:
     sex:
       fy2021q4: cY4FyhrXv0Q
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: zk0zm1mTQJU
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: mWhKaodgqkU
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   GEND_GBV:
     Age/Sex/Violencetype:
       fy2021q4: FMsrAi8hYDF
-      fy2021q3: ''
       fy2021q2: Z97eJB8Ro8i
-      fy2021q1: ''
       fy2020q4: CKAMfCAZQV6
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: pyz3vdqGejW
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Age/Sex/PEP:
       fy2021q4: zmQBgwJ2RSW
-      fy2021q3: ''
       fy2021q2: hQ0qhqCmDca
-      fy2021q1: ''
       fy2020q4: mbWfl0mossU
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: n07XUc50uyr
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   FPINT_SITE:
     ServDelPoint:
       fy2021q4: HoAb1aicC5u
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: iZ0hSHvoirn
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: w7fgDdYESY6
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
 Testing:
   HTS_TST Topline Numerator:
     All Modalities:
@@ -646,14 +486,6 @@ Recency Testing:
       fy2019q2: KPFTWAzzkeW
       fy2019q1: PeVqrAc75pw
     Preg/indication:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: dDqFgJr3NuG
       fy2019q3: Rh5AklSVl3V
       fy2019q2: ccFmWVbHNaQ
@@ -681,10 +513,6 @@ Recency Testing:
       fy2020q3: YrK8qFDeBIU
       fy2020q2: WSFAaZwh0Ob
       fy2020q1: o0B7azegS1T
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Keypop:
       fy2021q4: q7SSqL8xoZk
       fy2021q3: DjWpVwWnpsJ
@@ -694,46 +522,18 @@ Recency Testing:
       fy2020q3: icG44KP03yp
       fy2020q2: Ltlbl2RqtxP
       fy2020q1: M0SN09kj5MQ
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   HTS_RECENT (Denominator):
     Age/Sex/indication:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: DqcUIpfKrTT
       fy2019q3: Mlg5ubYpvNp
       fy2019q2: hkt5jE53XUM
       fy2019q1: wM1X4Qvi2bF
     Preg/indication:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: oD87tR6Lud3
       fy2019q3: ooMXoTeptSM
       fy2019q2: jQNCePikxvc
       fy2019q1: B6wDcolM3s3
     Keypop:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: HhIxkRJUhxY
       fy2019q3: JH6O4OXqwk9
       fy2019q2: q2ZbzfObXpf
@@ -749,10 +549,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: JFYRQu8tAK0
       fy2020q2: w5lTtF2KaF5
       fy2020q1: c1a1htaHdPo
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Inpatient:
     Age/Sex/rtri:
       fy2021q4: uaPoNCMxOOZ
@@ -763,10 +559,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: DI5WmWaZfWh
       fy2020q2: u7aMSL8bsPR
       fy2020q1: hcRhV1YuJHr
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   TB Clinic:
     Age/Sex/rtri:
       fy2021q4: ZT64FDaYCEX
@@ -777,10 +569,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: MHjwTDogSqS
       fy2020q2: c6jynccBXNW
       fy2020q1: bZvPQmUlR0N
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   ANC1:
     Age/Sex/rtri:
       fy2021q4: qKfGMaRyXfw
@@ -791,10 +579,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: RnCLPr7N3bx
       fy2020q2: QugLTo8FhwV
       fy2020q1: VLCMH1mQTkT
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Post ANC1:
     Age/Sex/rtri:
       fy2021q4: YWvHskHj61S
@@ -805,10 +589,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: VTFzMhVzJbx
       fy2020q2: kGu2jP6ZnAu
       fy2020q1: itJrDmkOmQ5
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   VMMC:
     Age/Sex/rtri:
       fy2021q4: IPIuT8RDmfE
@@ -819,10 +599,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: P65cmosFdtm
       fy2020q2: aAHmxVhU0fI
       fy2020q1: AOlnP3xGLSU
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   STI Clinic:
     Age/Sex/rtri:
       fy2021q4: yZXpPdDTBOR
@@ -833,10 +609,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: kegq23xUSXk
       fy2020q2: tw5aa3NtEWs
       fy2020q1: gO3RapNjK6b
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Emergency Ward:
     Age/Sex/rtri:
       fy2021q4: h2eCRNhHBe1
@@ -847,10 +619,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: beZYmQ1EkeB
       fy2020q2: gdCvh62SyOd
       fy2020q1: oKdtp2U8BfN
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Other PITC:
     Age/Sex/rtri:
       fy2021q4: ASvD68GfnYY
@@ -861,10 +629,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: LeBBVlbMLpC
       fy2020q2: fGM9mgSovqp
       fy2020q1: t3CQpJJ9zGK
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   VCT:
     Age/Sex/rtri:
       fy2021q4: bRLgkLxFODX
@@ -875,10 +639,6 @@ Recency Testing - Facility Based Modalities:
       fy2020q3: RTlY7FOLQGp
       fy2020q2: FBQiXfzyaXs
       fy2020q1: ojX8EapKoan
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
 Recency Testing - Community Based Modalities:
   Index:
     Age/Sex/rtri:
@@ -890,10 +650,6 @@ Recency Testing - Community Based Modalities:
       fy2020q3: JAbqQNO1Xze
       fy2020q2: UY7LMUBY5Is
       fy2020q1: jlTCVkO0GTH
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Mobile:
     Age/Sex/rtri:
       fy2021q4: R88AyQsAeLC
@@ -904,10 +660,6 @@ Recency Testing - Community Based Modalities:
       fy2020q3: KFw0J1a5URK
       fy2020q2: KZJQDytiXWy
       fy2020q1: HXpvT2O82ab
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   VCT:
     Age/Sex/rtri:
       fy2021q4: yWzL4xHS5eo
@@ -918,10 +670,6 @@ Recency Testing - Community Based Modalities:
       fy2020q3: PjLMfrfQi3V
       fy2020q2: xr2pkj2sph9
       fy2020q1: ABQPJPyTZGk
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   Other:
     Age/Sex/rtri:
       fy2021q4: D7IDtaxOrMw
@@ -932,10 +680,6 @@ Recency Testing - Community Based Modalities:
       fy2020q3: y7ClWD50Vi7
       fy2020q2: kw22rHEntoB
       fy2020q1: L24squPhQSc
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
 Index Testing - Facility Based:
   HTS_INDEX:
     Age/Sex/IndexOffered:
@@ -1185,45 +929,21 @@ Testing - All Others:
   CXCA_SCRN (Numerator):
     Age/Sex/Status/ScreenResult/ScreenVisit:
       fy2021q4: afJAXO4LdOJ
-      fy2021q3: ''
       fy2021q2: jhvNA97D2Bh
-      fy2021q1: ''
       fy2020q4: sx87bV2AxPJ
-      fy2020q3: ''
       fy2020q2: cuqXA7tXWf1
-      fy2020q1: ''
       fy2019q4: M8gjnnbxXHE
-      fy2019q3: ''
       fy2019q2: J8WcQQffUya
-      fy2019q1: ''
   PMTCT_FO (Numerator):
     Outcome:
       fy2021q4: bQnFn1c9ISY
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: q8VJnXQy7FW
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: APT3Lcsbg12
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   PMTCT_FO (Denominator):
     Denominator:
       fy2021q4: kYYiOlwCGgb
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: WVhZd0fiduA
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: ZLij5TGfjWO
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
 Treatment:
   TX_NEW:
     Age/sex:
@@ -1288,10 +1008,6 @@ Treatment:
       fy2020q3: HNCZmVbfx1W
       fy2020q2: e899IboN9Wz
       fy2020q1: cKsVps1ORJs
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Keypop:
       fy2021q4: eIFUVeEzJBx
       fy2021q3: AQOUDjqzTaC
@@ -1301,10 +1017,6 @@ Treatment:
       fy2020q3: CGXhi502rXC
       fy2020q2: jm12Tiu9IlW
       fy2020q1: gAtCzSCKJTk
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   TX_RTT:
     Age/Sex/HIVstatus:
       fy2021q4: NUsiSHuNfdQ
@@ -1315,10 +1027,6 @@ Treatment:
       fy2020q3: yW8NHayGZxC
       fy2020q2: AIaP25qH3I3
       fy2020q1: StBCD9HylzI
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Keypop:
       fy2021q4: GglhCMMInqI
       fy2021q3: aBYtqRlZfKR
@@ -1328,10 +1036,6 @@ Treatment:
       fy2020q3: sGTXKAWCEeN
       fy2020q2: wfIkgSFrTAl
       fy2020q1: scf79Yg5u7q
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   PMTCT_ART:
     Age/ART/Sex/status:
       fy2021q4: z6G5qp5nwtO
@@ -1363,97 +1067,49 @@ Treatment:
   OVC_HIVSTAT:
     Reportedstatus:
       fy2021q4: Iya4lDLplkJ
-      fy2021q3: ''
       fy2021q2: VyTuNkp35TD
-      fy2021q1: ''
       fy2020q4: tbI17FHXTCk
-      fy2020q3: ''
       fy2020q2: mB2hDEtUWB5
-      fy2020q1: ''
       fy2019q4: gA5gYLZM9G6
-      fy2019q3: ''
       fy2019q2: Q6vIBIGNyvG
-      fy2019q1: ''
   TX_TB (Numeartor):
     Age/Sex/ART:
       fy2021q4: ylW2N0JZVJ6
-      fy2021q3: ''
       fy2021q2: TlMnAjITcIW
-      fy2021q1: ''
       fy2020q4: TJael1wbIVX
-      fy2020q3: ''
       fy2020q2: Kfw1cjIeCRz
-      fy2020q1: ''
       fy2019q4: vfmRpn7NgFl
-      fy2019q3: ''
       fy2019q2: OXbK9GylPpI
-      fy2019q1: ''
     TestType/status:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: v8AVY0nwZWu
-      fy2019q3: ''
       fy2019q2: bhFe6rZC7K8
-      fy2019q1: ''
   TX_TB (Denominator):
     Age/Sex/TBScreen/ART/status:
       fy2021q4: TFxTIK1SEu0
-      fy2021q3: ''
       fy2021q2: OZ3W3Nug6Iv
-      fy2021q1: ''
       fy2020q4: i6Nx9jhwaLP
-      fy2020q3: ''
       fy2020q2: fxKzB5EQSFo
-      fy2020q1: ''
       fy2019q4: NVQwRV50VC6
-      fy2019q3: ''
       fy2019q2: HsR2Z6D3fWd
-      fy2019q1: ''
     SpecimenSent/status:
       fy2021q4: LaNPf8CQiK6
-      fy2021q3: ''
       fy2021q2: XAnsOBgN4cc
-      fy2021q1: ''
       fy2020q4: FgiDpHbGM42
-      fy2020q3: ''
       fy2020q2: RN7R7uN7PLP
-      fy2020q1: ''
       fy2019q4: nsg8tnFjpD4
-      fy2019q3: ''
       fy2019q2: rJYJyQ6cxxu
-      fy2019q1: ''
     SpecimenReturn/status:
       fy2021q4: L9QIFjrHWjS
-      fy2021q3: ''
       fy2021q2: l3FhYQ2ANZi
-      fy2021q1: ''
       fy2020q4: HSZpXJAjKDl
-      fy2020q3: ''
       fy2020q2: JRZwSecb4Zh
-      fy2020q1: ''
       fy2019q4: XZnAqYbZ4Sh
-      fy2019q3: ''
       fy2019q2: bevXMiDgaXO
-      fy2019q1: ''
     TestType/status:
       fy2021q4: axqb1sIfCcn
-      fy2021q3: ''
       fy2021q2: a1ncPwLtVEF
-      fy2021q1: ''
       fy2020q4: dCiVuZ19Vko
-      fy2020q3: ''
       fy2020q2: kqe24cMehFL
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   TX_ML:
     Age/Sex/ART:
       fy2021q4: u4LI8g18yWv
@@ -1465,9 +1121,7 @@ Treatment:
       fy2020q2: JhkgsTa0wLu
       fy2020q1: m64f7cRcsWW
       fy2019q4: bZCbEtjc0LD
-      fy2019q3: ''
       fy2019q2: XotiddXKTjM
-      fy2019q1: ''
     Age/Sex/ARTCauseofDeath/HIVstatus:
       fy2021q4: PfsK4JsMkzv
       fy2021q3: B8dJ4SKXvOs
@@ -1477,24 +1131,14 @@ Treatment:
       fy2020q3: RhDmGxyIPQD
       fy2020q2: zxYqh6WH9nt
       fy2020q1: ktPDhHHmoUE
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   CXCA_TX:
     Age/Sex/Status/TreatmentType/ScreenVisittype:
       fy2021q4: uVWaCyK0hPp
-      fy2021q3: ''
       fy2021q2: r7tXIYoEBnz
-      fy2021q1: ''
       fy2020q4: haT5TttVgbu
-      fy2020q3: ''
       fy2020q2: MqmEJOKdAjc
-      fy2020q1: ''
       fy2019q4: tzppAweoLav
-      fy2019q3: ''
       fy2019q2: xTKxtGxMGDa
-      fy2019q1: ''
 Viral Suppression:
   TX_PVLS (Numerator):
     Age/Sex/indication:
@@ -1519,10 +1163,6 @@ Viral Suppression:
       fy2020q3: jpNqDguo2M0
       fy2020q2: GZF8s1Tx9ZB
       fy2020q1: FSfisgmr5Hr
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     PregBF/indication:
       fy2021q4: ylVKt4IEl0Y
       fy2021q3: t5ts3bJTgkr
@@ -1559,10 +1199,6 @@ Viral Suppression:
       fy2020q3: T3q7xjT4m5S
       fy2020q2: uh2fNoHmpjQ
       fy2020q1: DbUYLlSnQaK
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     PregBF/indication:
       fy2021q4: frcfprQxEuK
       fy2021q3: Q62ksIi4xND
@@ -1580,205 +1216,64 @@ Health Systems:
   SC_ARVDISP:
     DispensedARVBottles:
       fy2021q4: bw9b26HN2zU
-      fy2021q3: ''
       fy2021q2: Res2f6EHnzz
-      fy2021q1: ''
       fy2020q4: TPDINHYL9RQ
-      fy2020q3: ''
       fy2020q2: tfxjz9cilQs
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   SC_CURR:
     CurrentARVBottles:
       fy2021q4: kk9An0XFU34
-      fy2021q3: ''
       fy2021q2: LwMWyIJaDC1
-      fy2021q1: ''
       fy2020q4: Lr8y88yEnd3
-      fy2020q3: ''
       fy2020q2: UHahapdFg3l
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   HRH_CURR:
     DedupedStaff/Cadre:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: VJthzlRq52L
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: wXFcFw5z1g5
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Staff/Cadre/Supporttype:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: MliwnWgbpvt
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: feb3aDHQgm9
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Exp/Cadre/Supporttype:
-      fy2021q4: ''
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: bDxeRh2G9LC
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   HRH_PRE:
     Grad/Cadre:
       fy2021q4: QNEBzHLx7QA
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: bajVHFceV6c
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: qOauxcBZ268
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   EMR_SITE:
     ServiceDeliveryArea:
       fy2021q4: VHBrJ2IkduU
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: c67Yeq1bsEH
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: cgJJL383lJ7
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   LAB_PTCQI (Lab Based):
     Lab/CQI:
       fy2021q4: s1g01QFPs5J
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: oegxL38on9y
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: eDiGZ8Aavii
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Lab/PT:
       fy2021q4: hiDPeYHHnYv
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: RHU4BVPhcrd
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: WHrJRDXdTgt
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     Lab/TestVolume:
       fy2021q4: I9yIXDAs2x1
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: KJVsYsnD0gR
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: vfpZPMWtTES
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   LAB_PTCQI (POCT Based):
     POCT/CQI:
       fy2021q4: rRX0s07JRO1
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: LGwTKr7ltZA
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: q66NOLL4Z4x
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     POCT/PT:
       fy2021q4: GSLiskXVP8f
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: qvldPv6jUgd
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: jK62gsysnJ9
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
     POCT/TestVolume:
       fy2021q4: GSUZOofwWSP
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
       fy2020q4: sZFjm8AvlQk
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
       fy2019q4: H2YvY7E2px4
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
 National Level Indicators:
   KP_MAT_NAT:
     Sex:
       fy2021q4: OpIfXz7oIBm
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
   TX_CURR_NAT:
     Age/Sex/HIVStatus:
       fy2021q4: CjVLi0GuOQn
-      fy2021q3: ''
-      fy2021q2: ''
-      fy2021q1: ''
-      fy2020q4: ''
-      fy2020q3: ''
-      fy2020q2: ''
-      fy2020q1: ''
-      fy2019q4: ''
-      fy2019q3: ''
-      fy2019q2: ''
-      fy2019q1: ''
