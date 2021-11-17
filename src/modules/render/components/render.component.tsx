@@ -39,7 +39,7 @@ export default class Render extends React.Component<any, {
         return <React.Fragment>
             {this.state.content.map(({type, body},i)=>{
                 if (type===ContentItemType.string) return <div style={styles.defaultText} key={i} dangerouslySetInnerHTML={{ __html: body as string}} />
-                if (type===ContentItemType.nestedMenu) return <NestedMenu menuJson={body as NestedMenuJson}/>
+                if (type===ContentItemType.nestedMenu) return <NestedMenu menuJson={body as NestedMenuJson} key={i}/>
                 return null;
             })}
         </React.Fragment>

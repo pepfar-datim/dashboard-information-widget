@@ -48,8 +48,8 @@ const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
     </option>
 }
 
-function Item({category, selected, index, onClick}:{category:string, selected:boolean, index:number, onClick: ()=>void}){
-    return <option onClick={onClick} key={index} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}>
+function Item({category, selected, onClick}:{category:string, selected:boolean, onClick: ()=>void}){
+    return <option onClick={onClick} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}>
         {category}
     </option>
 }
@@ -64,7 +64,7 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement
         <select style={styles.subMenu} multiple={true} value={selectedKey||''}>
             {Object.keys(menuJson).map((category,index)=>{
                 if (typeof menuJson[category]==='string') return <AnalyticsLink id={menuJson[category] as string} name={category}/>
-                else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} index={index}/>
+                else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} key={index}/>
             })}
         </select>
         {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
