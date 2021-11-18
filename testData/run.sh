@@ -1,1 +1,1 @@
-npx ts-node --skip-project parseTable.ts
+npx ts-node --skip-project parseTables.ts
