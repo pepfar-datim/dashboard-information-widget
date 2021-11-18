@@ -43,8 +43,8 @@ firstLevel.forEach((currentSectionTitle:string,i:number)=>{
     Output[currentSectionTitle] = {};
     tableRows.forEach((row:HTMLElement)=>{
         let out = Output[currentSectionTitle];
-        let rowTitle = row.childNodes[1].textContent//.replace(/\s+/g,'');
-        let subTitle = row.childNodes[3].textContent//.replace(/\s+/g,'');
+        let rowTitle = row.childNodes[1].textContent;
+        let subTitle = row.childNodes[3].textContent;
         if (rowTitle==="Technical Area") return;
         switch (status){
             case SectionStatus.searching:
