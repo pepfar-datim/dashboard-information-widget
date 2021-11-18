@@ -4,7 +4,11 @@ interface HTMLElement {
 
 function getId(row:HTMLElement, i:number):string{
     let nodes = row.childNodes.map((n:any)=>n.childNodes);
-    return nodes[3+(2*i)][0].rawAttrs?.replace(/^.+\#\//,'').replace('"','')
+    try {
+        return nodes[3 + (2 * i)][0].rawAttrs?.replace(/^.+\#\//, '').replace('"', '')
+    }catch (e) {
+        return '';
+    }
 }
 
 export function addLinks(row:HTMLElement){
