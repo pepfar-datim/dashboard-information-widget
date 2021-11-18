@@ -36,5 +36,7 @@ let targetHeadings = [
     "Viral Suppression",
 ]
 
-exportYaml(parseTable(getHtml("./data/results.html"), resultsHeadings), "./data/results.yaml")
-exportYaml(parseTable(getHtml("./data/targets.html"), targetHeadings), "./data/targets.yaml")
+exportYaml({
+    Results: parseTable(getHtml("./data/results.html"), resultsHeadings),
+    Targets: parseTable(getHtml("./data/targets.html"), targetHeadings)
+}, "./data/output.yaml")
