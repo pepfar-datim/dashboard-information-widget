@@ -1,5 +1,5 @@
 import {initServerSettings, mockContent, mockNoContent} from "../shared.testServices";
-import {debug, noText, pause, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
+import {clickByText, debug, noText, pause, setUpComponent, text, texts} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../../modules/main/components/accessWrapper.component";
 import {readFileSync} from "fs";
 
@@ -12,5 +12,16 @@ test('5 > Nested menu',async ()=>{
         onEditPage: false,
     })
     mockContent(widgetContent);
-    await setUpComponent(<AccessWrapper/>, ['Prevention','Testing','Testing - Facility Based Modalities']);
+    await setUpComponent(<AccessWrapper/>, ['Results','Targets']);
+
+    // Tree 1
+    clickByText('Results');
+    clickByText('Prevention');
+    texts(['VMMC_CIRC','AGYW_PREV','PrEP_NEW']);
+    clickByText('VMMC_CIRC');
+    texts(['Age/sex','Age/Sex/HIVstatus'])
+
+    // Tree 2
+    clickByText('Testing');
+    texts(['HTS_TST Topline Numerator'])
 })

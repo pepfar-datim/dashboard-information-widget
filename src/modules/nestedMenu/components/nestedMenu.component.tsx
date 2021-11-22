@@ -11,6 +11,7 @@ const styles = {
 }
 
 export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement{
+    console.log(menuJson)
     return <Box style={styles.root}>
         <NestedSubMenu menuJson={menuJson}/>
     </Box>
