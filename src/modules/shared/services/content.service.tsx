@@ -15,7 +15,7 @@ export type ContentItem = {
 };
 
 function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuJson[]}{
-    let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
+    let preTags = contentString.match(/<pre(.|\s)+?nestedMenu(.|\s)+?pre>/g);
     if (!preTags) return {cleanedContentString: contentString, nestedMenus: []};
     let nestedMenus:NestedMenuJson[] = [];
     let cleanedContentString:string = contentString;

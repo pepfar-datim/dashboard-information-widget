@@ -60,8 +60,6 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement
         setSelectedKey(null);
         return null;
     }
-    console.log('selectedKey',selectedKey)
-    selectedKey&&console.log('menuJson[selectedKey]',menuJson[selectedKey])
     return <React.Fragment>
         <select style={styles.subMenu} multiple={true} defaultValue={[selectedKey||'']}>
             {Object.keys(menuJson).map((category,index)=>{
