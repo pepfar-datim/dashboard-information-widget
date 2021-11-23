@@ -10,7 +10,7 @@ export enum ContentItemType{
 }
 
 export type NestedMenuObject = {
-    height: number|null,
+    style: string|null,
     content: NestedMenuContent
 }
 export interface NestedMenuContent {[key: string]: string|NestedMenuContent}
@@ -19,14 +19,19 @@ export type ContentItem = {
     body: string|NestedMenuObject
 };
 
+export function extractStyle(pre:string):string|null{
+    if (!/data-style/.test(pre)) return null;
+    else return pre.replace(/^.+?data-style="/,'').replace(/".+$/,'')
+}
+
 function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuObject[]}{
-    let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
+    let preTags = contentString.match(/<pre(.|\s)+?nestedMenu(.|\s)+?pre>/g);
     if (!preTags) return {cleanedContentString: contentString, nestedMenus: []};
     let nestedMenus:NestedMenuObject[] = [];
     let cleanedContentString:string = contentString;
     preTags.forEach((nestedMenuCode:string,i:number)=>{
         cleanedContentString = cleanedContentString.replace(nestedMenuCode,`#nestedMenu${i}#`);
-        nestedMenus.push({content: parseYaml(nestedMenuCode), height:null});
+        nestedMenus.push({content: parseYaml(nestedMenuCode), style:extractStyle(nestedMenuCode)});
     });
     return {cleanedContentString,nestedMenus}
 }
