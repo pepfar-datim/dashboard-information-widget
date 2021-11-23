@@ -44,7 +44,12 @@ function separateNestedMenus(contentString:string):{cleanedContentString:string,
 }
 
 function parseYaml(nestedMenuPre:string):NestedMenuContent{
-    let yaml = nestedMenuPre.replace(/<pre .*?>/,'').replace("</pre>",'');
+    let yaml = nestedMenuPre
+        .replace(/<pre .*?>/,'')
+        .replace("</pre>",'')
+        // .replace(/(\{|\})/g,'"')
+        // .replace(/".+"/,'')
+        .replace(':','|')
     try {
         return YAML.parse(yaml);
     }catch(e){
