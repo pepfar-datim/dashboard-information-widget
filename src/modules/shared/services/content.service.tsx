@@ -8,25 +8,30 @@ export enum ContentItemType{
     string='string',
     nestedMenu= 'nestedMenu'
 }
-export interface NestedMenuJson {[key: string]: string|NestedMenuJson}
+
+export type NestedMenuObject = {
+    height: number|null,
+    content: NestedMenuContent
+}
+export interface NestedMenuContent {[key: string]: string|NestedMenuContent}
 export type ContentItem = {
     type: ContentItemType,
-    body: string|NestedMenuJson
+    body: string|NestedMenuObject
 };
 
-function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuJson[]}{
-    let preTags = contentString.match(/<pre(.|\s)+?nestedMenu(.|\s)+?pre>/g);
+function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuObject[]}{
+    let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
     if (!preTags) return {cleanedContentString: contentString, nestedMenus: []};
-    let nestedMenus:NestedMenuJson[] = [];
+    let nestedMenus:NestedMenuObject[] = [];
     let cleanedContentString:string = contentString;
     preTags.forEach((nestedMenuCode:string,i:number)=>{
         cleanedContentString = cleanedContentString.replace(nestedMenuCode,`#nestedMenu${i}#`);
-        nestedMenus.push(parseYaml(nestedMenuCode));
+        nestedMenus.push({content: parseYaml(nestedMenuCode), height:null});
     });
     return {cleanedContentString,nestedMenus}
 }
 
-function parseYaml(nestedMenuPre:string):NestedMenuJson{
+function parseYaml(nestedMenuPre:string):NestedMenuContent{
     let yaml = nestedMenuPre.replace(/<pre .*?>/,'').replace("</pre>",'');
     try {
         return YAML.parse(yaml);

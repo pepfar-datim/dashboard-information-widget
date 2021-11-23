@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {NestedMenuJson} from "../../shared/services/content.service";
+import {NestedMenuContent, NestedMenuObject} from "../../shared/services/content.service";
 import {Box} from '@mui/material';
 import "./nestedMenu.css"
 import {NestedSubMenu} from "./nestedSubMenu.component";
@@ -10,8 +10,8 @@ const styles = {
     }
 }
 
-export function NestedMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement{
+export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
     return <Box style={styles.root}>
-        <NestedSubMenu menuJson={menuJson}/>
+        <NestedSubMenu menuJson={menuJson.content}/>
     </Box>
 }

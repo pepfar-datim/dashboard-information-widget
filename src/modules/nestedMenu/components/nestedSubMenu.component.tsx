@@ -2,7 +2,7 @@ import React, {CSSProperties, ReactElement, useState} from "react";
 import {List, ListItem, ListItemText, styled} from "@mui/material";
 import ArrowRight from "@mui/icons-material/ArrowRightAlt";
 import {Link} from 'react-router-dom';
-import {NestedMenuJson} from "../../shared/services/content.service";
+import {NestedMenuContent} from "../../shared/services/content.service";
 
 const styles = {
     subMenu: {
@@ -54,7 +54,7 @@ function Item({category, selected, onClick}:{category:string, selected:boolean, 
     </option>
 }
 
-export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement|null{
+export function NestedSubMenu({menuJson}:{menuJson:NestedMenuContent}):ReactElement|null{
     let [selectedKey,setSelectedKey] = useState<string|null>(null)
     if (selectedKey&&!menuJson[selectedKey]) {
         setSelectedKey(null);
@@ -67,6 +67,6 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuJson}):ReactElement
                 else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} key={index}/>
             })}
         </select>
-        {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuJson}/>}
+        {selectedKey&&<NestedSubMenu menuJson={menuJson[selectedKey] as NestedMenuContent}/>}
     </React.Fragment>
 }
