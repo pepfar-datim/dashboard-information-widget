@@ -47,9 +47,8 @@ function parseYaml(nestedMenuPre:string):NestedMenuContent{
     let yaml = nestedMenuPre
         .replace(/<pre .*?>/,'')
         .replace("</pre>",'')
-        // .replace(/(\{|\})/g,'"')
-        // .replace(/".+"/,'')
-        .replace(':','|')
+        .replace(/\{.+:.+\}/g,(css:string)=>css.replace(/:/g,'|'))
+    console.log('yaml',yaml)
     try {
         return YAML.parse(yaml);
     }catch(e){
