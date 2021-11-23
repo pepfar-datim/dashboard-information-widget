@@ -19,9 +19,13 @@ export type ContentItem = {
     body: string|NestedMenuObject
 };
 
+function removeTags(source:string, quotes:string){
+    return source.replace(/^.+?data-style="/,'').replace(/".+$/,'')
+}
+
 export function extractStyle(pre:string):string|null{
     if (!/data-style/.test(pre)) return null;
-    else return pre.replace(/^.+?data-style="/,'').replace(/".+$/,'')
+    else return removeTags(pre, '"')||removeTags(pre, "'");
 }
 
 function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuObject[]}{

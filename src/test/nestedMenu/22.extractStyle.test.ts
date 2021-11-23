@@ -15,11 +15,11 @@ const testScenarios: TestScenario[]=[{
     input: '<pre data-style="border: 1px solid black;" type="nestedMenu">pre content</pre>',
     output: 'border: 1px solid black;'
 },{
-    input: '<<pre data-style="border: 1px solid black;" type="nestedMenu">pre content</pre>',
-    output: null
+    input: "<pre data-style='border: 1px solid black;' type='nestedMenu'>pre content</pre>",
+    output: 'border: 1px solid black;'
 },{
-    input: '<pre type="nestedMenu">pre content</pre>',
-    output: null
+    input: "<pre type='nestedMenu' data-style='border: 1px solid black;'>pre content</pre>",
+    output: 'border: 1px solid black;'
 }]
 
 testScenarios.forEach((scenario:TestScenario)=>{
