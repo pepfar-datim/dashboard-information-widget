@@ -11,7 +11,13 @@ const styles = {
 }
 
 export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
-    return <Box style={styles.root}>
-        <NestedSubMenu menuJson={menuJson.content}/>
-    </Box>
+    let rand = Math.floor(Math.random()*1000);
+    return <>
+        <Box style={styles.root} id={`nestedMenu_${rand}`}>
+            <NestedSubMenu menuJson={menuJson.content}/>
+        </Box>
+        <style>
+            {`#nestedMenu_${rand}{${menuJson.style}}`}
+        </style>
+    </>
 }

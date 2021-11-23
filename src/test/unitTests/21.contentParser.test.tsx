@@ -15,7 +15,7 @@ function txt(t:string):ContentItem{
 }
 
 function sft(t:any):ContentItem{
-    return {body:{content: t, height: null}, type: ContentItemType.nestedMenu}
+    return {body:{content: t, style: null}, type: ContentItemType.nestedMenu}
 }
 
 const nestedMenuYaml1 = `Results: 

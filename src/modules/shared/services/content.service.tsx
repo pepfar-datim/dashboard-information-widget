@@ -19,12 +19,15 @@ export type ContentItem = {
     body: string|NestedMenuObject
 };
 
-function removeTags(source:string, quotes:string){
-    return source.replace(/^.+?data-style="/,'').replace(/".+$/,'')
+function removeTags(source:string, quotes:string):string|null{
+    let start:RegExp = new RegExp(`^.+?style=${quotes}`)
+    let end:RegExp = new RegExp(`${quotes}(.|\n)+$`)
+    if (!start.test(source)) return null;
+    return source.replace(start,'').replace(end,'')
 }
 
 export function extractStyle(pre:string):string|null{
-    if (!/data-style/.test(pre)) return null;
+    if (!/style=/.test(pre)) return null;
     else return removeTags(pre, '"')||removeTags(pre, "'");
 }
 
