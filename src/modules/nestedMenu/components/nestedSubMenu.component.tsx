@@ -3,6 +3,8 @@ import {List, ListItem, ListItemText, styled} from "@mui/material";
 import ArrowRight from "@mui/icons-material/ArrowRightAlt";
 import {Link} from 'react-router-dom';
 import {NestedMenuContent} from "../../shared/services/content.service";
+import {randomInteger} from "../services/randomInteger";
+import {createStyleElement} from "../services/createStyleElement";
 
 const styles = {
     subMenu: {
@@ -49,9 +51,23 @@ const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
 }
 
 function Item({category, selected, onClick}:{category:string, selected:boolean, onClick: ()=>void}){
-    return <option onClick={onClick} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}>
+    let id = `nestedMenuItem_${randomInteger()}`
+    if (/\{.+\}/.test(category)) {
+        try {
+            let r = category.match(/\{.+\}/);
+            let css = r&&r[0]
+                ?.replace(/(\{|\})/g,"")
+                ?.replace(/\|/g,":")
+                ?.replace(/\$/g,"#")
+                createStyleElement(id,css);
+        }catch(e){
+
+        }
+        category = category.replace(/\{.+\}/, '')
+    }
+    return <><option onClick={onClick} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})} id={id}>
         {category}
-    </option>
+    </option></>
 }
 
 export function NestedSubMenu({menuJson}:{menuJson:NestedMenuContent}):ReactElement|null{

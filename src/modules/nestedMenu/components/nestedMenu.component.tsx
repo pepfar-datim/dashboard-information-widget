@@ -3,6 +3,7 @@ import {NestedMenuContent, NestedMenuObject} from "../../shared/services/content
 import {Box} from '@mui/material';
 import "./nestedMenu.css"
 import {NestedSubMenu} from "./nestedSubMenu.component";
+import {randomInteger} from "../services/randomInteger";
 
 const styles = {
     root: {
@@ -11,7 +12,7 @@ const styles = {
 }
 
 export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
-    let rand = Math.floor(Math.random()*1000);
+    let rand = randomInteger();
     return <>
         <Box style={styles.root} id={`nestedMenu_${rand}`}>
             <NestedSubMenu menuJson={menuJson.content}/>
