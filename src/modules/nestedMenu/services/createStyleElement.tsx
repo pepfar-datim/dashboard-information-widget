@@ -1,6 +1,5 @@
 
 export function createStyleElement(id, style){
-    console.log(id,style)
     const stylesSheet:string = `#${id} {${style}}`;
     let css = document.createElement('style');
     css.appendChild(document.createTextNode(stylesSheet));

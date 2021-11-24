@@ -53,7 +53,6 @@ function parseYaml(nestedMenuPre:string):NestedMenuContent{
         .replace("</pre>",'')
         .replace(/\{.+:.+\}/g,escapeCss)
     try {
-        console.log(yaml)
         return YAML.parse(yaml);
     }catch(e){
         console.error(e);

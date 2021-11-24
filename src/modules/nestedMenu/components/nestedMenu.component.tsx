@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {NestedMenuContent, NestedMenuObject} from "../../shared/services/content.service";
+import {NestedMenuObject} from "../../shared/services/content.service";
 import {Box} from '@mui/material';
 import "./nestedMenu.css"
 import {NestedSubMenu} from "./nestedSubMenu.component";

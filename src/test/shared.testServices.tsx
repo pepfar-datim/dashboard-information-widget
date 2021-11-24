@@ -1,5 +1,5 @@
 import {registerGetMock} from "@pepfar-react-lib/http-tools";
-import {click, clickTest, ClickTestScenario, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
+import {click, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
 import {waitFor} from "@testing-library/react";
 

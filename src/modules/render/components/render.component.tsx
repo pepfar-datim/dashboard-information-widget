@@ -3,7 +3,7 @@ import {
     ContentItem,
     ContentItemType,
     fetchContent,
-    NestedMenuContent, NestedMenuObject,
+    NestedMenuObject,
     parseContent
 } from '../../shared/services/content.service';
 import {Typography} from '@mui/material';

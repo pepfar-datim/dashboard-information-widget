@@ -1,7 +1,5 @@
 import React, {CSSProperties, ReactElement, useState} from "react";
-import {List, ListItem, ListItemText, styled} from "@mui/material";
-import ArrowRight from "@mui/icons-material/ArrowRightAlt";
-import {Link} from 'react-router-dom';
+import {ListItem, styled} from "@mui/material";
 import {NestedMenuContent} from "../../shared/services/content.service";
 import {randomInteger} from "../services/randomInteger";
 import {createStyleElement} from "../services/createStyleElement";

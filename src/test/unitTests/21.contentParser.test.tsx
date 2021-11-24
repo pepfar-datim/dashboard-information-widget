@@ -1,8 +1,4 @@
-import {
-    ContentItem,
-    ContentItemType,
-    parseContent
-} from "../../modules/shared/services/content.service";
+import {ContentItem, ContentItemType, parseContent} from "../../modules/shared/services/content.service";
 
 type TestCase = {
     name: string;

@@ -1,4 +1,4 @@
-import {click, debug, pause, textsWait} from "@pepfar-react-lib/jest-tools";
+import {click, textsWait} from "@pepfar-react-lib/jest-tools";
 import {gotoEdit, mockContent, mockNoContent, ServerSettings, setEditorValue} from "./shared.testServices";
 import {registerSendMock} from "@pepfar-react-lib/http-tools";
 
