@@ -37,11 +37,13 @@ const MenuItem = styled(ListItem,{
 })({
 })
 
-const generateLink = (id:string)=>`/dhis-web-data-visualizer/index.html#/${id}`
+const generateLink = (link:string)=>{
+    return link;
+}
 
-const AnalyticsLink = ({id,name}:{id:string, name:string})=>{
+const AnalyticsLink = ({link,name}:{link:string, name:string})=>{
     return <option onClick={()=>{
-        let newTab = window.open(generateLink(id), '_blank')
+        let newTab = window.open(generateLink(link), '_blank')
         newTab&&newTab.focus()
     }} style={styles.menuItem}>
         {name}
@@ -77,7 +79,7 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuContent}):ReactElem
     return <React.Fragment>
         <select style={styles.subMenu} multiple={true} defaultValue={[selectedKey||'']}>
             {Object.keys(menuJson).map((category,index)=>{
-                if (typeof menuJson[category]==='string') return <AnalyticsLink id={menuJson[category] as string} name={category} key={index}/>
+                if (typeof menuJson[category]==='string') return <AnalyticsLink link={menuJson[category] as string} name={category} key={index}/>
                 else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} key={index}/>
             })}
         </select>
