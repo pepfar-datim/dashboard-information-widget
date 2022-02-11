@@ -1,4 +1,4 @@
-import React from "react";
+import React, {CSSProperties} from "react";
 import {Link} from 'react-router-dom';
 import {Button} from "@dhis2/ui";
 import {getData} from "@pepfar-react-lib/http-tools";
@@ -9,7 +9,7 @@ const styles = {
     link: {
         float: 'right',
         textDecoration: 'none'
-    },
+    } as CSSProperties,
 };
 
 function isOnEditPage(){

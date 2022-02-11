@@ -1,7 +1,7 @@
 import React, {CSSProperties} from 'react';
 import {fetchContent, saveContent} from '../shared/services/content.service';
 import {Button, ButtonStrip} from '@dhis2/ui';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
 import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
@@ -25,7 +25,7 @@ const styles = {
 };
 
 class Edit extends React.Component<
-    { enqueueSnackbar: any; history: any },
+    { enqueueSnackbar: any },
     {
         editedContent?: string;
     }
@@ -48,6 +48,7 @@ class Edit extends React.Component<
     }
 
     onChange = (newContent) => {
+        console.log('newContent', newContent)
         this.setState({ editedContent: newContent });
         this.editor.value = newContent;
     };
@@ -56,7 +57,7 @@ class Edit extends React.Component<
         saveContent(contentHook(this.state.editedContent))
             .then(() => {
                 this.props.enqueueSnackbar('Content saved');
-                this.props.history.push('/');
+                window.location.href = "/";
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');
@@ -88,4 +89,4 @@ class Edit extends React.Component<
     }
 }
 
-export default withRouter(withSnackbar(Edit));
+export default withSnackbar(Edit);
