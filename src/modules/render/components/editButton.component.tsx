@@ -13,6 +13,10 @@ const styles = {
 };
 
 function isOnEditPage(){
+    console.log(
+        'onEditPage: ',
+        window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new')
+    );
     return window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new')
 }
 

@@ -1,5 +1,5 @@
 import React, {Ref} from 'react';
-import {HashRouter, Route, Routes} from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Render from '../../render/components/render.component';
 import Edit from '../../edit/edit.component';
 import {SnackbarProvider, SnackbarProvider as MuiSnackbarProvider} from "notistack";
@@ -36,12 +36,12 @@ export default function RouterWrapper() {
                     </IconButton>
                 )}
                 iconVariant={{
-                    warning: <CheckCircle style={styles.icon}/>,
+                    warning: <CheckCircle style={styles.icon} />,
                 }}
             >
                 <Routes>
-                    <Route path="/" element={<Render/>}/>
-                    <Route path="/textEdit" element={<Edit/>}/>
+                    <Route path="/" element={<Render />} />
+                    <Route path="/textEdit" element={<Edit />} />
                 </Routes>
             </SnackbarProvider>
         </HashRouter>

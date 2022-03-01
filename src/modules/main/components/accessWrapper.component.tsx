@@ -11,6 +11,7 @@ export default class AccessWrapper extends React.Component<any, any> {
             dhisVersion: null
         };
         this.checkVersion();
+        console.log(window.location.href)
     }
 
     async checkVersion() {
