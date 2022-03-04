@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Render from '../../render/components/render.component';
 import Edit from '../../edit/edit.component';
 import { SnackbarProvider, SnackbarProvider as MuiSnackbarProvider } from 'notistack';

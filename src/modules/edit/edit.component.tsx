@@ -57,7 +57,7 @@ class Edit extends React.Component<
         saveContent(contentHook(this.state.editedContent))
             .then(() => {
                 this.props.enqueueSnackbar('Content saved');
-                window.location.href = "/";
+                window.location.hash = "/";
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');
