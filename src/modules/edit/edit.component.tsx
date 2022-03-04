@@ -1,7 +1,7 @@
 import React, {CSSProperties} from 'react';
 import {fetchContent, saveContent} from '../shared/services/content.service';
 import {Button, ButtonStrip} from '@dhis2/ui';
-import { Link, Navigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
 import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
@@ -28,15 +28,12 @@ class Edit extends React.Component<
     { enqueueSnackbar: any },
     {
         editedContent?: string;
-        goHome: boolean;
     }
 > {
     editor;
     constructor(props) {
         super(props);
-        this.state = {
-            goHome: false
-        };
+        this.state = {};
         fetchContent().then((resp ) => {
             this.setState({
                 editedContent: resp,
@@ -60,7 +57,7 @@ class Edit extends React.Component<
         saveContent(contentHook(this.state.editedContent))
             .then(() => {
                 this.props.enqueueSnackbar('Content saved');
-                this.setState({goHome: true})
+                window.location.hash = "/";
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');
@@ -68,9 +65,6 @@ class Edit extends React.Component<
     };
 
     render() {
-        if (this.state.goHome) {
-            return <Navigate to="/" />;
-        }
         return (
             <React.Fragment>
                 <ReadmeLink/>
