@@ -55,9 +55,13 @@ class Edit extends React.Component<
 
     saveChanges = () => {
         saveContent(contentHook(this.state.editedContent))
-            .then(() => {
-                this.props.enqueueSnackbar('Content saved');
-                window.location.hash = "/";
+            .then((resp) => {
+                if (resp.redirected === true && resp.url.includes('login.action')) {
+                    this.props.enqueueSnackbar('Error: Logged out and cannot save');
+                } else {
+                    this.props.enqueueSnackbar('Content saved');
+                }
+                window.location.hash = '/';
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');

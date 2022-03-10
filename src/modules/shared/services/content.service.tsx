@@ -74,10 +74,19 @@ export function parseContent(inputString:string):ContentItem[]{
     return result;
 }
 
+export const loggedOut = 'LoggedOut'
+
 
 export function fetchContent():Promise<string>{
     return getData(getContentUrl())
-        .then((resp) => resp.body)
+        .then((resp) => {
+            if (typeof resp === 'string') {
+                if (resp.includes('<html class="loginPage"')) {
+                    return loggedOut;
+                }
+            }
+            return resp.body
+        })
         .then(sanitize)
 }
 
