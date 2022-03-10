@@ -12,17 +12,19 @@ const LoggedOutMessage = () => {
             fontFamily: 'Roboto',
         },
     };
-    const handleLogin = () => {
-        const baseUrl = window.parent.location.origin;
-        window.parent.location.href = `${baseUrl}/dhis-web-commons/security/login.action`;
-    };
+    const baseUrl = window.parent.location.origin;
     return (
         <p style={styles.loggedOut}>
             You are no longer logged in, please click{' '}
-            <p style={styles.loginLink} onClick={handleLogin}>
+            <a
+                style={styles.loginLink}
+                rel="noreferrer"
+                href={`${baseUrl}/dhis-web-commons/security/login.action`}
+                target="_blank"
+            >
                 here
-            </p>{' '}
-            to return to the login page.
+            </a>{' '}
+            to open a new tab and login, then refresh the current page.
         </p>
     );
 };
