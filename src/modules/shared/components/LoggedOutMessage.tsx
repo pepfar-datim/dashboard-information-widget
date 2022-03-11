@@ -1,6 +1,7 @@
 import React from 'react';
 
-const LoggedOutMessage = () => {
+const LoggedOutMessage = ({requestRefresh}) => {
+    console.log(requestRefresh);
     const styles = {
         loginLink: {
             color: '#069',
@@ -10,11 +11,12 @@ const LoggedOutMessage = () => {
         },
         loggedOut: {
             fontFamily: 'Roboto',
+            float: 'left'
         },
     };
     const baseUrl = window.parent.location.origin;
     return (
-        <p style={styles.loggedOut}>
+        <p style={styles.loggedOut as any}>
             You are no longer logged in, please click{' '}
             <a
                 style={styles.loginLink}
@@ -24,7 +26,8 @@ const LoggedOutMessage = () => {
             >
                 here
             </a>{' '}
-            to open a new tab and login, then refresh the current page.
+            to open a new tab and login, then
+            {requestRefresh ? ' refresh the current page' : ' try saving again'}.
         </p>
     );
 };

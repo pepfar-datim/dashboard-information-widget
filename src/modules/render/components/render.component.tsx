@@ -46,7 +46,7 @@ export default class Render extends React.Component<any, {
         })
     }
     renderContent() {
-        if (this.state.loggedOut) return <LoggedOutMessage />
+        if (this.state.loggedOut) return <LoggedOutMessage requestRefresh={true} />
         if (this.state.loading) return <Loading/>
         if (!this.state.content||this.state.content.length===0) return <Typography>New Dashboard Information widget</Typography>;
         return <React.Fragment>

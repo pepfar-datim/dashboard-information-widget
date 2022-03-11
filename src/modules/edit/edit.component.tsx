@@ -28,7 +28,8 @@ const styles = {
 class Edit extends React.Component<
     { enqueueSnackbar: any },
     {
-        loggedOut: boolean;
+        loggedOutOnEdit: boolean;
+        loggedOutOnSave: boolean;
         editedContent?: string;
     }
 > {
@@ -36,11 +37,12 @@ class Edit extends React.Component<
     constructor(props) {
         super(props);
         this.state = {
-            loggedOut: false
+            loggedOutOnEdit: false,
+            loggedOutOnSave: false,
         };
-        fetchContent().then((resp ) => {
+        fetchContent().then((resp) => {
             if (resp === loggedOut) {
-                this.setState({loggedOut: true})
+                this.setState({ loggedOutOnEdit: true, loggedOutOnSave: false });
             } else {
                 this.setState({
                     editedContent: resp,
@@ -52,7 +54,7 @@ class Edit extends React.Component<
                     // @ts-ignore
                     window.editor = this.editor;
                 }
-            } 
+            }
         });
     }
 
@@ -65,12 +67,12 @@ class Edit extends React.Component<
         saveContent(contentHook(this.state.editedContent))
             .then((resp) => {
                 if (resp.redirected === true && resp.url.includes('login.action')) {
-                    this.setState({loggedOut: true})
+                    this.setState({ loggedOutOnSave: true, loggedOutOnEdit: false });
                     this.props.enqueueSnackbar('Error: Logged out and cannot save');
                 } else {
                     this.props.enqueueSnackbar('Content saved');
+                    window.location.hash = '/';
                 }
-                window.location.hash = '/';
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');
@@ -78,28 +80,31 @@ class Edit extends React.Component<
     };
 
     render() {
-        if (this.state.loggedOut) {
-            return <LoggedOutMessage />
+        const {loggedOutOnEdit, loggedOutOnSave} = this.state
+        if (loggedOutOnEdit) {
+            return <LoggedOutMessage requestRefresh={true} />;
         }
         return (
             <React.Fragment>
-                <ReadmeLink/>
+                {loggedOutOnSave ? <LoggedOutMessage requestRefresh={false} /> : <ReadmeLink />}
                 <div style={styles.buttons}>
                     <ButtonStrip>
                         <Button onClick={this.saveChanges} primary dataTest={'save-button'}>
                             Save
                         </Button>
                         <Link to={`/`} style={styles.cancel}>
-                            <Button destructive dataTest={'cancel-button'}>Cancel</Button>
+                            <Button destructive dataTest={'cancel-button'}>
+                                Cancel
+                            </Button>
                         </Link>
                     </ButtonStrip>
                 </div>
-                <div style={styles.clear as any}/>
-                <div id='edit'/>
+                <div style={styles.clear as any} />
+                <div id="edit" />
             </React.Fragment>
         );
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         let editor = document.querySelector('.jodit-container');
         if (editor) editor.remove();
     }
