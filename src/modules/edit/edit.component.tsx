@@ -9,6 +9,7 @@ import {editorConfig} from "./editorConfig";
 import {ReadmeLink} from "./readmeLink.component";
 import {isTestEnv} from "@pepfar-react-lib/http-tools";
 import LoggedOutMessage from '../shared/components/LoggedOutMessage';
+import './resizeStyle.css'
 
 
 const styles = {
