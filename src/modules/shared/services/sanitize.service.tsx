@@ -36,15 +36,18 @@ const settings = {
         'pre',
         'iframe',
         'span',
-        'nestedMenu'
+        'nestedMenu',
+        'style'
     ],
     allowedAttributes: {
+        '*':['class','id','style'],
         a: ['href', 'name', 'target'],
-        img: ['src', 'alt', 'style'],
+        img: ['src', 'alt'],
         iframe: ['src', 'height', 'width', 'frameborder'],
         td: ['colspan', 'rowspan'],
         th: ['colspan', 'rowspan'],
-        pre: ['type']
+        pre: ['type'],
+        style: ['type','scoped']
     },
     selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],
     allowedSchemes: ['http', 'https', 'ftp', 'mailto', 'data:image'],
