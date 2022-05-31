@@ -6,7 +6,7 @@
 
 ## Overview
 
-The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows for the creation of rich text content in DHIS2 dashboards.  Note that internally to DHIS2, the widget is named `Information`, as its name appears on the dashboard on versions of DHIS2 prior to 2.36.
+The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows for the creation of rich text content in DHIS2 dashboards. Note that internally to DHIS2, the widget is named `Information`, as its name appears on the dashboard on versions of DHIS2 prior to 2.36.
 
 <img width="900" alt="DHIS2 DHIS2 Rich Text and Video Dashboard Widget example" src="https://user-images.githubusercontent.com/852673/107974482-a801f980-6f84-11eb-8e04-1b9189c70073.png">
 
@@ -27,6 +27,10 @@ The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows f
 3. Edit `manifest.webapp` to specify name of the app for your DHIS2 instance
 4. Run locally as `npm start`
 5. Build for production locally as `npm run build`
+
+## Nested Menu
+
+The DHIS2 Rich Text and Video Dashboard Widget [provides the ability to create nested menus, instructions for which can be found by following this link](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/NestedMenu.md).
 
 ## Issues, Features, etc.
 
