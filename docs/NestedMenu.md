@@ -36,7 +36,8 @@ World:
 6. Click Save
 
 This should produce a menu that looks like this:
-[]
+
+<img src="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/NestedMenuExample1.png" alt="Nested Menu example 1" width="800"/>
 
 As you can see, the levels of the menu are defined by their indentation.  Since **Hello** and **World** are at the furthest left, they appear on the first level.  If **Hello** is clicked, then **It's** and **I was wondering** are displayed, as they are slightly indented relative to **Hello** and also between **Hello** and the next node at the same level as **Hello** (i.e., **World**).
 
@@ -66,6 +67,9 @@ World:
 </pre>
 ```
 which should look like this:
-[]
+
+<img src="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/NestedMenuExample2.png" alt="Nested Menu example 2" width="800"/>
+
+Hopefully that gives you enough to get started, but feel free to [create an issue](https://github.com/pepfar-datim/dashboard-information-widget/issues) if you run into anything that is confusing or seems like a bug.
 
 [Back to the README](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md)
