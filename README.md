@@ -8,7 +8,7 @@
 
 The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows for the creation of rich text content in DHIS2 dashboards. Note that internally to DHIS2, the widget is named `Information`, as its name appears on the dashboard on versions of DHIS2 prior to 2.36.
 
-<img width="900" alt="DHIS2 Rich Text and Video Dashboard Widget example" src="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/DHIS2RichTextAndVideoDashboardWidgetExample.png">
+<img width="900" alt="DHIS2 Rich Text and Video Dashboard Widget example" src="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/DHIS2RichTextAndVideoDashboardWidgetExample.jpg">
 
 ## Demo
 
