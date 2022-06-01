@@ -10,9 +10,9 @@ The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows f
 
 <img width="900" alt="DHIS2 Rich Text and Video Dashboard Widget example" src="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/DHIS2RichTextAndVideoDashboardWidgetExample.png">
 
-## Video Demo
+## Demo
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/567442556?h=96c6849b9f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="DHIS2 Rich Text and Video Dashboard Widget"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+[![Demo video for DHIS2 Rich Text and Video Dashboard Widget](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/images/DHIS2RichTextAndVideoDashboardWidgetDemo.png)](https://vimeo.com/567442556)
 
 ## Installation on DHIS2
 
