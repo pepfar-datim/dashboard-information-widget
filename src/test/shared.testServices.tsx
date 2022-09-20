@@ -1,7 +1,13 @@
-import {registerGetMock} from "@pepfar-react-lib/http-tools";
-import {click, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
-import {waitFor} from "@testing-library/react";
+import {waitFor, waitForElementToBeRemoved} from "@testing-library/react";
+import { registerGetMock } from "@pepfar-react-lib/datim-api";
+import {click,text} from "@pepfar-react-lib/testwrap"
+import {ReactElement} from "react";
+import {render} from "@testing-library/react";
+import {pause} from "@pepfar-react-lib/testwrap";
+import {screen} from "@testing-library/react";
+import {textsWait} from "@pepfar-react-lib/testwrap/jsbuild";
+import RouterWrapper from "../modules/main/components/routerWrapper.component";
 
 export function dataStoreExists(value:boolean){
     registerGetMock('/dataStore/dashboard-information',value?["configuration"]:{status: 'ERROR'});
@@ -45,9 +51,25 @@ export function mockContent(body:string){
     registerGetMock('/dataStore/dashboard-information/testDashboardId1',{body});
 }
 
+async function loadingDone(sec?:number):Promise<any>{
+    await pause(0.2);
+    if (screen.queryAllByTestId('loading').length===0) return Promise.resolve();
+    return waitForElementToBeRemoved(() => screen.queryAllByTestId('loading'));
+}
+
+export async function setUpComponent(component:ReactElement, toContain: string[]){
+    render(component);
+    await loadingDone();
+    await textsWait(toContain);
+}
+
+export async function renderWidget(){
+    await setUpComponent(<AccessWrapper><RouterWrapper/></AccessWrapper>, ['New Dashboard Information widget']);
+}
+
 export async function gotoEdit(serverSettings:ServerSettings){
     initServerSettings(serverSettings);
-    await setUpComponent(<AccessWrapper/>, ['New Dashboard Information widget']);
+    await renderWidget();
     click('edit-button');
     text("Documentation for the Dashboard Information widget can be found here.");
     await waitFor(() => {

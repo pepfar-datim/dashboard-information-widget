@@ -1,6 +1,8 @@
-import {noText, setUpComponent, text} from "@pepfar-react-lib/jest-tools";
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
-import {initServerSettings, mockNoContent, ServerSettings,} from "./shared.testServices";
+import {initServerSettings, mockNoContent, renderWidget, ServerSettings,} from "./shared.testServices";
+import {text} from "@pepfar-react-lib/testwrap";
+import {noText} from "@pepfar-react-lib/testwrap/jsbuild";
+import RouterWrapper from "../modules/main/components/routerWrapper.component";
 
 type TestCase = {
     name: string;
@@ -46,7 +48,7 @@ testCases.forEach(({name,serverSettings, buttonVisible}:TestCase)=>{
     test(name,async ()=>{
         initServerSettings(serverSettings)
         mockNoContent();
-        await setUpComponent(<AccessWrapper/>, ['New Dashboard Information widget']);
+        await renderWidget();
         if (buttonVisible) text('Edit')
         else noText('Edit');
     })

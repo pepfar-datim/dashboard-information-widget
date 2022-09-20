@@ -1,7 +1,8 @@
-import {initServerSettings, mockContent} from "../shared.testServices";
-import {clickByText, setUpComponent, texts} from "@pepfar-react-lib/jest-tools";
+import {initServerSettings, mockContent, setUpComponent} from "../shared.testServices";
 import AccessWrapper from "../../modules/main/components/accessWrapper.component";
 import {readFileSync} from "fs";
+import RouterWrapper from "../../modules/main/components/routerWrapper.component";
+import {clickByText, texts} from "@pepfar-react-lib/testwrap/jsbuild";
 
 let widgetContent:string = readFileSync(`${__dirname}/serverResponse.html`).toString();
 
@@ -12,7 +13,7 @@ test('5 > Nested menu',async ()=>{
         onEditPage: false,
     })
     mockContent(widgetContent);
-    await setUpComponent(<AccessWrapper/>, ['Results','Targets']);
+    await setUpComponent(<AccessWrapper><RouterWrapper/></AccessWrapper>, ['Results','Targets']);
 
     // Tree 1
     clickByText('Results');

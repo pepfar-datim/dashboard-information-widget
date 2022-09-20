@@ -1,7 +1,7 @@
 import React, {CSSProperties} from "react";
 import {Link} from 'react-router-dom';
 import {Button} from "@dhis2/ui";
-import {getData} from "@pepfar-react-lib/http-tools";
+import {getJson} from "@pepfar-react-lib/datim-api";
 
 const config = require('../../../config/config.json');
 
@@ -13,6 +13,7 @@ const styles = {
 };
 
 function isOnEditPage(){
+    //TODO: This is failing the test
     return window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new')
 }
 
@@ -31,13 +32,13 @@ export class EditButton extends React.Component<any, {
     }
 
     async checkIsSuperAdmin() {
-        let isSuperAdmin:boolean = await getData('/me?fields=userCredentials[userRoles[name,id]]')
+        let isSuperAdmin:boolean = await getJson('/me?fields=userCredentials[userRoles[name,id]]')
             .then((res) => res.userCredentials.userRoles.some((role) => role.name.includes('Superuser')));
         this.setState({isSuperAdmin});
     }
 
     async checkAdminOnlyEdit() {
-        let superAdminOnly = await getData(`/dataStore/${config.datastoreNamespace}/configuration`).then(res=>res[config.onlyOpenToSuperUsersKey])
+        let superAdminOnly = await getJson(`/dataStore/${config.datastoreNamespace}/configuration`).then(res=>res[config.onlyOpenToSuperUsersKey])
         this.setState({superAdminOnly});
     }
 

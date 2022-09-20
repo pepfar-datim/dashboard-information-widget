@@ -7,9 +7,9 @@ import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
 import {ReadmeLink} from "./readmeLink.component";
-import {isTestEnv} from "@pepfar-react-lib/http-tools";
 import LoggedOutMessage from '../shared/components/LoggedOutMessage';
 import './resizeStyle.css'
+import {isTestEnv} from "@pepfar-react-lib/datim-api";
 
 
 const styles = {
@@ -67,13 +67,13 @@ class Edit extends React.Component<
     saveChanges = () => {
         saveContent(contentHook(this.state.editedContent))
             .then((resp) => {
-                if (resp.redirected === true && resp.url.includes('login.action')) {
-                    this.setState({ loggedOutOnSave: true, loggedOutOnEdit: false });
-                    this.props.enqueueSnackbar('Error: Logged out and cannot save');
-                } else {
+                // if (resp?.responseBody.redirected === true && resp?.rawResponse.url.includes('login.action')) {
+                //     this.setState({ loggedOutOnSave: true, loggedOutOnEdit: false });
+                //     this.props.enqueueSnackbar('Error: Logged out and cannot save');
+                // } else {
                     this.props.enqueueSnackbar('Content saved');
                     window.location.hash = '/';
-                }
+                // }
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');

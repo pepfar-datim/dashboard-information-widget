@@ -1,7 +1,6 @@
 import React from "react";
-import {setUpComponent} from "@pepfar-react-lib/jest-tools";
 import Render from "../modules/render/components/render.component";
-import {initServerSettings, mockContent, ServerSettings} from "./shared.testServices";
+import {initServerSettings, mockContent, ServerSettings, setUpComponent} from "./shared.testServices";
 import {screen} from "@testing-library/react";
 
 const serverSettings:ServerSettings = {

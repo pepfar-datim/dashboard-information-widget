@@ -1,10 +1,14 @@
 import React, {Ref} from 'react';
-import {HashRouter, Route} from 'react-router-dom';
+// import {HashRouter, Route, Routes} from 'react-router-dom';
 import Render from '../../render/components/render.component';
 import Edit from '../../edit/edit.component';
 import {SnackbarProvider, SnackbarProvider as MuiSnackbarProvider} from "notistack";
 import {IconButton} from "@mui/material";
 import {CheckCircle, Close} from "@mui/icons-material";
+import {
+    createHashRouter,
+    RouterProvider,
+} from "react-router-dom";
 
 const notistackRef = React.createRef();
 const onClickDismiss = key => () => {
@@ -19,9 +23,15 @@ const styles = {
     }
 };
 
+const router = createHashRouter([
+    {path: "/", element: <Render/>},
+    {path: "/edit", element: <Render/>},
+    {path: "/textEdit", element: <Edit/>},
+]);
+
 export default function RouterWrapper() {
     return (
-        <HashRouter>
+        <>
             <SnackbarProvider
                 ref={notistackRef as Ref<MuiSnackbarProvider>}
                 maxSnack={3}
@@ -39,13 +49,8 @@ export default function RouterWrapper() {
                     warning: <CheckCircle style={styles.icon}/>,
                 }}
             >
-                <Route path={['/', '/edit']} exact>
-                    <Render />
-                </Route>
-                <Route path="/textEdit" exact>
-                    <Edit />
-                </Route>
+                <RouterProvider router={router} />
             </SnackbarProvider>
-        </HashRouter>
+        </>
     );
 }

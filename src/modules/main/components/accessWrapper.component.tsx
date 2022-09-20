@@ -1,10 +1,10 @@
 import React from 'react';
 import RouterWrapper from './routerWrapper.component';
 import DhisVersionError from './dhisVersionError.component';
-import {getData} from "@pepfar-react-lib/http-tools";
 import {Loading} from "../../shared/components/loading.component";
+import { getJson } from '@pepfar-react-lib/datim-api';
 
-export default class AccessWrapper extends React.Component<any, any> {
+export default class AccessWrapper extends React.Component<{children:any}, any> {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,13 +14,13 @@ export default class AccessWrapper extends React.Component<any, any> {
     }
 
     async checkVersion() {
-        let dhisVersion = await getData('/system/info').then((res) => res.version.match(/^\d+\.\d+/)[0]);
+        let dhisVersion = await getJson('/system/info').then((res) => res.version.match(/^\d+\.\d+/)[0]);
         this.setState({dhisVersion});
     }
 
     render() {
         if (!this.state.dhisVersion) return <Loading/>;
         if (this.state.dhisVersion<2.31) return <DhisVersionError version={this.state.dhisVersion} />;
-        return <RouterWrapper/>
+        return <>{this.props.children}</>
     }
 }

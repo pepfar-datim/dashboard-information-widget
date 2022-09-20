@@ -1,8 +1,8 @@
-import {getData, postData, putData} from '@pepfar-react-lib/http-tools';
 import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
 import YAML from 'yaml'
+import {getJson, postJson, putJson} from "@pepfar-react-lib/datim-api";
 
 export enum ContentItemType{
     string='string',
@@ -78,7 +78,7 @@ export const loggedOut = 'LoggedOut'
 
 
 export function fetchContent():Promise<string>{
-    return getData(getContentUrl())
+    return getJson(getContentUrl())
         .then((resp) => {
             if (typeof resp === 'string') {
                 if (resp.includes('<html class="loginPage"')) {
@@ -91,8 +91,8 @@ export function fetchContent():Promise<string>{
 }
 
 export function saveContent(content) {
-    return putData(getContentUrl(), { body: content }).catch(async (resp) => {
-        await postData(getContentUrl(), { body: content });
+    return putJson(getContentUrl(), { body: content }).catch(async (resp) => {
+        await postJson(getContentUrl(), { body: content });
         let widgetId = getWidgetId();
         let widgetUid = await getKeyUid(widgetId);
         return shareKey(widgetUid, 'r-------');
