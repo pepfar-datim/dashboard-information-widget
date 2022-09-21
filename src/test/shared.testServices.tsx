@@ -6,7 +6,7 @@ import {ReactElement} from "react";
 import {render} from "@testing-library/react";
 import {pause} from "@pepfar-react-lib/testwrap";
 import {screen} from "@testing-library/react";
-import {textsWait} from "@pepfar-react-lib/testwrap/jsbuild";
+import {debug, textsWait, textWait} from "@pepfar-react-lib/testwrap";
 import RouterWrapper from "../modules/main/components/routerWrapper.component";
 
 export function dataStoreExists(value:boolean){
@@ -22,7 +22,7 @@ function superUserOnly(value:boolean){
 }
 
 function onEditPage(value:boolean){
-    window.location.hash = value?'edit':''
+    window.location.hash = value?'#/edit':''
 }
 
 function systemInfo(){
@@ -67,17 +67,19 @@ export async function renderWidget(){
     await setUpComponent(<AccessWrapper><RouterWrapper/></AccessWrapper>, ['New Dashboard Information widget']);
 }
 
-export async function gotoEdit(serverSettings:ServerSettings){
-    initServerSettings(serverSettings);
-    await renderWidget();
-    click('edit-button');
-    text("Documentation for the Dashboard Information widget can be found here.");
+export async function gotoEdit(/*serverSettings:ServerSettings*/){
+    // initServerSettings(serverSettings);
+    window.location.hash = '#/textEdit';
+    render(<AccessWrapper><RouterWrapper/></AccessWrapper>);
+    await textWait("Documentation for the Dashboard Information widget can be found here.");
     await waitFor(() => {
         expect(document.querySelector('[contenteditable="true"]')).toBeInTheDocument()
     })
 }
 
-export function setEditorValue(value:string){
+export async function setEditorValue(value:string){
     // @ts-ignore
     window.editor.value = value;
+    await textWait(value);
+    await pause(1000)
 }

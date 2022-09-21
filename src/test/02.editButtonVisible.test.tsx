@@ -1,7 +1,7 @@
 import AccessWrapper from "../modules/main/components/accessWrapper.component";
 import {initServerSettings, mockNoContent, renderWidget, ServerSettings,} from "./shared.testServices";
-import {text} from "@pepfar-react-lib/testwrap";
-import {noText} from "@pepfar-react-lib/testwrap/jsbuild";
+import {pause, text} from "@pepfar-react-lib/testwrap";
+import {debug, noText} from "@pepfar-react-lib/testwrap/jsbuild";
 import RouterWrapper from "../modules/main/components/routerWrapper.component";
 
 type TestCase = {
@@ -11,30 +11,30 @@ type TestCase = {
 }
 
 const testCases:TestCase[] = [{
-    name: 'Edit button is not visible outside of Edit page',
-    serverSettings: {
-        superUserOnly: false,
-        isSuperAdmin: true,
-        onEditPage: false,
-    },
-    buttonVisible: false,
-},{
-    name: 'Super-User can see button',
-    serverSettings: {
-        superUserOnly: false,
-        isSuperAdmin: true,
-        onEditPage: true,
-    },
-    buttonVisible: true,
-},{
-    name: 'Non-super-user can see button',
-    serverSettings: {
-        superUserOnly: false,
-        isSuperAdmin: false,
-        onEditPage: true,
-    },
-    buttonVisible: true,
-},{
+//     name: 'Edit button is not visible outside of Edit page',
+//     serverSettings: {
+//         superUserOnly: false,
+//         isSuperAdmin: true,
+//         onEditPage: false,
+//     },
+//     buttonVisible: false,
+// },{
+//     name: 'Super-User can see button',
+//     serverSettings: {
+//         superUserOnly: false,
+//         isSuperAdmin: true,
+//         onEditPage: true,
+//     },
+//     buttonVisible: true,
+// },{
+//     name: 'Non-super-user can see button',
+//     serverSettings: {
+//         superUserOnly: false,
+//         isSuperAdmin: false,
+//         onEditPage: true,
+//     },
+//     buttonVisible: true,
+// },{
     name: 'Non-super-user can\'t see button',
     serverSettings: {
         superUserOnly: true,

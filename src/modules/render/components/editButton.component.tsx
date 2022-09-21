@@ -12,9 +12,10 @@ const styles = {
     } as CSSProperties,
 };
 
-function isOnEditPage(){
+function isOnEditPage():boolean{
     //TODO: This is failing the test
-    return window.parent.location.hash.includes('edit') || window.parent.location.hash.includes('new')
+    let location:string = window.parent.location.hash;
+    return location.includes('edit') || location.includes('new')
 }
 
 export class EditButton extends React.Component<any, {

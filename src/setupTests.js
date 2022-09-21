@@ -1,9 +1,7 @@
-import {apiInit, initTestApiCache, testAs} from "@pepfar-react-lib/http-tools";
-import {baseUrl} from "./config/configProvider";
 import {configure} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
+import {register, setTestUsername} from "@pepfar-react-lib/datim-api";
 
-initTestApiCache();
-apiInit(baseUrl,process.env.NODE_ENV);
-testAs('superAdmin');
+register(process.env.NODE_ENV, process.env.REACT_APP_BASE_URL)
+setTestUsername(`test-de-superAdmin`,`Basic ${btoa(`test-de-superAdmin:Cypress1!`)}`);
 configure({testIdAttribute: 'data-test'})

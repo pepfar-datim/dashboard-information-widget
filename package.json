@@ -1,6 +1,6 @@
 {
   "name": "dashboard-information",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "private": true,
   "dependencies": {
     "@dhis2/ui": "^8.4.15",
@@ -28,13 +28,13 @@
     "typescript": "^4.8.3",
     "yaml": "^2.1.1"
   },
+  "homepage": ".",
   "scripts": {
     "start": "REACT_APP_BASE_URL=https://jakub.datim.org/ craco start",
     "start:hard": "rm -rf node_modules/.cache && npm start",
-    "build:react": "react-scripts build",
+    "build": "REACT_APP_BASE_URL=../../.. craco build && npm run build:zip",
     "build:zip": "(rm -f dashboard-information-widget.zip && cd build && zip ../dashboard-information-widget.zip -r .)",
-    "build": "npm run build:react && npm run build:zip",
-    "test": "react-scripts test",
+    "test": "REACT_APP_BASE_URL=https://jakub.datim.org/ craco test --maxWorkers=6 --verbose",
     "test:cache": "rm cachedApiCalls/*",
     "dep:build": "ts-node --skip-project packages/buildWatch.ts",
     "dep:copy": "ts-node --skip-project packages/copyWatch.ts"
@@ -55,5 +55,10 @@
     "@pepfar-react-lib/testwrap": "^0.0.13",
     "@pepfar-react-lib/dep-copy": "^0.0.21",
     "@testing-library/jest-dom": "^5.16.5"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@pepfar-react-lib|node-fetch|data-uri-to-buffer|fetch-blob|formdata-polyfill/.*)"
+    ]
   }
 }

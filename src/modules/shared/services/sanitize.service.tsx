@@ -55,6 +55,7 @@ const settings = {
     allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
     allowProtocolRelative: true,
     allowedIframeHostnames: ['www.youtube.com', 'player.vimeo.com'],
+    allowVulnerableTags: true
 };
 
 // Add style as an allowed attribute on all allowed tags, otherwise styles will be removed on save

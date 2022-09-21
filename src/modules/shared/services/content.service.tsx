@@ -74,20 +74,9 @@ export function parseContent(inputString:string):ContentItem[]{
     return result;
 }
 
-export const loggedOut = 'LoggedOut'
-
 
 export function fetchContent():Promise<string>{
-    return getJson(getContentUrl())
-        .then((resp) => {
-            if (typeof resp === 'string') {
-                if (resp.includes('<html class="loginPage"')) {
-                    return loggedOut;
-                }
-            }
-            return resp.body
-        })
-        .then(sanitize)
+    return getJson(getContentUrl()).then(({body})=>body).then(sanitize)
 }
 
 export function saveContent(content) {

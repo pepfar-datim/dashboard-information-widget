@@ -1,5 +1,5 @@
 import React, {CSSProperties} from 'react';
-import {fetchContent, saveContent, loggedOut} from '../shared/services/content.service';
+import {fetchContent, saveContent} from '../shared/services/content.service';
 import {Button, ButtonStrip} from '@dhis2/ui';
 import {Link} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
@@ -7,10 +7,7 @@ import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
 import {ReadmeLink} from "./readmeLink.component";
-import LoggedOutMessage from '../shared/components/LoggedOutMessage';
 import './resizeStyle.css'
-import {isTestEnv} from "@pepfar-react-lib/datim-api";
-
 
 const styles = {
     link: {
@@ -27,35 +24,24 @@ const styles = {
 };
 
 class Edit extends React.Component<
-    { enqueueSnackbar: any },
-    {
-        loggedOutOnEdit: boolean;
-        loggedOutOnSave: boolean;
-        editedContent?: string;
-    }
+    {enqueueSnackbar: any},
+    {editedContent?: string}
 > {
     editor;
     constructor(props) {
         super(props);
-        this.state = {
-            loggedOutOnEdit: false,
-            loggedOutOnSave: false,
-        };
+        this.state = {};
         fetchContent().then((resp) => {
-            if (resp === loggedOut) {
-                this.setState({ loggedOutOnEdit: true, loggedOutOnSave: false });
-            } else {
-                this.setState({
-                    editedContent: resp,
-                });
-                this.editor = Jodit.make('#edit', editorConfig);
-                this.editor.value = resp;
-                this.editor.events.on('change', this.onChange);
-                if (isTestEnv()) {
+            this.setState({
+                editedContent: resp,
+            });
+            this.editor = Jodit.make('#edit', editorConfig);
+            this.editor.value = resp;
+            this.editor.events.on('change', this.onChange);
+                // if (isTestEnv()) {
                     // @ts-ignore
-                    window.editor = this.editor;
-                }
-            }
+                window.editor = this.editor;
+                // }
         });
     }
 
@@ -67,13 +53,8 @@ class Edit extends React.Component<
     saveChanges = () => {
         saveContent(contentHook(this.state.editedContent))
             .then((resp) => {
-                // if (resp?.responseBody.redirected === true && resp?.rawResponse.url.includes('login.action')) {
-                //     this.setState({ loggedOutOnSave: true, loggedOutOnEdit: false });
-                //     this.props.enqueueSnackbar('Error: Logged out and cannot save');
-                // } else {
-                    this.props.enqueueSnackbar('Content saved');
-                    window.location.hash = '/';
-                // }
+                this.props.enqueueSnackbar('Content saved');
+                window.location.hash = '/';
             })
             .catch((e) => {
                 this.props.enqueueSnackbar('Error: Cannot save');
@@ -81,13 +62,9 @@ class Edit extends React.Component<
     };
 
     render() {
-        const {loggedOutOnEdit, loggedOutOnSave} = this.state
-        if (loggedOutOnEdit) {
-            return <LoggedOutMessage requestRefresh={true} />;
-        }
         return (
             <React.Fragment>
-                {loggedOutOnSave ? <LoggedOutMessage requestRefresh={false} /> : <ReadmeLink />}
+                <ReadmeLink />
                 <div style={styles.buttons}>
                     <ButtonStrip>
                         <Button onClick={this.saveChanges} primary dataTest={'save-button'}>
