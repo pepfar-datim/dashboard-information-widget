@@ -68,7 +68,6 @@ export async function renderWidget(){
 }
 
 export async function gotoEdit(/*serverSettings:ServerSettings*/){
-    // initServerSettings(serverSettings);
     window.location.hash = '#/textEdit';
     render(<AccessWrapper><RouterWrapper/></AccessWrapper>);
     await textWait("Documentation for the Dashboard Information widget can be found here.");

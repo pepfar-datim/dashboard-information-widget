@@ -23,6 +23,8 @@ const styles = {
     cancel: {textDecoration: 'none'}
 };
 
+export let testContent:string;
+
 class Edit extends React.Component<
     {enqueueSnackbar: any},
     {editedContent?: string}
@@ -40,13 +42,13 @@ class Edit extends React.Component<
             this.editor.events.on('change', this.onChange);
                 // if (isTestEnv()) {
                     // @ts-ignore
-                window.editor = this.editor;
+            window.editor = this.editor;
                 // }
         });
     }
 
     onChange = (newContent) => {
-        this.setState({ editedContent: newContent });
+        this.setState({editedContent: newContent});
         this.editor.value = newContent;
     };
 
