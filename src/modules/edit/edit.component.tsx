@@ -3,10 +3,10 @@ import {fetchContent, saveContent} from '../shared/services/content.service';
 import {Button, ButtonStrip} from '@dhis2/ui';
 import {Link} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
-import {withSnackbar} from "notistack";
 import {Jodit} from "jodit";
 import {editorConfig} from "./editorConfig";
 import {ReadmeLink} from "./readmeLink.component";
+import {MessageType, ShowMessage} from "@pepfar-react-lib/message-provider"
 import './resizeStyle.css'
 
 const styles = {
@@ -23,44 +23,37 @@ const styles = {
     cancel: {textDecoration: 'none'}
 };
 
-export let testContent:string;
+export let editor:Jodit;
+export let test_contentHandle:string;
 
-class Edit extends React.Component<
-    {enqueueSnackbar: any},
+export default class Edit extends React.Component<
+    {showMessage:ShowMessage},
     {editedContent?: string}
 > {
-    editor;
     constructor(props) {
         super(props);
         this.state = {};
-        fetchContent().then((resp) => {
-            this.setState({
-                editedContent: resp,
-            });
-            this.editor = Jodit.make('#edit', editorConfig);
-            this.editor.value = resp;
-            this.editor.events.on('change', this.onChange);
-                // if (isTestEnv()) {
-                    // @ts-ignore
-            window.editor = this.editor;
-                // }
+        fetchContent().then((editedContent:string) => {
+            this.setState({editedContent});
+            editor = Jodit.make('#edit', editorConfig);
+            editor.value = editedContent;
+            editor.events.on('change', this.onChange);
         });
     }
 
-    onChange = (newContent) => {
-        this.setState({editedContent: newContent});
-        this.editor.value = newContent;
+    onChange = (editedContent:string) => {
+        this.setState({editedContent});
+        test_contentHandle = editedContent;
     };
 
     saveChanges = () => {
-        saveContent(contentHook(this.state.editedContent))
-            .then((resp) => {
-                this.props.enqueueSnackbar('Content saved');
-                window.location.hash = '/';
-            })
-            .catch((e) => {
-                this.props.enqueueSnackbar('Error: Cannot save');
-            });
+        saveContent(contentHook(this.state.editedContent)).then((resp) => {
+            this.props.showMessage({type:MessageType.success,text: 'Content saved'})
+            window.location.hash = '/';
+        }).catch((e) => {
+            this.props.showMessage({type:MessageType.error,text: 'Error: Cannot save'})
+            console.error(e);
+        });
     };
 
     render() {
@@ -90,4 +83,3 @@ class Edit extends React.Component<
     }
 }
 
-export default withSnackbar(Edit);

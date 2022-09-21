@@ -1,4 +1,4 @@
-import {postJson, getJson} from "@pepfar-react-lib/datim-api";
+import {getJson, postJson} from "@pepfar-react-lib/datim-api";
 import {getKeyUid, shareKey} from "../../shared/services/shareKey.service";
 
 const config = require('../../../config/config.json');

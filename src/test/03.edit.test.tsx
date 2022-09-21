@@ -1,6 +1,6 @@
-import {gotoEdit, mockContent, mockNoContent, ServerSettings, setEditorValue} from "./shared.testServices";
+import {gotoEdit, mockContent, mockNoContent, setEditorValue} from "./shared.testServices";
 import {registerSendMock} from "@pepfar-react-lib/datim-api";
-import {click, debug} from "@pepfar-react-lib/testwrap";
+import {click} from "@pepfar-react-lib/testwrap";
 import {textsWait} from "@pepfar-react-lib/testwrap/jsbuild";
 
 test(`Edit & Save`, async ()=>{

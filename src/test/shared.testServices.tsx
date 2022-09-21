@@ -1,13 +1,9 @@
-import AccessWrapper from "../modules/main/components/accessWrapper.component";
-import {waitFor, waitForElementToBeRemoved} from "@testing-library/react";
-import { registerGetMock } from "@pepfar-react-lib/datim-api";
-import {click,text} from "@pepfar-react-lib/testwrap"
+import {render, screen, waitFor, waitForElementToBeRemoved} from "@testing-library/react";
+import {registerGetMock} from "@pepfar-react-lib/datim-api";
 import {ReactElement} from "react";
-import {render} from "@testing-library/react";
-import {pause} from "@pepfar-react-lib/testwrap";
-import {screen} from "@testing-library/react";
-import {debug, textsWait, textWait} from "@pepfar-react-lib/testwrap";
-import RouterWrapper from "../modules/main/components/routerWrapper.component";
+import {pause, textsWait, textWait} from "@pepfar-react-lib/testwrap";
+import {editor, test_contentHandle} from "../modules/edit/edit.component";
+import {Index} from "../modules/main/components/index.component";
 
 export function dataStoreExists(value:boolean){
     registerGetMock('/dataStore/dashboard-information',value?["configuration"]:{status: 'ERROR'});
@@ -64,12 +60,12 @@ export async function setUpComponent(component:ReactElement, toContain: string[]
 }
 
 export async function renderWidget(){
-    await setUpComponent(<AccessWrapper><RouterWrapper/></AccessWrapper>, ['New Dashboard Information widget']);
+    await setUpComponent(<Index/>, ['New Dashboard Information widget']);
 }
 
-export async function gotoEdit(/*serverSettings:ServerSettings*/){
+export async function gotoEdit(){
     window.location.hash = '#/textEdit';
-    render(<AccessWrapper><RouterWrapper/></AccessWrapper>);
+    render(<Index/>);
     await textWait("Documentation for the Dashboard Information widget can be found here.");
     await waitFor(() => {
         expect(document.querySelector('[contenteditable="true"]')).toBeInTheDocument()
@@ -77,8 +73,10 @@ export async function gotoEdit(/*serverSettings:ServerSettings*/){
 }
 
 export async function setEditorValue(value:string){
-    // @ts-ignore
-    window.editor.value = value;
+    editor.value = value;
     await textWait(value);
     await pause(1000)
+    await waitFor(()=>{
+        expect(test_contentHandle.includes(value)).toBeTruthy();
+    })
 }

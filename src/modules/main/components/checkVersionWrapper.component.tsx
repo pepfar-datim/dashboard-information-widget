@@ -1,10 +1,9 @@
 import React from 'react';
-import RouterWrapper from './routerWrapper.component';
 import DhisVersionError from './dhisVersionError.component';
 import {Loading} from "../../shared/components/loading.component";
-import { getJson } from '@pepfar-react-lib/datim-api';
+import {getJson} from '@pepfar-react-lib/datim-api';
 
-export default class AccessWrapper extends React.Component<{children:any}, any> {
+export default class CheckVersionWrapper extends React.Component<{children:any}, any> {
     constructor(props) {
         super(props);
         this.state = {

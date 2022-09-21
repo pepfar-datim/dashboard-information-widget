@@ -1,4 +1,4 @@
-import { isTestEnv } from "@pepfar-react-lib/datim-api";
+import {isTestEnv} from "@pepfar-react-lib/datim-api";
 
 const config = require('../../../config/config.json');
 

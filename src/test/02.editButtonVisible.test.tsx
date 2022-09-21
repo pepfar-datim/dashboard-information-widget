@@ -1,8 +1,6 @@
-import AccessWrapper from "../modules/main/components/accessWrapper.component";
 import {initServerSettings, mockNoContent, renderWidget, ServerSettings,} from "./shared.testServices";
-import {pause, text} from "@pepfar-react-lib/testwrap";
-import {debug, noText} from "@pepfar-react-lib/testwrap/jsbuild";
-import RouterWrapper from "../modules/main/components/routerWrapper.component";
+import {text} from "@pepfar-react-lib/testwrap";
+import {noText} from "@pepfar-react-lib/testwrap/jsbuild";
 
 type TestCase = {
     name: string;
