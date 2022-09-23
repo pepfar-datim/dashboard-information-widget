@@ -9,16 +9,10 @@ option.analyticsLink::after {
 }
 
 option:checked{
-    /*background: linear-gradient(0deg, rgb(122 171 209)  0%, rgb(122 171 209)  100%)!important;*/
     background: linear-gradient(0deg, #B7C8D9  0%, #B7C8D9  100%)!important;
 }
 
 select:focus option:checked{
     background: linear-gradient(0deg, rgb(44, 102, 147) 0%, rgb(44, 102, 147) 100%)!important;
     color: white!important;
-}
-
-.nestedMenu select:focus, .nestedMenu select:focus-visible {
-    /*border: 1px solid red!important;*/
-    /*outline:none;*/
 }

@@ -13,25 +13,9 @@ const styles = {
         fontSize: '1rem',
         overflowY: 'auto'
     } as CSSProperties,
-    link: {
-    },
-    linkText:{
-        '& :hover::after':{
-        }
-    } as CSSProperties,
-    linkWrapper: {
-        '& :hover':{
-        }
-    },
     menuItem: {
         padding: '4px 11px 4px 4px',
         cursor: 'pointer'
-    },
-    menuItemSelected: {
-    },
-    menuItemArrow:{
-    } as CSSProperties,
-    analyticsLink:{
     }
 }
 
@@ -43,7 +27,7 @@ const AnalyticsLink = ({link,name}:{link:string, name:string})=>{
     return <option onClick={()=>{
         let newTab = window.open(generateLink(link), '_blank')
         newTab&&newTab.focus()
-    }} style={Object.assign({},styles.menuItem,styles.analyticsLink)} className={'analyticsLink'}>
+    }} style={styles.menuItem} className={'analyticsLink'}>
         {name}
     </option>
 }
@@ -65,7 +49,7 @@ function Item({category, selected, onClick}:{category:string, selected:boolean, 
     }
     return <><option
         onClick={onClick}
-        style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}
+        style={styles.menuItem}
     id={id}>
         {category}
     </option></>
