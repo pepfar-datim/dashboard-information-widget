@@ -1,3 +1,19 @@
+.nestedMenu option:hover{
+    background-color: rgba(44, 102, 147, 0.35)!important;
+}
+
+option.analyticsLink::after {
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+    position: relative;
+    left: 5px;
+}
+
 option:checked {
-    background-color: transparent;
+    background: linear-gradient(0deg, rgb(44, 102, 147) 0%, rgb(44, 102, 147) 100%)!important;
+    color: white!important;
+}
+
+.nestedMenu select:focus, .nestedMenu select:focus-visible {
+    /*border: 1px solid red!important;*/
+    /*outline:none;*/
 }

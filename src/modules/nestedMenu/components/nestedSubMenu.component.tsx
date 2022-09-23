@@ -24,18 +24,16 @@ const styles = {
         }
     },
     menuItem: {
-        padding: 4
+        padding: '4px 11px 4px 4px',
+        cursor: 'pointer'
     },
     menuItemSelected: {
-        background: 'rgb(44, 102, 147,0.25)'
     },
     menuItemArrow:{
-    } as CSSProperties
+    } as CSSProperties,
+    analyticsLink:{
+    }
 }
-
-const MenuItem = styled(ListItem,{
-})({
-})
 
 const generateLink = (link:string)=>{
     return link;
@@ -45,7 +43,7 @@ const AnalyticsLink = ({link,name}:{link:string, name:string})=>{
     return <option onClick={()=>{
         let newTab = window.open(generateLink(link), '_blank')
         newTab&&newTab.focus()
-    }} style={styles.menuItem}>
+    }} style={Object.assign({},styles.menuItem,styles.analyticsLink)} className={'analyticsLink'}>
         {name}
     </option>
 }
@@ -65,7 +63,10 @@ function Item({category, selected, onClick}:{category:string, selected:boolean, 
         }
         category = category.replace(/\{.+\}/, '')
     }
-    return <><option onClick={onClick} style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})} id={id}>
+    return <><option
+        onClick={onClick}
+        style={Object.assign({},styles.menuItem,selected?styles.menuItemSelected:{})}
+    id={id}>
         {category}
     </option></>
 }
