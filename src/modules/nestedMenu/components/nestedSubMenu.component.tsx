@@ -77,8 +77,9 @@ export function NestedSubMenu({menuJson}:{menuJson:NestedMenuContent}):ReactElem
         setSelectedKey(null);
         return null;
     }
+    let id = Math.floor(Math.random()*1e7).toString();
     return <React.Fragment>
-        <select style={styles.subMenu} multiple={true} defaultValue={[selectedKey||'']}>
+        <select id={id} style={styles.subMenu} multiple={true} defaultValue={[selectedKey||'']}>
             {Object.keys(menuJson).map((category,index)=>{
                 if (typeof menuJson[category]==='string') return <AnalyticsLink link={menuJson[category] as string} name={category} key={index}/>
                 else return <Item onClick={()=>setSelectedKey(category)} category={category} selected={selectedKey===category} key={index}/>
