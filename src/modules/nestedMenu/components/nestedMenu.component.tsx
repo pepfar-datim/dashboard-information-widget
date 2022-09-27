@@ -27,7 +27,7 @@ export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
         </Box>
         <style>
             {`#nestedMenu_${rand}{${menuJson.style}}`}
-            {getBrowserStyle()}
+            {/*{getBrowserStyle()}*/}
         </style>
     </>
 }
