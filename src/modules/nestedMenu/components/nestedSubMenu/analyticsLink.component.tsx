@@ -7,7 +7,7 @@ export const AnalyticsLink = ({link,name}:{link:string, name:string})=>{
     return <div onClick={()=>{
         let newTab = window.open(link, '_blank')
         newTab&&newTab.focus()
-    }} className={'analyticsLink'}>
-        {name} ↗
+    }} className={'nestedMenu_analyticsLink'}>
+        {name}&nbsp;↗
     </div>
 }

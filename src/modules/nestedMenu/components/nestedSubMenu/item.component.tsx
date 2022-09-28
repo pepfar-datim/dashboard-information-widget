@@ -4,7 +4,6 @@ import {checkStyle, removeStyle} from "../../services/createStyleElement";
 
 const styles = {
     root: {
-        padding: 4,
         cursor: 'pointer'
     }
 }

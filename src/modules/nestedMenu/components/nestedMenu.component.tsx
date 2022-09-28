@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {MutableRefObject, ReactElement} from "react";
 import {NestedMenuObject} from "../../shared/services/content.service";
 import {Box} from '@mui/material';
 import "./nestedMenu.scss"
@@ -15,7 +15,7 @@ export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
     let rand = randomInteger();
     return <>
         <Box style={styles.root} id={`nestedMenu_${rand}`} className={'nestedMenu'}>
-            <NestedSubMenu2 menuJson={menuJson.content} order={0}/>
+            <NestedSubMenu2 menuJson={menuJson.content} order={0} refFromParent={{} as MutableRefObject<any>}/>
         </Box>
         <style>
             {`#nestedMenu_${rand}{${menuJson.style}}`}
