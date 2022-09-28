@@ -22,15 +22,38 @@ $hoverBg: rgb(232, 237, 242);
 $sectedFg: white;
 $selectedBg: rgb(44, 102, 147);
 
-.nestedMenu_item:hover{
+.nestedMenu_item:hover {
   background-color: $hoverBg;
 }
 
-.nestedMenu_item.selected{
+.nestedMenu_item.selected {
   background-color: $selectedBg;
   color: $sectedFg;
 }
 
 .nestedMenu_analyticsLink, .nestedMenu_subCategory {
   padding: 4px;
+}
+
+.appear {
+  animation-duration: 0.5s;
+  animation-name: appear-animation;
+  animation-fill-mode: backwards;
+  position: relative;
+}
+
+@keyframes appear-animation {
+  0% {
+    //opacity: 0;
+    left: -100px;
+    z-index: -1;
+  }
+  99%{
+    z-index:-1;
+  }
+  100% {
+    //opacity: 1;
+    left: 0px;
+    z-index: 0;
+  }
 }

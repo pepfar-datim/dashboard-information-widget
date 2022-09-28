@@ -9,7 +9,8 @@ const styles = {
         border: '1px solid black',
         fontFamily: "Roboto",
         minWidth: 130,
-        minHeight: 120
+        minHeight: 120,
+        backgroundColor: 'white'
     }
 }
 
@@ -59,7 +60,7 @@ export function NestedSubMenu2({menuJson, order, refFromParent}:{menuJson:Nested
     }
 
     return <>
-        <div style={Object.assign({},styles.root,getBorderRadius(position))}>
+        <div style={Object.assign({},styles.root,getBorderRadius(position))} className={order>0?'appear':''}>
             {Object.keys(menuJson).map((category,index)=><Item name={category} key={index} selected={selectedKey===category}>
                 {typeof menuJson[category] === 'string' ?
                     <AnalyticsLink link={menuJson[category] as string} name={category} key={index}/>
