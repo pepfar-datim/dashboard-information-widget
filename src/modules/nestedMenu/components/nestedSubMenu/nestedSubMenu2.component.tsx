@@ -10,7 +10,8 @@ const styles = {
         fontFamily: "Roboto",
         minWidth: 130,
         minHeight: 120,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        overflowY: 'auto'
     }
 }
 
@@ -43,30 +44,39 @@ function getBorderRadius(position:TablePosition):any{
     return {borderRadius, borderRightWidth};
 }
 
-type SetSelectedKey = (category:string|null)=>void
+function setFocus(order:number){
+    let allMenus:NodeListOf<HTMLElement> = document.querySelectorAll('.nestedSubMenu');;
+    allMenus.forEach(menu=>menu.classList.remove('focused'));
+    for (let o=0;o<=order;o++){
+        document.querySelector(`.nestedSubMenu.subMenu_${o}`)?.classList.add('focused')
+    }
+}
 
-export function NestedSubMenu2({menuJson, order, refFromParent}:{menuJson:NestedMenuContent,order:number, refFromParent:MutableRefObject<SetSelectedKey>}):ReactElement|null{
+export function NestedSubMenu2({menuJson, order}:{menuJson:NestedMenuContent,order:number}):ReactElement|null{
     let [selectedKey,setSelectedKey] = useState<string|null>(null)
-    refFromParent.current = setSelectedKey;
-    const nextMenu = React.useRef<SetSelectedKey>(null);
     let position:TablePosition=TablePosition.middle;
     if (order===0&&selectedKey) position = TablePosition.first;
     if (order>0&&!selectedKey) position = TablePosition.last;
     if (order===0&&!selectedKey) position = TablePosition.onlyOne;
 
+    if (selectedKey&&!menuJson[selectedKey]) {
+        setSelectedKey(null);
+        return null;
+    }
+
     function onSetCategory(category:string){
         setSelectedKey(category);
-        if (nextMenu.current) nextMenu.current(null);
+        setFocus(order);
     }
 
     return <>
-        <div style={Object.assign({},styles.root,getBorderRadius(position))} className={order>0?'appear':''}>
+        <div style={Object.assign({},styles.root,getBorderRadius(position))} className={`nestedSubMenu subMenu_${order} ${order>0?'appear':''}`}>
             {Object.keys(menuJson).map((category,index)=><Item name={category} key={index} selected={selectedKey===category}>
                 {typeof menuJson[category] === 'string' ?
                     <AnalyticsLink link={menuJson[category] as string} name={category} key={index}/>
                     :<SubCategory onClick={()=>onSetCategory(category)} name={category} />}
             </Item>)}
         </div>
-        {selectedKey&&<NestedSubMenu2 refFromParent={nextMenu as MutableRefObject<SetSelectedKey>} menuJson={menuJson[selectedKey] as NestedMenuContent} order={order+1}/>}
+        {selectedKey&&<NestedSubMenu2 menuJson={menuJson[selectedKey] as NestedMenuContent} order={order+1}/>}
     </>
 }

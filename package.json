@@ -3,23 +3,16 @@
   "version": "1.1.3",
   "private": true,
   "dependencies": {
-    "@dhis2/ui": "^8.4.15",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.5",
+    "@dhis2/ui": "^8.4.17",
+    "@mui/material": "^5.10.7",
     "@pepfar-react-lib/datim-api": "^0.0.23",
     "@pepfar-react-lib/message-provider": "^0.0.1",
-    "@types/node": "^18.7.18",
-    "@types/react": "^18.0.20",
-    "@types/react-dom": "^18.0.6",
-    "jodit": "^3.20.3",
+    "jodit": "^3.20.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6.4.0",
-    "sanitize-html": "^2.7.2",
-    "sass": "^1.55.0",
-    "styled-jsx": "^5.0.7",
-    "yaml": "^2.1.1"
+    "react-router-dom": "6.4.1",
+    "yaml": "^2.1.1",
+    "dompurify": "^2.4.0"
   },
   "homepage": ".",
   "scripts": {
@@ -48,12 +41,19 @@
     "@pepfar-react-lib/testwrap": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@types/jest": "^29.0.2",
+    "@types/jest": "^29.1.0",
     "craco": "^0.0.3",
     "react-scripts": "5.0.1",
-    "ts-loader": "^9.4.0",
+    "ts-loader": "^9.4.1",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4",
+    "sass": "^1.55.0",
+    "styled-jsx": "^5.0.7",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@types/node": "^18.7.23",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6"
   },
   "jest": {
     "transformIgnorePatterns": [

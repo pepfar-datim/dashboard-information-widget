@@ -3,6 +3,7 @@ import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
 import YAML from 'yaml'
 import {getJson, postJson, putJson} from "@pepfar-react-lib/datim-api";
+import assert from "assert";
 
 export enum ContentItemType{
     string='string',
@@ -32,7 +33,7 @@ export function extractStyle(pre:string):string|null{
 }
 
 function separateNestedMenus(contentString:string):{cleanedContentString:string,nestedMenus:NestedMenuObject[]}{
-    let preTags = contentString.match(/<pre(.|\s)+?nestedMenu(.|\s)+?pre>/g);
+    let preTags = contentString.match(/<pre(.|\s)+?pre>/g);
     if (!preTags) return {cleanedContentString: contentString, nestedMenus: []};
     let nestedMenus:NestedMenuObject[] = [];
     let cleanedContentString:string = contentString;

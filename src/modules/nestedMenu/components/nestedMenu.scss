@@ -1,26 +1,8 @@
-/*.nestedMenu option:hover{*/
-/*    background-color: rgba(44, 102, 147, 0.11)!important;*/
-/*}*/
-
-/*option.analyticsLink::after {*/
-/*    content: "↗";*/
-/*    position: relative;*/
-/*    left: 3px;*/
-/*}*/
-
-/*option:checked{*/
-/*    !*background: linear-gradient(0deg, #B7C8D9  0%, #B7C8D9  100%)!important;*!*/
-/*}*/
-
-/*select:focus option:checked{*/
-/*    !*background: linear-gradient(0deg, rgb(44, 102, 147) 0%, rgb(44, 102, 147) 100%)!important;*!*/
-/*    !*outline: 1px solid  rgb(44, 102, 147);*!*/
-/*}*/
-
 $hoverBg: rgb(232, 237, 242);
+$selectedBg: rgb(232, 237, 242);
 
-$sectedFg: white;
-$selectedBg: rgb(44, 102, 147);
+$focusedFg: white;
+$focusedBg: rgb(44, 102, 147);
 
 .nestedMenu_item:hover {
   background-color: $hoverBg;
@@ -28,7 +10,11 @@ $selectedBg: rgb(44, 102, 147);
 
 .nestedMenu_item.selected {
   background-color: $selectedBg;
-  color: $sectedFg;
+}
+
+.nestedSubMenu.focused .nestedMenu_item.selected {
+  background-color: $focusedBg;
+  color: $focusedFg;
 }
 
 .nestedMenu_analyticsLink, .nestedMenu_subCategory {
@@ -36,7 +22,7 @@ $selectedBg: rgb(44, 102, 147);
 }
 
 .appear {
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   animation-name: appear-animation;
   animation-fill-mode: backwards;
   position: relative;
@@ -44,7 +30,6 @@ $selectedBg: rgb(44, 102, 147);
 
 @keyframes appear-animation {
   0% {
-    //opacity: 0;
     left: -100px;
     z-index: -1;
   }
@@ -52,8 +37,23 @@ $selectedBg: rgb(44, 102, 147);
     z-index:-1;
   }
   100% {
-    //opacity: 1;
     left: 0px;
     z-index: 0;
+  }
+}
+
+.nestedMenu {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: $hoverBg;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $focusedBg;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(44, 102, 147,0.8);
   }
 }

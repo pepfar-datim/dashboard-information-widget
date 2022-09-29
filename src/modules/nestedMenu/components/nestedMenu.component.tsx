@@ -15,7 +15,7 @@ export function NestedMenu({menuJson}:{menuJson:NestedMenuObject}):ReactElement{
     let rand = randomInteger();
     return <>
         <Box style={styles.root} id={`nestedMenu_${rand}`} className={'nestedMenu'}>
-            <NestedSubMenu2 menuJson={menuJson.content} order={0} refFromParent={{} as MutableRefObject<any>}/>
+            <NestedSubMenu2 menuJson={menuJson.content} order={0}/>
         </Box>
         <style>
             {`#nestedMenu_${rand}{${menuJson.style}}`}
