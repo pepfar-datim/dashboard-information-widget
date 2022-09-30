@@ -3,6 +3,7 @@ import {NestedMenuContent} from "../../../shared/services/content.service";
 import {Item} from "./item.component";
 import {AnalyticsLink} from "./analyticsLink.component";
 import {SubCategory} from "./subCategory.component";
+import {parseStyle} from "../../services/createStyleElement";
 
 const styles = {
     root: {
@@ -69,14 +70,21 @@ export function NestedSubMenu2({menuJson, order}:{menuJson:NestedMenuContent,ord
         setFocus(order);
     }
 
+    let windowCss;
+    const isStyleOnly = name=>/^\{.+\}$/.test(name)
+    let first:string = Object.keys(menuJson)[0];
+    if (isStyleOnly(first)) windowCss = parseStyle(first);
+    let id = `subMenu_${Math.floor(Math.random()*1e7)}`
     return <>
-        <div style={Object.assign({},styles.root,getBorderRadius(position))} className={`nestedSubMenu subMenu_${order} ${order>0?'appear':''}`}>
-            {Object.keys(menuJson).map((category,index)=><Item name={category} key={index} selected={selectedKey===category}>
+        <div id={id} style={Object.assign({},styles.root,getBorderRadius(position))} className={`nestedSubMenu subMenu_${order} ${order>0?'appear':''}`}>
+            {Object.keys(menuJson).filter((category)=>!isStyleOnly(category)).map((category,index)=><Item name={category} key={index} selected={selectedKey===category}>
                 {typeof menuJson[category] === 'string' ?
                     <AnalyticsLink link={menuJson[category] as string} name={category} key={index}/>
                     :<SubCategory onClick={()=>onSetCategory(category)} name={category} />}
             </Item>)}
         </div>
+        {windowCss&&<style>{`#${id}{${windowCss}}`}</style>}
+        {windowCss&&<div>{`#${id}{${windowCss}}`}</div>}
         {selectedKey&&<NestedSubMenu2 menuJson={menuJson[selectedKey] as NestedMenuContent} order={order+1}/>}
     </>
 }

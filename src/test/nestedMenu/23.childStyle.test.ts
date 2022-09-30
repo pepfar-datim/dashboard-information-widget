@@ -1,4 +1,4 @@
-import {checkStyle} from "../../modules/nestedMenu/services/createStyleElement";
+import {parseStyle} from "../../modules/nestedMenu/services/createStyleElement";
 
 type TestCase = {
     input:string;
@@ -23,5 +23,5 @@ const testCases:TestCase[] = [{
 }]
 
 testCases.forEach(({input,output})=>test(`23 > child style > ${input}`,()=>{
-    expect(checkStyle(input)).toBe(output)
+    expect(parseStyle(input)).toBe(output)
 }))

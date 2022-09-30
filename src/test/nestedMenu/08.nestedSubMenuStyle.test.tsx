@@ -3,10 +3,13 @@ import {readFileSync} from "fs";
 import {screen} from "@testing-library/react";
 import {Index} from "../../modules/main/components/index.component";
 import {debug} from "@pepfar-react-lib/testwrap";
+import {clickByText} from "@pepfar-react-lib/testwrap/jsbuild";
 
-let widgetContent:string = readFileSync(`${__dirname}/serverResponseCss.html`).toString();
+let widgetContent:string = readFileSync(`${__dirname}/serverResponseSubMenuCss.html`).toString();
 
-test('5 > Nested menu',async ()=>{
+const checkStyle = (selector:string,property:string,value:string)=>expect(getComputedStyle(document.querySelector(selector) as HTMLElement)[property]).toEqual(value)
+
+test('7 > Nested sub-menu style',async ()=>{
     initServerSettings({
         superUserOnly: false,
         isSuperAdmin: true,
@@ -14,6 +17,7 @@ test('5 > Nested menu',async ()=>{
     })
     mockContent(widgetContent);
     await setUpComponent(<Index/>, ['Results','Targets']);
-    expect(getComputedStyle(document.querySelector('[id*="nestedMenu"]') as HTMLElement).height).toEqual('200px')
-    expect(getComputedStyle(screen.getByText('Results').parentElement as HTMLElement)['font-weight']).toEqual('700')
+    checkStyle('.subMenu_0','font-weight','700')
+    clickByText('Results')
+    checkStyle('.subMenu_1','color','red')
 })

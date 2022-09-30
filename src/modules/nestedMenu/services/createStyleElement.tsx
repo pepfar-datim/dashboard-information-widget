@@ -10,7 +10,7 @@ export function removeStyle(category:string):string{
     return category.replace(/\{.+\}/, '')
 }
 
-export function checkStyle(category:string):string|null{
+export function parseStyle(category:string):string|null{
     if (!/\{.+\}/.test(category)) return null;
     let r = category.match(/\{.+\}/);
     return r&&r[0]
