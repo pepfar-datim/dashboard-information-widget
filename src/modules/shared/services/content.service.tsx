@@ -3,7 +3,6 @@ import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
 import YAML from 'yaml'
 import {getJson, postJson, putJson} from "@pepfar-react-lib/datim-api";
-import assert from "assert";
 
 export enum ContentItemType{
     string='string',
@@ -81,7 +80,7 @@ export function fetchContent():Promise<string>{
 }
 
 export function saveContent(content) {
-    return putJson(getContentUrl(), { body: content }).catch(async (resp) => {
+    return putJson(getContentUrl(), { body: content }).catch(async () => {
         await postJson(getContentUrl(), { body: content });
         let widgetId = getWidgetId();
         let widgetUid = await getKeyUid(widgetId);

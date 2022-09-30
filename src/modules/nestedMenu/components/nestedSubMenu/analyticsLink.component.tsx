@@ -1,5 +1,4 @@
-import {randomInteger} from "../../services/randomInteger";
-import {checkStyle, removeStyle} from "../../services/createStyleElement";
+import {removeStyle} from "../../services/createStyleElement";
 import React from "react";
 
 export const AnalyticsLink = ({link,name}:{link:string, name:string})=>{

@@ -1,4 +1,4 @@
-import React, {MutableRefObject, ReactElement, useRef, useState} from "react";
+import React, {ReactElement, useState} from "react";
 import {NestedMenuContent} from "../../../shared/services/content.service";
 import {Item} from "./item.component";
 import {AnalyticsLink} from "./analyticsLink.component";

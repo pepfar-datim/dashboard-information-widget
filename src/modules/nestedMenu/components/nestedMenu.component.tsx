@@ -1,4 +1,4 @@
-import React, {MutableRefObject, ReactElement} from "react";
+import React, {ReactElement} from "react";
 import {NestedMenuObject} from "../../shared/services/content.service";
 import {Box} from '@mui/material';
 import "./nestedMenu.scss"

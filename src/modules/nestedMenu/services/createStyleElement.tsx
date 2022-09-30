@@ -10,18 +10,11 @@ export function removeStyle(category:string):string{
     return category.replace(/\{.+\}/, '')
 }
 
-export function checkStyle(id:string, category:string){
-    if (/\{.+\}/.test(category)) {
-        try {
-            let r = category.match(/\{.+\}/);
-            let css = r&&r[0]
-                ?.replace(/(\{|\})/g,"")
-                ?.replace(/\|/g,":")
-                ?.replace(/\$/g,"#")
-            createStyleElement(id,css);
-        }catch(e){
-
-        }
-
-    }
+export function checkStyle(category:string):string|null{
+    if (!/\{.+\}/.test(category)) return null;
+    let r = category.match(/\{.+\}/);
+    return r&&r[0]
+        ?.replace(/(\{|\})/g,"")
+        ?.replace(/\|/g,":")
+        ?.replace(/\$/g,"#")
 }

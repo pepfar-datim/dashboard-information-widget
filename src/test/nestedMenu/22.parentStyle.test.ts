@@ -9,16 +9,16 @@ const testScenarios: TestScenario[]=[{
     input: '<pre type="nestedMenu">pre content</pre>',
     output: null
 },{
-    input: '<pre type="nestedMenu" data-style="border: 1px solid black;">pre content</pre>',
+    input: '<pre type="nestedMenu" style="border: 1px solid black;">pre content</pre>',
     output: 'border: 1px solid black;'
 },{
-    input: '<pre data-style="border: 1px solid black;" type="nestedMenu">pre content</pre>',
+    input: '<pre style="border: 1px solid black;" type="nestedMenu">pre content</pre>',
     output: 'border: 1px solid black;'
 },{
-    input: "<pre data-style='border: 1px solid black;' type='nestedMenu'>pre content</pre>",
+    input: "<pre style='border: 1px solid black;' type='nestedMenu'>pre content</pre>",
     output: 'border: 1px solid black;'
 },{
-    input: "<pre type='nestedMenu' data-style='border: 1px solid black;'>pre content</pre>",
+    input: "<pre type='nestedMenu' style='border: 1px solid black;'>pre content</pre>",
     output: 'border: 1px solid black;'
 }]
 
