@@ -84,7 +84,7 @@ export function NestedSubMenu2({menuJson, order}:{menuJson:NestedMenuContent,ord
             </Item>)}
         </div>
         {windowCss&&<style>{`#${id}{${windowCss}}`}</style>}
-        {windowCss&&<div>{`#${id}{${windowCss}}`}</div>}
+        {/*{windowCss&&<div>{`#${id}{${windowCss}}`}</div>}*/}
         {selectedKey&&<NestedSubMenu2 menuJson={menuJson[selectedKey] as NestedMenuContent} order={order+1}/>}
     </>
 }

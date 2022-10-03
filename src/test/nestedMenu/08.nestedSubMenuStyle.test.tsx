@@ -9,7 +9,7 @@ let widgetContent:string = readFileSync(`${__dirname}/serverResponseSubMenuCss.h
 
 const checkStyle = (selector:string,property:string,value:string)=>expect(getComputedStyle(document.querySelector(selector) as HTMLElement)[property]).toEqual(value)
 
-test('7 > Nested sub-menu style',async ()=>{
+test('8 > Nested sub-menu style',async ()=>{
     initServerSettings({
         superUserOnly: false,
         isSuperAdmin: true,
