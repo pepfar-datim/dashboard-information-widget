@@ -16,7 +16,7 @@ The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows f
 
 ## Installation on DHIS2
 
-1. Install the app via the [App Hub](https://apps.dhis2.org/) or by uploading the zip from `npm run build` into the DHIS2 App Management app
+1. Install the app via the [App Hub](https://apps.dhis2.org/user/app/96d39ad5-bd25-45b1-ae8c-165f4a1854a9) or by uploading into the DHIS2 App Management app the zip either from [our releases](https://github.com/pepfar-datim/dashboard-information-widget/releases) or from `npm run build`
 2. Be sure to grant access to the app to all users, or they will not see the content. To do this, go to DHIS2 Users > User role > [role] > Apps > select `Information app`. Make sure to do this on enough roles to give all users access. (For example, if all users on your system have a Guest or Read Only role, giving the permission to that role is sufficient.)
 3. From the Dashboards page of your DHIS2 installation, edit a dashboard. (If you do not have any dashboards, you will need to add a new dashboard.)
 4. Click `Search for items to add to this dashboard`, and select `Information` under `Apps`.
