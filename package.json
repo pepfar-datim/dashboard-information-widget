@@ -17,11 +17,11 @@
   },
   "homepage": ".",
   "scripts": {
-    "start": "REACT_APP_BASE_URL=https://jakub.testing.datim.org/ craco start",
+    "start": "REACT_APP_BASE_URL=https://dev.datim.org/ craco start",
     "start:hard": "rm -rf node_modules/.cache && npm start",
     "build": "REACT_APP_BASE_URL=../../.. craco build && npm run build:zip",
     "build:zip": "(rm -f dashboard-information-widget.zip && cd build && zip ../dashboard-information-widget.zip -r .)",
-    "test": "REACT_APP_BASE_URL=https://jakub.testing.datim.org/ craco test --maxWorkers=6 --verbose",
+    "test": "REACT_APP_BASE_URL=https://dev.datim.org/ craco test --maxWorkers=6 --verbose",
     "test:cache": "rm cachedApiCalls/*",
     "dep:copy": "node --experimental-specifier-resolution=node node_modules/@pepfar-react-lib/dep-copy/build/bin/dep-copy.js"
   },
