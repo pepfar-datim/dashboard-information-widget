@@ -1,5 +1,9 @@
 import React, {CSSProperties} from 'react';
-import {fetchContent, saveContent} from '../shared/services/content.service';
+import {
+    checkNestedMenusValid,
+    fetchContent,
+    saveContent,
+} from '../shared/services/content.service';
 import {Button, ButtonStrip} from '@dhis2/ui';
 import {Link} from 'react-router-dom';
 import contentHook from '../shared/services/contentHook.service';
@@ -47,6 +51,8 @@ export default class Edit extends React.Component<
     };
 
     saveChanges = () => {
+        //TODO: check if yaml is correct
+        if (!checkNestedMenusValid(this.state.editedContent as string)) return this.props.showMessage({type:MessageType.error,text: 'Nested menu YAML is invalid'})
         saveContent(contentHook(this.state.editedContent)).then((resp) => {
             this.props.showMessage({type:MessageType.success,text: 'Content saved'})
             window.location.hash = '/';

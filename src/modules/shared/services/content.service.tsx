@@ -52,26 +52,25 @@ function parseYaml(nestedMenuPre:string):NestedMenuContent{
         .replace(/<pre .*?>/,'')
         .replace("</pre>",'')
         .replace(/\{.+:.+\}/g,escapeCss)
-    try {
         return YAML.parse(yaml);
-    }catch(e){
-        console.error(e);
-        return {};
-    }
 }
 
 export function parseContent(inputString:string):ContentItem[]{
     if (!inputString||typeof inputString!=='string'||inputString.length===0) return [];
-    let {cleanedContentString, nestedMenus} = separateNestedMenus(inputString);
-    if (nestedMenus.length===0) return [{type:ContentItemType.string, body: inputString}];
-    let textSections = cleanedContentString.split('#').filter(s=>s.length>0);
-    let result:ContentItem[] = [];
-    nestedMenus = nestedMenus.reverse();
-    textSections.forEach((item:string,i:number)=>{
-        if (!/nestedMenu[0-9]/.test(item)) return result.push({type:ContentItemType.string, body:item});
-        else result.push({type:ContentItemType.nestedMenu, body: nestedMenus.pop()||'nestedMenu'})
-    })
-    return result;
+    try {
+        let {cleanedContentString, nestedMenus} = separateNestedMenus(inputString);
+        if (nestedMenus.length === 0) return [{type: ContentItemType.string, body: inputString}];
+        let textSections = cleanedContentString.split('#').filter(s => s.length > 0);
+        let result: ContentItem[] = [];
+        nestedMenus = nestedMenus.reverse();
+        textSections.forEach((item: string, i: number) => {
+            if (!/nestedMenu[0-9]/.test(item)) return result.push({type: ContentItemType.string, body: item});
+            else result.push({type: ContentItemType.nestedMenu, body: nestedMenus.pop() || 'nestedMenu'})
+        })
+        return result;
+    }catch(e){
+        return [{type:ContentItemType.string, body: inputString}];
+    }
 }
 
 
@@ -86,4 +85,13 @@ export function saveContent(content) {
         let widgetUid = await getKeyUid(widgetId);
         return shareKey(widgetUid, 'r-------');
     });
+}
+
+export function checkNestedMenusValid(content:string):boolean{
+    try {
+        separateNestedMenus(content as string)
+        return true;
+    }catch(e){
+        return false;
+    }
 }
