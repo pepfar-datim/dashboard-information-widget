@@ -81,6 +81,7 @@ export function fetchContent():Promise<string>{
 export function saveContent(content) {
     return putJson(getContentUrl(), { body: content }).catch(async () => {
         await postJson(getContentUrl(), { body: content });
+        await postJson(`/maintenance/cache`, '');
         let widgetId = getWidgetId();
         let widgetUid = await getKeyUid(widgetId);
         return shareKey(widgetUid, 'r-------');
