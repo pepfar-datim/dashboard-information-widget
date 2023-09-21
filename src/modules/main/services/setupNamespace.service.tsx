@@ -6,7 +6,6 @@ const config = require('../../../config/config.json');
 async function addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey) {
     const data = { [onlyOpenToSuperUsersKey]: false };
     await postJson(`/dataStore/${datastoreNamespace}/configuration`, data);
-    await postEmpty('/maintenance/cache');
     const configKeyUid = await getKeyUid('configuration');
     await shareKey(configKeyUid, 'r-------');
 }
