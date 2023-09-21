@@ -1,6 +1,6 @@
 {
   "name": "dashboard-information",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "private": true,
   "dependencies": {
     "@dhis2/ui": "^8.4.17",
