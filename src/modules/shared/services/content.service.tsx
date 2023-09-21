@@ -2,7 +2,7 @@ import sanitize from '../../shared/services/sanitize.service';
 import getContentUrl, {getWidgetId} from './contentUrl.service';
 import {getKeyUid, shareKey} from "./shareKey.service";
 import YAML from 'yaml'
-import {getJson, postJson, putJson} from "@pepfar-react-lib/datim-api";
+import {getJson, postJson, putJson,postEmpty} from "@pepfar-react-lib/datim-api";
 
 export enum ContentItemType{
     string='string',
@@ -81,7 +81,7 @@ export function fetchContent():Promise<string>{
 export function saveContent(content) {
     return putJson(getContentUrl(), { body: content }).catch(async () => {
         await postJson(getContentUrl(), { body: content });
-        await postJson(`/maintenance/cache`, '');
+        await postEmpty('/maintenance/cache');
         let widgetId = getWidgetId();
         let widgetUid = await getKeyUid(widgetId);
         return shareKey(widgetUid, 'r-------');

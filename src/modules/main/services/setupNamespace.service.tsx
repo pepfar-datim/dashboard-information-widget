@@ -1,4 +1,4 @@
-import {getJson, postJson} from "@pepfar-react-lib/datim-api";
+import {getJson, postJson,postEmpty } from "@pepfar-react-lib/datim-api";
 import {getKeyUid, shareKey} from "../../shared/services/shareKey.service";
 
 const config = require('../../../config/config.json');
@@ -6,7 +6,7 @@ const config = require('../../../config/config.json');
 async function addNamespaceConfig(datastoreNamespace, onlyOpenToSuperUsersKey) {
     const data = { [onlyOpenToSuperUsersKey]: false };
     await postJson(`/dataStore/${datastoreNamespace}/configuration`, data);
-    await postJson(`/maintenance/cache`, '');
+    await postEmpty('/maintenance/cache');
     const configKeyUid = await getKeyUid('configuration');
     await shareKey(configKeyUid, 'r-------');
 }
