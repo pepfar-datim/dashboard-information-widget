@@ -6,6 +6,7 @@ const dataStoreCreateResponse = {"httpStatus":"Created","httpStatusCode":201,"st
 const metaDataResponse = {"id":"metadataId1"};
 const keyShareStatus = {"object": {publicAccess: "rw------"}}
 const keyShareResponse = {"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Access control set"};
+const clearCacheResponse = {"httpStatus":"OK","httpStatusCode":204,"status":"OK"};
 
 test(`DataStoreInit > Empty`, async ()=>{
     dataStoreExists(false);
@@ -17,7 +18,11 @@ test(`DataStoreInit > Empty`, async ()=>{
     let sharing = registerSendMock('/sharing?type=dataStore&id=metadataId1',keyShareResponse).then((response)=>{
         expect(response).toStrictEqual({"object":{"id":"metadataId1","publicAccess":"r-------"}});
     })
+    let clearCache = registerSendMock('/maintenance/cache',clearCacheResponse).then((request)=>{
+        expect(request).toStrictEqual(null);
+    })
     await connectToDataStore();
     await dataStore;
     await sharing;
+    await clearCache;
 })
