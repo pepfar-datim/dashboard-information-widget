@@ -81,11 +81,10 @@ export function fetchContent():Promise<string>{
 export function saveContent(content) {
     return putJson(getContentUrl(), { body: content }).catch(async () => {
         await postJson(getContentUrl(), { body: content });
-        await postEmpty('/maintenance/cache');
         let widgetId = getWidgetId();
         let widgetUid = await getKeyUid(widgetId);
         return shareKey(widgetUid, 'r-------');
-    });
+    }).then(async (resp) => { await postEmpty('/maintenance/cache')});
 }
 
 export function checkNestedMenusValid(content:string):boolean{
