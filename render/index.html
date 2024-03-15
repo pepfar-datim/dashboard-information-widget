@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* CSS loader */
+      .loader {
+        width: min(50vw,50vh);
+        position: absolute;
+        top: 25vh;
+        left: 25vw;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid lightgray;
+        border-right-color: slategrey;
+        animation: l2 1s infinite linear;
+      }
+      @keyframes l2 {to{transform: rotate(1turn)}}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      body {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: 0.00938em;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="loader"></div>
+    </div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

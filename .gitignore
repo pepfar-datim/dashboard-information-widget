@@ -1,13 +1,4 @@
-/node_modules
-/build
-/testData/node_modules
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-/.idea
-
-*.jsx
-*.zip
-.DS_Store
+*/node_modules
+*/.idea
+build_temp/
+dashboard-information-widget.zip

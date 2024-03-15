@@ -1,0 +1,12 @@
+
+# lib
+node_modules
+
+# dev
+.env.local
+.idea
+
+# output
+dist
+Landing-Page.zip
+stats.html

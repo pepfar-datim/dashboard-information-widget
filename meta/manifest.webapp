@@ -1,0 +1,27 @@
+{
+    "launch_path": "index.html",
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": "*",
+            "namespace": "dashboard-information"
+        }
+    },
+    "appType": "DASHBOARD_WIDGET",
+    "name": "Information",
+    "version": "1.2.0",
+    "description": "Rich text editor for DHIS2 dashboard content, created for PEPFAR. Allows embedding videos. Strips Javascript from user-created content. For more info, see https://github.com/pepfar-datim/dashboard-information-widget",
+    "developer": {
+        "name": "PEPFAR"
+    },
+    "icons": {
+        "16": "icons/appIcon16.png",
+        "48": "icons/appIcon48.png",
+        "128": "icons/appIcon128.png"
+    },
+    "settings": {
+        "dashboardWidget": {
+            "hideTitle": true
+        }
+    }
+}

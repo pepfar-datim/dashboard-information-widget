@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Landing Page | DHIS2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      @keyframes pulse {
+        0%, 100% {
+          background-color: lightgray;
+        }
+        50% {
+          background-color: white;
+        }
+      }
+
+      #loader {
+        animation: pulse 1.5s infinite;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      #spin {
+        animation: 1.5s linear infinite spinner;
+        animation-play-state: inherit;
+        border: solid 5px #318ae6;
+        border-bottom-color: #133659;
+        border-radius: 50%;
+        content: "";
+        height: min(50vw, 50vh);
+        width:  min(50vw, 50vh);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        will-change: transform;
+      }
+      @keyframes spinner {
+        0%   { transform: translate3d(-50%, -50%, 0) rotate(0deg); }
+        100% { transform: translate3d(-50%, -50%, 0) rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="loader">
+        <div id="spin"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

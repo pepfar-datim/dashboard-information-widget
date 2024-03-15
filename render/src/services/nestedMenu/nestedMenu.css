@@ -1,0 +1,25 @@
+/* Nested Menu */
+.menuItem.selected, .menuItem:hover {
+    background-color: #e8edf2;
+}
+
+@keyframes appear-animation {
+    0% {
+        left: -100px;
+        z-index: -1;
+    }
+    99%{
+        z-index:-1;
+    }
+    100% {
+        left: 0px;
+        z-index: 0;
+    }
+}
+
+.appear {
+    animation-duration: 0.3s;
+    animation-name: appear-animation;
+    animation-fill-mode: backwards;
+    position: relative;
+}
