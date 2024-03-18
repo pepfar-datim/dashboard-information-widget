@@ -1,12 +1,4 @@
-
-# lib
 node_modules
-
-# dev
-.env.local
+dist
 .idea
 
-# output
-dist
-Landing-Page.zip
-stats.html

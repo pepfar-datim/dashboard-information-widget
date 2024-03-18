@@ -37,7 +37,7 @@ export default defineConfig({
     base: '',
     server,
     preview: server,
-    // build: {
-    //     assetsDir: 'search'
-    // }
+    build: {
+        assetsDir: 'assets_render'
+    }
 })

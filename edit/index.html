@@ -1,55 +1,66 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Landing Page | DHIS2</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-
-      @keyframes pulse {
-        0%, 100% {
-          background-color: lightgray;
-        }
-        50% {
-          background-color: white;
-        }
-      }
-
-      #loader {
-        animation: pulse 1.5s infinite;
-        width: 100%;
-        height: 100%;
+      /* CSS loader */
+      .loader {
+        width: min(50vw,50vh);
         position: absolute;
-        top: 0px;
-        left: 0px;
-      }
-      #spin {
-        animation: 1.5s linear infinite spinner;
-        animation-play-state: inherit;
-        border: solid 5px #318ae6;
-        border-bottom-color: #133659;
+        top: 25vh;
+        left: 25vw;
+        aspect-ratio: 1;
         border-radius: 50%;
-        content: "";
-        height: min(50vw, 50vh);
-        width:  min(50vw, 50vh);
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        will-change: transform;
+        border: 8px solid lightgray;
+        border-right-color: slategrey;
+        animation: l2 1s infinite linear;
       }
-      @keyframes spinner {
-        0%   { transform: translate3d(-50%, -50%, 0) rotate(0deg); }
-        100% { transform: translate3d(-50%, -50%, 0) rotate(360deg); }
+      @keyframes l2 {to{transform: rotate(1turn)}}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      body {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: 0.00938em;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
       }
     </style>
   </head>
   <body>
-    <div id="root">
-      <div id="loader">
-        <div id="spin"></div>
-      </div>
-    </div>
-    <script type="module" src="/src/index.tsx"></script>
+<!--    <div id="content">-->
+<!--      <div class="loader"></div>-->
+<!--    </div>-->
+    <textarea id="editor" name="editor"></textarea>
+    <script type="module" src="/src/index.ts"></script>
   </body>
 </html>

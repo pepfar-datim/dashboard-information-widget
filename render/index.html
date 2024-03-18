@@ -3,21 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      /* CSS loader */
-      .loader {
-        width: min(50vw,50vh);
-        position: absolute;
-        top: 25vh;
-        left: 25vw;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 8px solid lightgray;
-        border-right-color: slategrey;
-        animation: l2 1s infinite linear;
-      }
-      @keyframes l2 {to{transform: rotate(1turn)}}
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -57,9 +42,7 @@
     </style>
   </head>
   <body>
-    <div id="content">
-      <div class="loader"></div>
-    </div>
+    <div id="content"></div>
     <script type="module" src="/src/index.ts"></script>
   </body>
 </html>
