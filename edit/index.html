@@ -84,10 +84,25 @@
         cursor: pointer;
         letter-spacing: 0.5px;
       }
-      #save:hover{
+      #save_button:hover{
         border-color: rgb(13, 71, 161)!important;
         background: linear-gradient(rgb(5, 79, 163) 0%, rgb(3, 71, 147) 100%) rgb(33, 83, 159)!important;
       }
+      #save_button:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+        position: relative;
+      }
+
+      #save_button:disabled:hover:before{
+        content: attr(data-text);
+        position: absolute;
+        color: black;
+        top: 0px;
+        left: -150px;
+        line-height: 35px;
+      }
+
       #cancel_button {
         background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
       }
@@ -102,9 +117,9 @@
     </style>
   </head>
   <body>
-    <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
+    <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
     <div id="buttonContainer">
-      <button class="button" id="save">Save</button>
+      <button class="button" id="save_button" disabled data-text="No changes to save." >Save</button>
       <a id="cancel_link" href=""><button class="button" id="cancel_button">Cancel</button></a>
     </div>
     <div style="clear: both;"></div>

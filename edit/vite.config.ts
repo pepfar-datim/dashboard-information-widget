@@ -3,10 +3,8 @@ import minifyHtmlPlugin from "./plugin/minifyHtml.plugin";
 
 let auth;
 try {
-    //@ts-expect-error process not defined
     auth = loadEnv('development', process.cwd())['VITE_DHIS_AUTH']
 } catch (e) {
-    //@ts-expect-error error not defined
     throw new Error(`You have to specify VITE_DHIS_AUTH env variable. E.g. btoa('username:password') in JavaScript`)
 }
 
