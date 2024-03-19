@@ -1,4 +1,4 @@
-import {sanitize} from "../../services/sanitize.service.ts";
+import {sanitizeContent} from "../../services/sanitizeContent.service.ts";
 import {expect} from "vitest";
 
 
@@ -10,5 +10,5 @@ const testCases:string[][] = [
 ]
 
 test(`3 > Sanitizer Test`, ()=>{
-    testCases.forEach(([input, output])=>expect(sanitize(input)).toBe(output))
+    testCases.forEach(([input, output])=>expect(sanitizeContent(input)).toBe(output))
 })

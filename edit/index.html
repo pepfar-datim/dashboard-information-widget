@@ -3,21 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      /* CSS loader */
-      .loader {
-        width: min(50vw,50vh);
-        position: absolute;
-        top: 25vh;
-        left: 25vw;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 8px solid lightgray;
-        border-right-color: slategrey;
-        animation: l2 1s infinite linear;
-      }
-      @keyframes l2 {to{transform: rotate(1turn)}}
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -55,10 +40,77 @@
         src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
       }
     </style>
+    <style>
+      /* CSS loader */
+      #loader {
+        width: min(50vw,50vh);
+        position: absolute;
+        top: 25vh;
+        left: 25vw;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid lightgray;
+        border-right-color: slategrey;
+        animation: l2 1s infinite linear;
+      }
+      @keyframes l2 {to{transform: rotate(1turn)}}
+    </style>
+    <style>
+      #documentation{
+        line-height: 2.2;
+      }
+      #documentation_link{
+        text-decoration: none;
+        font-style: italic;
+      }
+      #buttonContainer {
+        float: right;
+        display: flex;
+        gap: 4px;
+      }
+      .button {
+        border-color: rgb(13, 71, 161);
+        background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
+        color: rgb(255, 255, 255);
+        fill: rgb(255, 255, 255);
+        font-weight: 500;
+        border-radius: 4px;
+        height: 36px;
+        padding: 0px 12px;
+        font-size: 14px;
+        line-height: 16px;
+        border: 1px solid rgb(160, 173, 186);
+        text-decoration: none;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+      }
+      #save:hover{
+        border-color: rgb(13, 71, 161)!important;
+        background: linear-gradient(rgb(5, 79, 163) 0%, rgb(3, 71, 147) 100%) rgb(33, 83, 159)!important;
+      }
+      #cancel_button {
+        background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
+      }
+      #cancel_button:hover{
+        border-color: rgb(161, 11, 11);
+        background: linear-gradient(rgb(184, 28, 28) 0%, rgb(184, 12, 11) 100%) rgb(172, 15, 26);
+      }
+
+      #editor-container {
+        margin-top: 6px;
+      }
+    </style>
   </head>
   <body>
-    <p>Documentation for the Dashboard Information widget can be found here.</p>
-    <textarea id="editor" name="editor"></textarea>
+    <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget/blob/main/README.md" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
+    <div id="buttonContainer">
+      <button class="button" id="save">Save</button>
+      <a id="cancel_link" href=""><button class="button" id="cancel_button">Cancel</button></a>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="editor-container">
+      <div id="loader"></div>
+    </div>
     <script type="module" src="/src/index.ts"></script>
   </body>
 </html>
