@@ -11,7 +11,7 @@ export function mockFetch(urlList:MapOf<object>):void{
 
 export function initDom():void{
     const index:string = readFileSync('./index.html').toString()
-    const body:string = /<body>.+<\/body>/s.exec(index)![0].replace(/<script.+script>/, '')
+    const body:string = /<body>.+<\/body>/s.exec(index)![0].replace(/<script.+?script>/, '')
     document.body.innerHTML = body
     window.location.search = '?dashboardItemId=WidgetId'
 }

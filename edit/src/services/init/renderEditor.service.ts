@@ -5,11 +5,12 @@ import 'jodit/esm/plugins/indent/indent.js'
 import 'jodit/esm/plugins/clean-html/clean-html.js'
 import 'jodit/esm/plugins/hr/hr.js'
 import 'jodit/es2021/jodit.css'
-import {editorConfig} from "../const/jodit.config.ts";
-import {initSaveButton} from "./content/initSaveButton.service.ts";
-export async function renderEditor(content:string):Promise<void>{
+import {editorConfig} from "../../const/jodit.config.ts";
+
+declare let saveContent:()=>void
+export function renderEditor(content:string):Jodit{
     document.getElementById('editor-container')!.innerHTML = `<textarea id="editor" name="editor"></textarea>`
     const editor = Jodit.make('#editor', editorConfig);
     editor.value = content
-    initSaveButton(editor)
+    return editor
 }

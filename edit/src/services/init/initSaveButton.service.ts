@@ -1,5 +1,6 @@
 import {Jodit} from "jodit/esm/index.js";
 import {getWidgetId} from '../../../../shared/getWidgetId.service.ts'
+import {redirectBack} from "../redirectBack.service.ts";
 
 async function query(value:string, method:string):Promise<Response>{
     return fetch(`/api/dataStore/dashboard-information/${getWidgetId()}`,{
@@ -16,11 +17,10 @@ async function save(value:string):Promise<void>{
     if (!response.ok) await query(value, 'POST')
 }
 
-export function saveContentFactory(editor: Jodit){
-    return async ()=>{
-        console.log(editor.value)
+export function initSaveButton(editor: Jodit){
+    document.getElementById('save_button')!.addEventListener('click', async ()=>{
         document.body.innerHTML = '<div id="loader"></div>'
         await save(editor.value)
-        window.location.href = `index.html?dashboardItemId=${getWidgetId()}`
-    }
+        redirectBack()
+    })
 }

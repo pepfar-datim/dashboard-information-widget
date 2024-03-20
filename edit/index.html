@@ -69,20 +69,23 @@
         gap: 4px;
       }
       .button {
-        border-color: rgb(13, 71, 161);
-        background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
-        color: rgb(255, 255, 255);
-        fill: rgb(255, 255, 255);
         font-weight: 500;
         border-radius: 4px;
         height: 36px;
         padding: 0px 12px;
         font-size: 14px;
         line-height: 16px;
-        border: 1px solid rgb(160, 173, 186);
         text-decoration: none;
         cursor: pointer;
         letter-spacing: 0.5px;
+        border: 1px solid grey;
+      }
+      #save_button {
+        border-color: rgb(13, 71, 161);
+        background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
+        fill: rgb(255, 255, 255);
+        border: 1px solid rgb(160, 173, 186);
+        color: rgb(255, 255, 255);
       }
       #save_button:hover{
         border-color: rgb(13, 71, 161)!important;
@@ -105,6 +108,8 @@
 
       #cancel_button {
         background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
+        border: 1px solid rgb(160, 173, 186);
+        color: rgb(255, 255, 255);
       }
       #cancel_button:hover{
         border-color: rgb(161, 11, 11);
@@ -114,12 +119,17 @@
       #editor-container {
         margin-top: 6px;
       }
+
+      dialog::backdrop {
+        background-color: grey;
+        opacity: 0.75;
+      }
     </style>
   </head>
   <body>
     <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
     <div id="buttonContainer">
-      <button class="button" id="save_button" disabled data-text="No changes to save." onclick="saveContent()">Save</button>
+      <button class="button" id="save_button" disabled data-text="No changes to save.">Save</button>
       <a id="cancel_link" href=""><button class="button" id="cancel_button">Cancel</button></a>
     </div>
     <div style="clear: both;"></div>
@@ -127,8 +137,5 @@
       <div id="loader"></div>
     </div>
     <script type="module" src="/src/index.ts"></script>
-    <script>
-      let saveContent
-    </script>
   </body>
 </html>
