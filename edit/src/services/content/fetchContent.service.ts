@@ -1,4 +1,4 @@
-import {getWidgetId} from '../../../shared/getWidgetId.service.ts'
+import {getWidgetId} from '../../../../shared/getWidgetId.service.ts'
 
 export async function fetchContent():Promise<string>{
     const widgetId = getWidgetId()

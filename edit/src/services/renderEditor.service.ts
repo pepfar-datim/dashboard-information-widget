@@ -6,7 +6,7 @@ import 'jodit/esm/plugins/clean-html/clean-html.js'
 import 'jodit/esm/plugins/hr/hr.js'
 import 'jodit/es2021/jodit.css'
 import {editorConfig} from "../const/jodit.config.ts";
-import {initSaveButton} from "./initSaveButton.service.ts";
+import {initSaveButton} from "./content/initSaveButton.service.ts";
 export async function renderEditor(content:string):Promise<void>{
     document.getElementById('editor-container')!.innerHTML = `<textarea id="editor" name="editor"></textarea>`
     const editor = Jodit.make('#editor', editorConfig);

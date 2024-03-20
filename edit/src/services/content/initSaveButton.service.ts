@@ -1,5 +1,8 @@
 import {Jodit} from "jodit/esm/index.js";
 import {getOriginalContent} from "./originalContent.var.ts";
+import {saveContentFactory} from "./saveContent.service.ts";
+
+declare let saveContent:()=>void
 
 let changed = false
 
@@ -11,4 +14,5 @@ export function initSaveButton(editor: Jodit){
         saveButton.removeAttribute('disabled')
         changed = true
     })
+    saveContent = saveContentFactory(editor)
 }
