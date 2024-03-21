@@ -68,7 +68,7 @@
         display: flex;
         gap: 4px;
       }
-      .button {
+      button {
         font-weight: 500;
         border-radius: 4px;
         height: 36px;
@@ -80,8 +80,8 @@
         letter-spacing: 0.5px;
         border: 1px solid grey;
       }
-      #save_button {
-        border-color: rgb(13, 71, 161);
+      #save_button, #keepediting_button {
+        /*border-color: rgb(13, 71, 161);*/
         background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
         fill: rgb(255, 255, 255);
         border: 1px solid rgb(160, 173, 186);
@@ -106,7 +106,7 @@
         line-height: 35px;
       }
 
-      #cancel_button {
+      #cancel_button, #discard_button {
         background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
         border: 1px solid rgb(160, 173, 186);
         color: rgb(255, 255, 255);
@@ -129,8 +129,8 @@
   <body>
     <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
     <div id="buttonContainer">
-      <button class="button" id="save_button" disabled data-text="No changes to save.">Save</button>
-      <a id="cancel_link" href=""><button class="button" id="cancel_button">Cancel</button></a>
+      <button id="save_button" disabled data-text="No changes to save.">Save</button>
+      <a id="cancel_link" href=""><button id="cancel_button">Cancel</button></a>
     </div>
     <div style="clear: both;"></div>
     <div id="editor-container">
