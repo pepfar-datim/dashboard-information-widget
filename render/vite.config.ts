@@ -13,7 +13,7 @@ try {
 
 
 const proxy:ProxyOptions = {
-    target: 'https://dev.datim.org/',
+    target: 'https://test.datim.org/',
     // target: 'https://nr.testing.datim.org/',
     //@ts-expect-error proxy not used
     configure: (proxy, options) => {

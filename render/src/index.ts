@@ -1,7 +1,7 @@
-import {fetchContent} from "./services/fetchContent.service.ts";
+import {fetchContent} from "./main/fetchContent.service.ts";
 import {sanitizeContent} from "../../shared/sanitizeContent.service.ts";
-import {render} from "./services/render.service.ts";
-import {addEditButton} from "./services/addEditButton.service.ts";
+import {render} from "./main/render.service.ts";
+import {addEditButton} from "./main/editButton/addEditButton.service.ts";
 
 
 (async ()=>{

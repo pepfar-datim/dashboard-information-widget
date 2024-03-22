@@ -8,3 +8,4 @@ export type NestedMenu = {
     style?: string;
     subMenu: SubMenu;
 }
+export type SelectFunction = (value: string) => void;

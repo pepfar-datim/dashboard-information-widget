@@ -1,4 +1,4 @@
-import {NestedMenu, SubMenu} from "./nestedMenu.types.ts";
+import {NestedMenu, SubMenu} from "../nestedMenu.types.ts";
 import {parse} from 'yaml'
 
 const escapeCss = (css:string)=>css

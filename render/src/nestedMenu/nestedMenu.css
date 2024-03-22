@@ -1,0 +1,79 @@
+/* Nested Menu */
+
+/* colors */
+@property --color--hover {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #e8edf2;
+}
+
+@property --color--selected {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2c6693;
+}
+
+.menuItem:hover {
+    background-color: var(--color--hover);
+}
+
+.menuItem.selected {
+    background-color: var(--color--selected);
+    color: #fff;
+}
+
+@keyframes appear-animation {
+    0% {
+        left: -100px;
+        z-index: -1;
+    }
+    99%{
+        z-index:-1;
+    }
+    100% {
+        left: 0px;
+        z-index: 0;
+    }
+}
+
+.appear {
+    animation-duration: 0.3s;
+    animation-name: appear-animation;
+    animation-fill-mode: backwards;
+    position: relative;
+}
+
+
+.subMenu {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    min-width: 130px;
+    min-height: 120px;
+    background-color: white;
+    overflow-y: auto;
+    border-radius: 5px;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.menuItem {
+    padding: 4px 5px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+    .subMenu::-webkit-scrollbar {
+        width: 9px;
+        height: 9px;
+    }
+    .subMenu::-webkit-scrollbar-track {
+        background: var(--color--hover);
+    }
+    .subMenu::-webkit-scrollbar-thumb {
+        background: var(--color--selected);
+        border-radius: 4px;
+    }
+    .subMenu::-webkit-scrollbar-thumb:hover {
+        background: rgb(44, 102, 147,0.8);
+    }

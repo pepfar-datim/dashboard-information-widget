@@ -7,6 +7,6 @@ function isEditingDashboard(){
 export async function addEditButton():Promise<void>{
     const isEditing:boolean = isEditingDashboard()
     if (!isEditing) return
-    const {createEditButton} = await import('./editButton/createEditButton.service.ts')
+    const {createEditButton} = await import('./createEditButton.service.ts')
     createEditButton()
 }

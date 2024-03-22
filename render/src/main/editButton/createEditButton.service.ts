@@ -1,4 +1,4 @@
-import {getWidgetId} from "../shared/getWidgetId.service.ts";
+import {getWidgetId} from "../../shared/getWidgetId.service.ts";
 
 const editButtonStyle = `
     border-color: rgb(13, 71, 161);
