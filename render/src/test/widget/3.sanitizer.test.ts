@@ -6,6 +6,7 @@ const testCases:string[][] = [
     ['<script>console.log()</script>content','content'],
     ['<script>1</script>middle<script>2</script>',''],
     ['<iframe src="xxx"/>',''],
+    ['<iframe src="https://www.youtube.com/embed/zduSFxRajkE?si=U11mG5dlUVzskN1O"/>','<iframe src="https://www.youtube.com/embed/zduSFxRajkE?si=U11mG5dlUVzskN1O"/>']
 ]
 
 test(`3 > Sanitizer Test`, ()=>{

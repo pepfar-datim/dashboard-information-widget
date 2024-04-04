@@ -8,7 +8,11 @@ export function mockFetch(urlList:MapOf<object>):void{
     })
 }
 
+declare module globalThis {
+    let NestedMenuGlobal:object;
+}
 export function initDom():void{
+    globalThis.NestedMenuGlobal = {}
     document.body.innerHTML = `<div id="content"></div>`
     window.location.search = '?dashboardItemId=WidgetId'
 }
