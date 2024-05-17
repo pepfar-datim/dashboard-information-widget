@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef683946-d35a-41b2-affd-67b2f6a757a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/main/addUserFields.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/src/lib/modules/moduleLog.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta/manifest.webapp" beforeDir="false" afterPath="$PROJECT_DIR$/meta/manifest.webapp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/render/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/main/fetchContent.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/main/fetchContent.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/test/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/test/test.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/lib/log.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/log.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/lib/modules.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/lib/runInModule.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/runInModule.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/scripts/install.script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/scripts/install.script.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +32,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="package.json" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -47,15 +65,16 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Shell Script.Unnamed.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jake/SRC/widget-2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jake/temp/typescript&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.script install.executor&quot;: &quot;Run&quot;,
     &quot;npm.test.executor&quot;: &quot;Debug&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/jake/SRC/widget-2/render/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/jake/SRC/widget/render/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -68,22 +87,32 @@
       <recent name="$PROJECT_DIR$/src/dashboard/components/widget.component.tsx" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/render/proxy.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+  <component name="RunManager" selected="JavaScript Debug.Chrome">
+    <configuration name="Chrome" type="JavascriptDebugType" uri="http://localhost:3000/?dashboardItemId=qEQb4hiExlX">
+      <method v="2" />
+    </configuration>
+    <configuration name="script install" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="script" />
+      </scripts>
+      <arguments value="install" />
+      <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Chrome" />
+      <item itemvalue="npm.script install" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

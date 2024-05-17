@@ -9,7 +9,7 @@
     },
     "appType": "DASHBOARD_WIDGET",
     "name": "Information",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Rich text editor for DHIS2 dashboard content, created for PEPFAR. Allows embedding videos. Strips Javascript from user-created content. For more info, see https://github.com/pepfar-datim/dashboard-information-widget",
     "developer": {
         "name": "PEPFAR"

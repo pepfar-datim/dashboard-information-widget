@@ -1,21 +1,14 @@
 import {defineConfig, loadEnv, ProxyOptions, ServerOptions} from 'vite'
 import minifyHtmlPlugin from "./plugin/minifyHtml.plugin";
 
-let auth;
-try {
-    //@ts-expect-error process not defined
-    auth = loadEnv('development', process.cwd())['VITE_DHIS_AUTH']
-} catch (e) {
-    //@ts-expect-error error not defined
-    throw new Error(`You have to specify VITE_DHIS_AUTH env variable. E.g. btoa('username:password') in JavaScript`)
-}
+const {VITE_DHIS_URL: target, VITE_DHIS_AUTH: auth } = loadEnv('development', process.cwd())
+
+if (!target||!auth) throw new Error('Please specify DHIS2 instance & Auth in .env.local')
 
 
 
 const proxy:ProxyOptions = {
-    target: 'https://test.datim.org/',
-    // target: 'https://nr.testing.datim.org/',
-    //@ts-expect-error proxy not used
+    target,
     configure: (proxy, options) => {
         options.headers = {Authorization: `Basic ${auth}`}
     },

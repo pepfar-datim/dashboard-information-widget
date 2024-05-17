@@ -13,7 +13,3 @@ build:
 
 	rm -f dashboard-information-widget.zip
 	cd build_temp && zip ../dashboard-information-widget.zip -r .
-
-test:
-	cd build_temp && npx http-server -p 3000 --proxy https://dev.datim.org --proxu-options.auth YmFvLWFkbWluOktpZXYxOC1XYWdlcy0yNA==
-
