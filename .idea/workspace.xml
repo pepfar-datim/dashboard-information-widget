@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef683946-d35a-41b2-affd-67b2f6a757a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/src/main/addUserFields.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/src/lib/modules/moduleLog.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/manifest.webapp" beforeDir="false" afterPath="$PROJECT_DIR$/meta/manifest.webapp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/render/.env.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/src/main/fetchContent.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/main/fetchContent.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/src/test/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/test/test.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/lib/log.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/log.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/lib/modules.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/lib/runInModule.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/runInModule.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/scripts/install.script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/scripts/install.script.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/src/scripts/get_version.script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/scripts/test.script.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +28,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/scripts" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,7 +74,7 @@
       <recent name="$PROJECT_DIR$/src/dashboard/components/widget.component.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Chrome">
+  <component name="RunManager" selected="npm.script install">
     <configuration name="Chrome" type="JavascriptDebugType" uri="http://localhost:3000/?dashboardItemId=qEQb4hiExlX">
       <method v="2" />
     </configuration>
@@ -139,6 +126,16 @@
           <url>file://$PROJECT_DIR$/render/node_modules/http-server/bin/http-server</url>
           <line>17</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/dist/scripts/install.script.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/dist/lib/modules/modules.service.js</url>
+          <line>9</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
