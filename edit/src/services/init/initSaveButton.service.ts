@@ -21,7 +21,7 @@ async function save(value:string):Promise<void>{
 export function initSaveButton(editor: Jodit){
     document.getElementById('save_button')!.addEventListener('click', async ()=>{
         document.body.innerHTML = '<div id="loader"></div>'
-        const safeContent = sanitizeContent(editor.value)
+        const safeContent = sanitizeContent(editor.value,[])
         await save(safeContent)
         redirectBack()
     })

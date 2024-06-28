@@ -9,7 +9,7 @@ import {initChangeMonitor} from "./services/content/changeMonitor.service.ts";
 (async ()=>{
     initCancelButton()
     const rawContent:string = await fetchContent() || '<h3>New Dashboard Information widget</h3>'
-    const safeContent = sanitizeContent(rawContent)
+    const safeContent = sanitizeContent(rawContent,[])
     const editor:Jodit = renderEditor(safeContent)
     initChangeMonitor(safeContent, editor)
     initSaveButton(editor)

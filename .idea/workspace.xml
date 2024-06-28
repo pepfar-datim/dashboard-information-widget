@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef683946-d35a-41b2-affd-67b2f6a757a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/lib/modules/modules.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/src/scripts/get_version.script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/src/scripts/test.script.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/scripts" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
