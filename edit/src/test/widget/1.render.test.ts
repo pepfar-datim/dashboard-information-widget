@@ -3,6 +3,13 @@ import {screen} from '@testing-library/dom'
 import {expect} from "vitest";
 
 const dataStore:MapOf<object> = {
+    '/api/dataStore/dashboard-information': [
+        'allowedUrls',
+        'WidgetId'
+    ],
+    '/api/dataStore/dashboard-information/allowedUrls': [
+        'https://www.youtube.com/'
+    ],
     '/api/dataStore/dashboard-information/WidgetId': {
         "body": "Widget content"
     }
