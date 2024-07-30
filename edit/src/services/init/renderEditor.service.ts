@@ -10,7 +10,7 @@ import {editorConfig} from "../../const/jodit.config.ts";
 declare let saveContent:()=>void
 export function renderEditor(content:string):Jodit{
     document.getElementById('editor-container')!.innerHTML = `<textarea id="editor" name="editor"></textarea>`
-    const editor = Jodit.make('#editor', editorConfig);
+    const editor = Jodit.make('#editor', {});
     editor.value = content
     return editor
 }

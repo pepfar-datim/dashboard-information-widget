@@ -18,6 +18,7 @@ const dataStore:MapOf<object> = {
 test(`1 > Render Editor`, async ()=>{
     mockFetch(dataStore)
     initDom()
+    console.log('Importing index.ts')
     await import('../../index.ts')
     screen.getByText('Widget content')
     const documentationLink = screen.getByText('Documentation for the Dashboard Information widget can be found here.')
