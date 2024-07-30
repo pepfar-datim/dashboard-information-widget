@@ -2,7 +2,7 @@ import {fetchContent} from "./main/fetchContent.service.ts";
 import {sanitizeContent} from "../../shared/sanitizeContent.service.ts";
 import {render} from "./main/render.service.ts";
 import {addEditButton} from "./main/editButton/addEditButton.service.ts";
-import fetchAllowedUrls from "./main/fetchAllowedUrls.service.ts";
+import fetchAllowedUrls from "../../shared/fetchAllowedUrls.service.ts";
 
 
 (async ()=>{
