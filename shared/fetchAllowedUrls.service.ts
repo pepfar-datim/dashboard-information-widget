@@ -7,7 +7,7 @@ async function setupAllowedUrls() {
   const req = await fetch('/api/dataStore/dashboard-information/')
   const res = await req.json()
   if (!res.includes('allowedUrls')) {
-    const setupReq = await fetch(
+    fetch(
       '/api/dataStore/dashboard-information/allowedUrls',
       {
         method: 'POST',
@@ -15,8 +15,6 @@ async function setupAllowedUrls() {
         body: JSON.stringify(defaultAllowedUrls),
       }
     ) 
-    const setupRes = await setupReq.json()
-    console.log('Allowed URLs datastore setup: ', setupRes)
   }
 }
 
@@ -24,15 +22,18 @@ export default async function fetchAllowedUrls(): Promise<string[]> {
   try {
     const req = await fetch('/api/dataStore/dashboard-information/allowedUrls')
     const res = await req.json()
-    console.log('Allowed URLs fetched: ', res)
-    if (res?.status === 'SUCCESS') {
-      return await res
+    if (Array.isArray(res)) {
+      return res
     } else {
       setupAllowedUrls()
       return defaultAllowedUrls
     }
   } catch (e) {
-    setupAllowedUrls()
+    try {
+      setupAllowedUrls()
+    } catch (e) {
+      console.error(`Unable to setup allowed URLs in the datastore, defaulting to youtube.com\n${e}`)
+    }
     return defaultAllowedUrls
   }
 }

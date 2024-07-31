@@ -14,5 +14,5 @@ import fetchAllowedUrls from "../../shared/fetchAllowedUrls.service.ts"
     const safeContent = sanitizeContent(rawContent,allowedUrls)
     const editor:Jodit = renderEditor(safeContent)
     initChangeMonitor(safeContent, editor)
-    initSaveButton(editor)
+    initSaveButton(editor, allowedUrls)
 })()

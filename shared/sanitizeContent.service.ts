@@ -10,12 +10,10 @@ function getIframeSrc(tag:string):string {
     return match ? match[0].split('"').slice(-2, -1)[0] : ''
 }
 
-export function sanitizeContent(input:string, allowedUrls: string[]):string{
+export function sanitizeContent(input:string, allowedUrls: string[]): string {
     badTags.forEach(tag=>input = input.replace(new RegExp(`<${tag}.+\/(${tag}|)>`),''))
-    
-    input = input.replace(/<iframe.+\/>/mg, function (tag:string){
-        if (isValidSrc(tag, allowedUrls)) return tag
-        else return ''
+    input = input.replace(/<iframe.+(\/>|<\/iframe>)/mg, function(tag:string) {
+        return isValidSrc(tag, allowedUrls) ? tag : ''
     })
     return input
 }
