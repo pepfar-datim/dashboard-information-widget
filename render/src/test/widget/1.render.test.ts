@@ -3,12 +3,12 @@ import {screen} from '@testing-library/dom'
 
 const dataStore:MapOf<object> = {
     '/api/dataStore/dashboard-information': [
-        'allowedUrls',
+        'configuration',
         'WidgetId'
     ],
-    '/api/dataStore/dashboard-information/allowedUrls': [
-        'https://www.youtube.com/'
-    ],
+    '/api/dataStore/dashboard-information/configuration': {
+        'Allowed iframe domains': ['https://www.youtube.com/']
+    },
     '/api/dataStore/dashboard-information/WidgetId': {
         "body": "Widget content"
     }

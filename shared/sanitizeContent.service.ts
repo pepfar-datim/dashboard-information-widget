@@ -1,8 +1,8 @@
 const badTags = ['script','applet','link']
 
-function isValidSrc(tag:string, allowedUrls: string[]):boolean{
+function isValidSrc(tag:string, allowedIframeDomains: string[]):boolean{
     const url = getIframeSrc(tag)
-    return allowedUrls.some(allowedUrl=>url.startsWith(allowedUrl))
+    return allowedIframeDomains.some(domain=>url.startsWith(domain))
 }
 
 function getIframeSrc(tag:string):string {
@@ -10,10 +10,10 @@ function getIframeSrc(tag:string):string {
     return match ? match[0].split('"').slice(-2, -1)[0] : ''
 }
 
-export function sanitizeContent(input:string, allowedUrls: string[]): string {
+export function sanitizeContent(input:string, allowedIframeDomains: string[]): string {
     badTags.forEach(tag=>input = input.replace(new RegExp(`<${tag}.+\/(${tag}|)>`),''))
     input = input.replace(/<iframe.+(\/>|<\/iframe>)/mg, function(tag:string) {
-        return isValidSrc(tag, allowedUrls) ? tag : ''
+        return isValidSrc(tag, allowedIframeDomains) ? tag : ''
     })
     return input
 }

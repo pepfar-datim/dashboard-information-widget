@@ -1,6 +1,6 @@
 import {sanitizeContent} from "../../../../shared/sanitizeContent.service.ts";
 
-const testAllowedUrls: string[] = [
+const allowedIframeDomains: string[] = [
     'https://www.youtube.com/',
     'https://www.google.com/'
 ]
@@ -14,5 +14,5 @@ const testCases:string[][] = [
 ]
 
 test(`3 > Sanitizer Test`, ()=>{
-    testCases.forEach(([input, output])=>expect(sanitizeContent(input, testAllowedUrls)).toBe(output))
+    testCases.forEach(([input, output])=>expect(sanitizeContent(input, allowedIframeDomains)).toBe(output))
 })
