@@ -1,133 +1,156 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <style>
-      body {
-        font-family: Roboto, Helvetica, Arial, sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        letter-spacing: 0.00938em;
-      }
 
-      /* latin */
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../shared/sharedStyles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    body {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: 0.00938em;
+    }
 
-      /* latin */
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-      }
+    /* latin */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+    }
 
-      /* latin */
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
-      }
-    </style>
-    <style>
-      /* CSS loader */
-      #loader {
-        width: min(50vw,50vh);
-        position: absolute;
-        top: 25vh;
-        left: 25vw;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 8px solid lightgray;
-        border-right-color: slategrey;
-        animation: l2 1s infinite linear;
-      }
-      @keyframes l2 {to{transform: rotate(1turn)}}
-    </style>
-    <style>
-      #documentation{
-        line-height: 2.2;
-      }
-      #documentation_link{
-        text-decoration: none;
-        font-style: italic;
-      }
-      #buttonContainer {
-        float: right;
-        display: flex;
-        gap: 4px;
-      }
-      button {
-        font-weight: 500;
-        border-radius: 4px;
-        height: 36px;
-        padding: 0px 12px;
-        font-size: 14px;
-        line-height: 16px;
-        text-decoration: none;
-        cursor: pointer;
-        letter-spacing: 0.5px;
-        border: 1px solid grey;
-      }
-      #save_button, #keepediting_button {
-        /*border-color: rgb(13, 71, 161);*/
-        background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
-        fill: rgb(255, 255, 255);
-        border: 1px solid rgb(160, 173, 186);
-        color: rgb(255, 255, 255);
-      }
-      #save_button:hover{
-        border-color: rgb(13, 71, 161)!important;
-        background: linear-gradient(rgb(5, 79, 163) 0%, rgb(3, 71, 147) 100%) rgb(33, 83, 159)!important;
-      }
-      #save_button:disabled{
-        opacity: 0.5;
-        cursor: not-allowed;
-        position: relative;
-      }
+    /* latin */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    }
 
-      #save_button:disabled:hover:before{
-        content: attr(data-text);
-        position: absolute;
-        color: black;
-        top: 0px;
-        left: -150px;
-        line-height: 35px;
-      }
+    /* latin */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
+    }
+  </style>
+  <style>
+    /* CSS loader */
+    #loader {
+      width: min(50vw, 50vh);
+      position: absolute;
+      top: 25vh;
+      left: 25vw;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 8px solid lightgray;
+      border-right-color: slategrey;
+      animation: l2 1s infinite linear;
+    }
 
-      #cancel_button, #discard_button {
-        background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
-        border: 1px solid rgb(160, 173, 186);
-        color: rgb(255, 255, 255);
+    @keyframes l2 {
+      to {
+        transform: rotate(1turn)
       }
-      #cancel_button:hover{
-        border-color: rgb(161, 11, 11);
-        background: linear-gradient(rgb(184, 28, 28) 0%, rgb(184, 12, 11) 100%) rgb(172, 15, 26);
-      }
+    }
+  </style>
+  <style>
+    #documentation {
+      line-height: 2.2;
+    }
 
-      #editor-container {
-        margin-top: 6px;
-      }
+    #documentation_link {
+      text-decoration: none;
+      font-style: italic;
+    }
 
-      dialog::backdrop {
-        background-color: grey;
-        opacity: 0.75;
-      }
-    </style>
-  </head>
-  <body>
-    <span style="float: left;" id="documentation"><a href="https://github.com/pepfar-datim/dashboard-information-widget" target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found here.</a></span>
+    #buttonContainer {
+      float: right;
+      display: flex;
+      gap: 4px;
+    }
+
+    button {
+      font-weight: 500;
+      border-radius: 4px;
+      height: 36px;
+      padding: 0px 12px;
+      font-size: 14px;
+      line-height: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      border: 1px solid grey;
+    }
+
+    #save_button,
+    #keepediting_button {
+      /*border-color: rgb(13, 71, 161);*/
+      background: linear-gradient(rgb(21, 101, 192) 0%, rgb(6, 80, 163) 100%) rgb(43, 97, 179);
+      fill: rgb(255, 255, 255);
+      border: 1px solid rgb(160, 173, 186);
+      color: rgb(255, 255, 255);
+    }
+
+    #save_button:hover {
+      border-color: rgb(13, 71, 161) !important;
+      background: linear-gradient(rgb(5, 79, 163) 0%, rgb(3, 71, 147) 100%) rgb(33, 83, 159) !important;
+    }
+
+    #save_button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      position: relative;
+    }
+
+    #save_button:disabled:hover:before {
+      content: attr(data-text);
+      position: absolute;
+      color: black;
+      top: 0px;
+      left: -150px;
+      line-height: 35px;
+    }
+
+    #cancel_button,
+    #discard_button {
+      background: linear-gradient(rgb(211, 47, 47) 0%, rgb(183, 28, 28) 100%) rgb(185, 36, 43);
+      border: 1px solid rgb(160, 173, 186);
+      color: rgb(255, 255, 255);
+    }
+
+    #cancel_button:hover {
+      border-color: rgb(161, 11, 11);
+      background: linear-gradient(rgb(184, 28, 28) 0%, rgb(184, 12, 11) 100%) rgb(172, 15, 26);
+    }
+
+    #editor-container {
+      margin-top: 6px;
+    }
+
+    dialog::backdrop {
+      background-color: grey;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="snackbar"></div>
+  <div id="edit-content">
+    <span style="float: left;" id="documentation">
+      <a href="https://github.com/pepfar-datim/dashboard-information-widget"
+        target="_blank" id="documentation_link">Documentation for the Dashboard Information widget can be found
+        here.</a>
+    </span>
     <div id="buttonContainer">
       <button id="save_button" disabled data-text="No changes to save.">Save</button>
       <a id="cancel_link" href=""><button id="cancel_button">Cancel</button></a>
@@ -136,6 +159,9 @@
     <div id="editor-container">
       <div id="loader"></div>
     </div>
-    <script type="module" src="/src/index.ts"></script>
-  </body>
+  </div>
+
+  <script type="module" src="/src/index.ts"></script>
+</body>
+
 </html>

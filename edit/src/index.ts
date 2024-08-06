@@ -6,12 +6,14 @@ import {Jodit} from "jodit/esm/index.js";
 import {initSaveButton} from "./services/init/initSaveButton.service.ts";
 import {initChangeMonitor} from "./services/content/changeMonitor.service.ts";
 import fetchAllowedIframeDomains from "../../shared/fetchAllowedIframeDomains.service.ts"
+import {showMessages} from "../../shared/showMessages.service.ts";
 
 (async ()=>{
     initCancelButton()
     const rawContent:string = await fetchContent() || '<h3>New Dashboard Information widget</h3>'
     const allowedIframeDomains: string[] = await fetchAllowedIframeDomains()
-    const safeContent = sanitizeContent(rawContent,allowedIframeDomains)
+    const [safeContent, msgs] = sanitizeContent(rawContent,allowedIframeDomains)
+    await(msgs && showMessages(msgs))
     const editor:Jodit = renderEditor(safeContent)
     initChangeMonitor(safeContent, editor)
     initSaveButton(editor, allowedIframeDomains)
