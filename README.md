@@ -34,7 +34,11 @@ The DHIS2 Rich Text and Video Dashboard Widget is a WYSIWYG editor that allows f
 
 ## Nested Menu
 
-The DHIS2 Rich Text and Video Dashboard Widget [provides the ability to create nested menus, instructions for which can be found by following this link](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/NestedMenu.md).
+The widget [provides the ability to create nested menus, instructions for which can be found by following this link](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/NestedMenu.md).
+
+## Allowed iframe Domains
+
+The widget [enables per-server configuration of allowed iframe domains, instructions for which can be found by following this link](https://github.com/pepfar-datim/dashboard-information-widget/blob/main/docs/AllowedIframeDomains.md).
 
 ## Issues, Features, etc.
 
