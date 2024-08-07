@@ -12,6 +12,9 @@ declare module globalThis {
 }
 export function initDom():void{
     globalThis.NestedMenuGlobal = {}
-    document.body.innerHTML = `<div id="content"></div>`
+    document.body.innerHTML = `
+    <div id="content">
+        <div id="snackbar"></div>
+    </div>`
     window.location.search = '?dashboardItemId=WidgetId'
 }

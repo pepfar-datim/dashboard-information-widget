@@ -18,7 +18,7 @@ type UserInfo = {
 
 export async function addUserFields(content:string):Promise<string>{
     if (!/{{.+}}/.test(content)) return content
-    const userInfo:UserInfo = await fetch('/api/me').then(res => res.json())
+    const userInfo:UserInfo = await fetch('../../../api/me').then(res => res.json())
     supportedFields.forEach(key=>{
         content = content.replace(new RegExp(`{{${key}}}`,'g'), userInfo[key])
     })

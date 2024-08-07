@@ -3,7 +3,7 @@ import {screen} from '@testing-library/dom'
 import {expect} from "vitest";
 
 const dataStore:MapOf<object> = {
-    '/api/dataStore/dashboard-information/WidgetId': {
+    '../../../api/dataStore/dashboard-information/WidgetId': {
         "body": "Widget content"
     }
 }

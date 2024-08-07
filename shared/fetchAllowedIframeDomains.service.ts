@@ -5,11 +5,11 @@ const defaultAllowedIframeDomains = [
 ]
 
 async function setupConfiguration() {
-  const req = await fetch('/api/dataStore/dashboard-information/')
+  const req = await fetch('../../../api/dataStore/dashboard-information/')
   const res = await req.json()
   if (!res.includes('configuration')) {
     fetch(
-      '/api/dataStore/dashboard-information/configuration',
+      '../../../api/dataStore/dashboard-information/configuration',
       {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -20,11 +20,11 @@ async function setupConfiguration() {
       }
     ) 
   }
-  const confReq = await fetch('/api/dataStore/dashboard-information/configuration')
+  const confReq = await fetch('../../../api/dataStore/dashboard-information/configuration')
   const confRes = await confReq.json()
   if (!(dataStoreKey in confRes)) {
     fetch(
-      '/api/dataStore/dashboard-information/configuration',
+      '../../../api/dataStore/dashboard-information/configuration',
       {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
@@ -39,7 +39,7 @@ async function setupConfiguration() {
 
 export default async function fetchAllowedIframeDomains(): Promise<string[]> {
   try {
-    const req = await fetch('/api/dataStore/dashboard-information/configuration')
+    const req = await fetch('../../../api/dataStore/dashboard-information/configuration')
     const res = await req.json()
     if (dataStoreKey in res && Array.isArray(res[dataStoreKey])) {
       return res[dataStoreKey]

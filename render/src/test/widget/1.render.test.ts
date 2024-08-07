@@ -2,14 +2,14 @@ import {initDom, MapOf, mockFetch} from "../test.service.ts";
 import {screen} from '@testing-library/dom'
 
 const dataStore:MapOf<object> = {
-    '/api/dataStore/dashboard-information': [
+    '../../../api/dataStore/dashboard-information': [
         'configuration',
         'WidgetId'
     ],
-    '/api/dataStore/dashboard-information/configuration': {
+    '../../../api/dataStore/dashboard-information/configuration': {
         'Allowed iframe domains': ['https://www.youtube.com/']
     },
-    '/api/dataStore/dashboard-information/WidgetId': {
+    '../../../api/dataStore/dashboard-information/WidgetId': {
         "body": "Widget content"
     }
 }

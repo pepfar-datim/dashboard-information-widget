@@ -27,10 +27,9 @@ export function sanitizeContent(input:string, allowedIframeDomains: string[]): [
         modifiedInput = modifiedInput.replace(new RegExp(`<${tag}.+\/(${tag}|)>`), '')
     }
     if (input !== modifiedInput) {
-        messages.push(`Removed disallowed tags ${badTags.join(', ')}`)
+        messages.push(`Removed disallowed tags ${badTags.join(' & ')} are not allowed`)
     }
-    
-    modifiedInput = input.replace(/<iframe.+(\/>|<\/iframe>)/mg, function(tag:string) {
+    modifiedInput = modifiedInput.replace(/<iframe.+(\/>|<\/iframe>)/mg, function(tag:string) {
         const src = getIframeSrc(tag)
         const validTag = isValidSrc(src, allowedIframeDomains)
         if (!validTag) {

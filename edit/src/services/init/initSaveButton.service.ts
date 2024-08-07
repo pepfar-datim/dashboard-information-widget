@@ -5,7 +5,7 @@ import {sanitizeContent} from "../../../../shared/sanitizeContent.service.ts";
 import {showMessages} from "../../../../shared/showMessages.service.ts";
 
 async function query(value:string, method:string):Promise<Response>{
-    return fetch(`/api/dataStore/dashboard-information/${getWidgetId()}`,{
+    return fetch(`../../../api/dataStore/dashboard-information/${getWidgetId()}`,{
         method,
         body: JSON.stringify({body:value}),
         headers: {
