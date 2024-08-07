@@ -12,10 +12,11 @@ const dataStore:MapOf<object> = {
     '../../../api/dataStore/dashboard-information/WidgetId': {
         "body": `
             <script>console.log('test')</script>content
-            <iframe src="https://www.youtube.com/"/>
+            <iframe src="https://www.youtube.com/allowed1"/>
             <iframe src="https://sus.com/"/>
-            <iframe src="https://wierd.com">https://www.youtube.com/<iframe/>
+            <iframe src="https://wierd.com">https://www.youtube.com/</iframe>
             <iframe other="https://www.youtube.com/" src="https://sus.com/"/>
+            <iframe src="https://www.youtube.com/allowed2"></iframe><iframe src="https://notallowed.com"></iframe>
         `
     }
 }
@@ -31,4 +32,6 @@ test(`2 > Sanitize Content`, async ()=>{
     expect(document.body.innerHTML).not.includes('console.log')
     expect(document.body.innerHTML).not.includes('https://wierd.com')
     expect(document.body.innerHTML).not.includes('https://sus.com/')
+    expect(document.body.innerHTML).includes('https://www.youtube.com/allowed1')
+    expect(document.body.innerHTML).includes('https://www.youtube.com/allowed2')
 })

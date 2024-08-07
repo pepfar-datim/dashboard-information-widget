@@ -10,7 +10,7 @@ import fetchAllowedIframeDomains from "../../shared/fetchAllowedIframeDomains.se
     const rawContent:string = await fetchContent() || '<h3>New Dashboard Information widget</h3>'
     const allowedIframeDomains: string[] = await fetchAllowedIframeDomains()
     const [safeContent, msgs] = sanitizeContent(rawContent, allowedIframeDomains)
-    await (msgs && showMessages(msgs))
+    showMessages(msgs)
     await render(safeContent)
     addEditButton()
 })()

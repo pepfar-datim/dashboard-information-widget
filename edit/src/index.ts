@@ -13,7 +13,7 @@ import {showMessages} from "../../shared/showMessages.service.ts";
     const rawContent:string = await fetchContent() || '<h3>New Dashboard Information widget</h3>'
     const allowedIframeDomains: string[] = await fetchAllowedIframeDomains()
     const [safeContent, msgs] = sanitizeContent(rawContent,allowedIframeDomains)
-    await(msgs && showMessages(msgs))
+    showMessages(msgs)
     const editor:Jodit = renderEditor(safeContent)
     initChangeMonitor(safeContent, editor)
     initSaveButton(editor, allowedIframeDomains)

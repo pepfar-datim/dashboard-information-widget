@@ -2,7 +2,7 @@ import {Jodit} from "jodit/esm/index.js";
 import {getWidgetId} from '../../../../shared/getWidgetId.service.ts'
 import {redirectBack} from "../redirectBack.service.ts";
 import {sanitizeContent} from "../../../../shared/sanitizeContent.service.ts";
-import {showMessages} from "../../../../shared/showMessages.service.ts";
+
 
 async function query(value:string, method:string):Promise<Response>{
     return fetch(`../../../api/dataStore/dashboard-information/${getWidgetId()}`,{
@@ -24,7 +24,7 @@ export function initSaveButton(editor: Jodit, allowedIframeDomains: string[]){
         const editContentEl = document.getElementById('edit-content')!
         editContentEl.innerHTML = '<div id="loader"></div>'
         const [safeContent, msgs] = sanitizeContent(editor.value, allowedIframeDomains)
-        await(msgs && showMessages(msgs))
+        msgs && sessionStorage.setItem(getWidgetId(), msgs)
         await save(safeContent)
         redirectBack()
     })

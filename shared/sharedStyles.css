@@ -1,7 +1,7 @@
 #snackbar {
     visibility: hidden;
-    width: 50%;
-    margin-left: 25%;
+    width: 60%;
+    margin-left: 20%;
     background-color: #faefcf;
     color: #856201;
     text-align: center;
@@ -10,13 +10,22 @@
     position: fixed;
     z-index: 1;
     bottom: 20px;
+    display: flex;
+}
+
+#snackbar > .snackbarClose {
+    height: 16px;
+    font-size: 1.8rem;
+    line-height: 0.8rem;
+    font-weight: 100;
+    cursor: pointer;
 }
 
 
 #snackbar.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 8.5s;
-    animation: fadein 0.5s, fadeout 0.5s 8.5s;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
 }
 
 @-webkit-keyframes fadein {
@@ -27,14 +36,4 @@
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
 }

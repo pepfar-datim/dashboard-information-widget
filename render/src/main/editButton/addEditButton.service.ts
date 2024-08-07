@@ -1,8 +1,4 @@
-
-function isEditingDashboard(){
-    const pageHash:string = window.parent.location.hash
-    return /\/edit|\/new/.test(pageHash)
-}
+import {isEditingDashboard} from '../../../../shared/isEditingDashboards.service.ts'
 
 export async function addEditButton():Promise<void>{
     const isEditing:boolean = isEditingDashboard()
