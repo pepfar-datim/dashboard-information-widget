@@ -13,6 +13,11 @@ In order to find the allowlist, follow these steps:
 
 By default, the only domain listed is `https://www.youtube.com/`, but if you wish to serve video content from any other sites, you can add them by clicking the ☐ the the left of the `0:` and clicking `Insert`.  Type your desired domain name where it says `value`.  Then click the Save icon (💾) near the top of the screen.
 
+Note that you must add the domain that begins the iframe src to the allowlist, which sometimes is not the same as the domain that hosts the video.  For instance, to include the video [`https://vimeo.com/567442556`](https://vimeo.com/567442556), you would need to add the domain `player.vimeo.com` to the allowlist, as that's the domain in the iframe src tag: 
+```
+<iframe src="https://player.vimeo.com/video/567442556?h=96c6849b9f" ...</iframe>
+```
+
 If you wish to allow all iframe domains (which is certainly a security risk), you can do so by adding the domain `https://` in `Allowed iframe domains`.
 
 Hopefully that gives you enough to get started, but feel free to [create an issue](https://github.com/pepfar-datim/dashboard-information-widget/issues) if you run into anything that is confusing or seems like a bug.
