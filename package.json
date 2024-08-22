@@ -2,6 +2,12 @@
   "name": "widget",
   "version": "2.1.1",
   "scripts": {
-    "install": "(cd edit && npm i) && (cd render && npm i)"
+    "install": "(cd edit && npm i) && (cd render && npm i)",
+    "start": "cd build_temp && npx http-server --proxy https://dev.datim.org --proxy-options.auth $DEV_AUTH --proxy-options.changeOrigin true",
+    "cy:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.3",
+    "typescript": "^5.2.2"
   }
 }
