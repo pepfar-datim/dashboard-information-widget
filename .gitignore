@@ -3,3 +3,5 @@ node_modules/
 build_temp/
 dashboard-information-widget.zip
 cypress.env.json
+cypress/videos
+.DS_Store
