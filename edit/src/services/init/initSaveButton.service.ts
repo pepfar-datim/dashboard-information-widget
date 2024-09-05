@@ -4,8 +4,8 @@ import {redirectBack} from "../redirectBack.service.ts";
 import {sanitizeContent} from "../../../../shared/sanitizeContent.service.ts";
 
 
-async function query(value:string, method:string):Promise<Response>{
-    return fetch(`../../../api/dataStore/dashboard-information/${getWidgetId()}`,{
+export async function query(value:string, method:string, widgetId?:string):Promise<Response>{
+    return fetch(`../../../api/dataStore/dashboard-information/${widgetId ?? getWidgetId()}`,{
         method,
         body: JSON.stringify({body:value}),
         headers: {
