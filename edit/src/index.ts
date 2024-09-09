@@ -8,6 +8,7 @@ import {initChangeMonitor} from "./services/content/changeMonitor.service.ts";
 import fetchAllowedIframeDomains from "../../shared/fetchAllowedIframeDomains.service.ts"
 import {showMessages} from "../../shared/showMessages.service.ts";
 
+
 (async ()=>{
     initCancelButton()
     const rawContent:string = await fetchContent() || '<h3>New Dashboard Information widget</h3>'
