@@ -6,7 +6,7 @@ const escapeCss = (css:string)=>css
     .replace(/#/,'$')
 
 
-export function getMenuObect(menuSrc:string):SubMenu{
+export function getMenuObject(menuSrc:string):SubMenu{
     menuSrc = menuSrc.replace(/\{.+:.+}/g,escapeCss)
     const yaml:NestedMenu = parse(menuSrc)
     return yaml
