@@ -36,5 +36,6 @@ export const editorConfig = {
     toolbarAdaptive: false,
     link: link,
     height: window.innerHeight - 80,
-    style: {fontFamily: 'Roboto'}
+    style: {fontFamily: 'Roboto'},
+    resizer: { useDragHandle: true }
 };
