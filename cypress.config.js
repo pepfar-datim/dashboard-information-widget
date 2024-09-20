@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   video: true,
   e2e: {
-    baseUrl: 'http://127.0.0.1:8081',
+    baseUrl: 'http://127.0.0.1:8080',
     viewportWidth: 1400,
     viewportHeight: 900,
     setupNodeEvents(on, config) {

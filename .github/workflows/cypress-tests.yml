@@ -1,0 +1,48 @@
+name: Run Cypress tests on pull requests to main
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+    env:
+      DEV_AUTH: ${{ secrets.DEV_AUTH }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm   # The directory to cache (this is for npm; use "node_modules" if you're not using a global cache)
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}  # Cache key based on OS and lock file
+          restore-keys: |
+            ${{ runner.os }}-node-  # Fallback if an exact match is not found
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Setup temp build
+        run: make
+
+      - name: Start dev server
+        run: npm start &
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Upload Cypress artifacts
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: cypress/screenshots/cypress/videos
+
