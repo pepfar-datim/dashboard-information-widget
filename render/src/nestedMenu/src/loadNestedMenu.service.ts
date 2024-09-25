@@ -9,11 +9,16 @@ export async function loadNestedMenu(content:string):Promise<string>{
         initNestedMenu(nestedMenu)
         return content.replace(menuRe, '<div id="nestedMenu"></div>')
     } catch (e: any) {
+        const nestErrMsg = (content?: string) => `
+            <div id="nestedMenu">
+                <h4>Nested Menu Syntax Error</h4>
+                ${content ? content : ''}
+            </div>
+        `
         if ('message' in e) {
-            return content.replace(menuRe, `<div id="nestedMenu">There was an error with the nested menu syntax:\n${e.message}</div>`)
+            return content.replace(menuRe, nestErrMsg(e.message))
         } else {
-            return content.replace(menuRe, '<div id="nestedMenu">There was an error parsing the nested menu syntax</div>')
+            return content.replace(menuRe, nestErrMsg())
         }
-        
     }
 }
