@@ -36,3 +36,12 @@ Cypress.Commands.add('removeWidgetItem', (widgetId='cypr3ssTe5t') => {
     query('', 'DELETE', widgetId)
     cy.visit('/')
 })
+
+
+Cypress.Commands.add('selectColor', (params: {hexCode: string, isBackground?: boolean}) => {
+    cy.get('span[data-ref="brush"] > span[role="trigger"]').click()
+    if (!params?.isBackground) {
+        cy.get('div.jodit-tabs button[data-ref="Text"]').click()
+    }
+    cy.get(`div.jodit-tab_active span[data-color="${params.hexCode}"]`).click()
+})
