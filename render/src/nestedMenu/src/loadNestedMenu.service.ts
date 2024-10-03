@@ -11,8 +11,9 @@ export async function loadNestedMenu(content:string):Promise<string>{
     } catch (e: any) {
         const nestErrMsg = (content?: string) => `
             <div id="nestedMenu">
-                <h4>Nested Menu Syntax Error</h4>
-                ${content ? content : ''}
+                <h4>Error</h4>
+                <p>There was an error with the nested menu syntax${content ? ':' : ''}</p>
+                ${content ? '<p>'+content+'</p>' : ''}
             </div>
         `
         if ('message' in e) {
