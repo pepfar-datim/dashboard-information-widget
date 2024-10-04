@@ -42,7 +42,6 @@ Cypress.Commands.add('addNestedMenu', (contentRaw: string) => {
 
     for (const [idx, line] of lines.entries()) {
         const prevLine = idx === 0 ? '' : lines[idx-1]
-        const lineSpaces = line.match(/^ +/)?.[0]?.length || 0
         const prevLineSpaces = prevLine.match(/^ +/)?.[0]?.length || 0
         writeString += `${'{backspace}'.repeat(prevLineSpaces/4)}${line}{enter}`
     }

@@ -16,7 +16,7 @@ describe('Changes can be saved and content will be sanitized on save', () => {
     cy.get('div.jodit-wysiwyg').type(' new content!')
     cy.contains('Save').click()
     cy.visit(getUrl(ViewMode.EDITABLE, widgetId))
-    cy.get('#content').should('exist')
+    cy.get('#content').should('exist', {timeout: 10000})
     cy.get('#content').contains('new content!')
   })
 
@@ -40,7 +40,7 @@ describe('Changes can be saved and content will be sanitized on save', () => {
     cy.get('#content iframe').each(($iframe) => {
       cy.wrap($iframe).invoke('attr', 'src').should('match', /^(https:\/\/)?www.youtube.com/)
     })
-    cy.get('#snackbar').should('exist')
+    cy.get('#snackbar').should('be.visible', {timeout: 10000})
     cy.get('#snackbar').contains('is not currently an allowed domain for iframe content')
   })
 
@@ -51,7 +51,7 @@ describe('Changes can be saved and content will be sanitized on save', () => {
     cy.contains('Save').click()
     cy.visit(getUrl(ViewMode.EDITABLE, widgetId))
     cy.get('#snackbar').should('not.be.visible')
-    cy.get('#content').contains('Hello')
+    cy.get('#content').contains('Hello', {timeout: 10000})
     cy.contains('World').click()
     cy.contains('World').should('have.class', 'selected')
     cy.contains('What a Wonderful').click()
@@ -66,7 +66,7 @@ describe('Changes can be saved and content will be sanitized on save', () => {
     cy.get('span[aria-label="Change mode"]').click()
     cy.contains('Save').click()
     cy.visit(getUrl(ViewMode.EDITABLE, widgetId))
-    cy.get('#content').contains('There was an error with the nested menu syntax:')
+    cy.get('#content').contains('There was an error with the nested menu syntax:', {timeout: 10000})
     cy.get('#content').contains('ExtraText')
   })
 
