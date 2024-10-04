@@ -44,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cypress-artifacts
-          path: cypress/screenshots/cypress/videos
+          path: cypress/videos
 
