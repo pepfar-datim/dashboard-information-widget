@@ -27,6 +27,7 @@ const testHtml: Record<string, string> = {
         <h1 id="testHeading">Clean heading</h1>
         <script>alert('Removed')</script>
         <style>#testHeading {background-color: red;}</style>
+        <link rel="stylesheet" href="styles.css">
     </div>
     `,
     dirtyContentIframes: `

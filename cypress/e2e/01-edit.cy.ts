@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 /// <reference path="../support/index.d.ts" />
+import testHtml from '../support/testHtmlContents.ts'
 import { ViewMode } from "../support/interfaces"
 import { styleMatch } from "../support/utils"
 
@@ -95,6 +96,30 @@ describe('Edit content as expected', () => {
     cy.get('div.jodit-wysiwyg > ol > li').contains('Initial text')
   })
 
+  it('Can insert tables', () => {
+    cy.get('span[aria-label="Insert table"] > button').click()
+    cy.get('div.jodit-popup div.jodit-form__container > div:nth-child(5) > span:nth-child(5)').click()
+    cy.get('div.jodit-wysiwyg > table').should('exist')
+    cy.get('div.jodit-wysiwyg > table').as('table')
+    cy.get('@table').find('> tbody').should('exist')
+    cy.get('@table').find('> tbody > tr').should('have.length', 5)
+    cy.get('@table').find('> tbody > tr:first-child > td').should('have.length', 5)
+  })
+
+  it('Can insert horizontal lines', () => {
+    cy.get('span[aria-label="Insert Horizontal Line"] > button').click()
+    cy.get('div.jodit-wysiwyg > hr').should('exist')
+  })
+
+  it('Can insert images', () => {
+    const imageLink = 'https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg'
+    cy.get('span[aria-label="Insert Image"] > button').click()
+    cy.get('input[placeholder="https://"]').type(imageLink)
+    cy.contains('Insert').click()
+    cy.get('div.jodit-wysiwyg > p > img').should('exist')
+    cy.get('div.jodit-wysiwyg > p > img').should('have.attr', 'src', imageLink)
+  })
+
   it('Can insert links', () => {
     const [link, linkText] = ['https://dhis2.org/', 'dhis2']
     cy.get('span[ref="link"]').click()
@@ -117,8 +142,41 @@ describe('Edit content as expected', () => {
     })
   })
 
+  it('Supports use of the html editor', () => {
+    const textBasic = 'Best heading'
+    // No closing tag because the editor inserts it automatically
+    const htmlBasic = `<h1>${textBasic}</h1>`
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.ace_content').type(htmlBasic)
+    cy.get('div.ace_content').contains(htmlBasic)
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.jodit-wysiwyg').contains(textBasic)
+  })
+
+  it('Cleans invalid HTML on mode switch', () => {
+    const textContent = 'Something'
+    const invalidHtml = `<p>${textContent}</h1>`
+    const validHtml = `<p>${textContent}</p>`
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.ace_content').type(invalidHtml)
+    cy.get('div.ace_content').contains(invalidHtml)
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.jodit-wysiwyg').contains(textContent)
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.ace_content').contains(validHtml)
+  })
+
+  it('Removes scripts on mode switch', () => {
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.ace_content').type(testHtml.dirtyContentTags, {parseSpecialCharSequences: false})
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.jodit-wysiwyg').contains('Clean heading')
+    cy.get('span[aria-label="Change mode"]').click()
+    cy.get('div.ace_content').should('not.contain', 'script')
+  })
+
   afterEach(() => {
     cy.removeWidgetItem()
     cy.wait(1000)
-})
+  })
 })

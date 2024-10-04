@@ -27,7 +27,14 @@ export function sanitizeContent(input:string, allowedIframeDomains: string[]): [
     let modifiedInput = input
     const messages: string[] = []
     for (const tag of badTags) {
-        modifiedInput = modifiedInput.replace(new RegExp(`<${tag}.+\/(${tag}|)>`), '')
+        if (tag === 'link') {  // Link tags have no closing tag or / so need a different pattern
+            modifiedInput = modifiedInput.replace(/<link[^>]*>/mg, '')
+        } else {
+            modifiedInput = modifiedInput.replace(
+                new RegExp(`<${tag}[^>]*(\/>|>.*?<\/${tag}>)`, 'mg'), ''
+            )
+        }
+        
     }
     if (input !== modifiedInput) {
         messages.push(`Removed disallowed tags ${badTags.join(' & ')} are not allowed`)
